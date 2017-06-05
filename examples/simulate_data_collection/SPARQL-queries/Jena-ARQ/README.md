@@ -13,7 +13,7 @@ To use the Jena tools from the command line, we need to set the `JENA_HOME` envi
   1. Windows:
     * add a new environment variable `JENA_HOME=...\apache-jena-x.y.z`
     
-    * add a new value `%JENA_HOME%\bat` to PATH variable
+    * add a new value `%JENA_HOME%\bat` or `%JENA_HOME%\bin`(if they are .exe files) to PATH variable
        
   2. Linux:
     * Open a file ".bashrc", and add two lines like
