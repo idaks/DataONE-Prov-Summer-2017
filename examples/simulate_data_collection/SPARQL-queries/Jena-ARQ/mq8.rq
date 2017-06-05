@@ -1,0 +1,24 @@
+#  mq8: What programs have input ports that receive data simulate_data_collection[cassette_id]?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?program_name
+WHERE
+{  
+  ?downprogram   rdf:type            p1:Program ;
+                 rdfs:label          ?program_name ;                 
+                 p1:hasInPort        ?inport .
+    
+  ?inport        rdf:type            p1:Port ;
+                 rdfs:label          "cassette_id" .
+      
+  ?port          rdf:type            p1:Port ;
+                 rdfs:label          "cassette_id" .
+                                     
+  ?program       rdf:type            p1:Workflow ;
+                 rdfs:label          "simulate_data_collection" ;
+                 p1:hasInPort        ?port .
+}

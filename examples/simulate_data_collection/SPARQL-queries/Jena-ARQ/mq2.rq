@@ -1,0 +1,14 @@
+#  mq2:  What is the name and description of the top-level workflow?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+
+SELECT DISTINCT ?name ?description
+WHERE
+{
+  ?workflow     rdf:type            p1:Workflow ;
+                rdfs:label          ?name ;
+                rdfs:comment        ?description .
+  FILTER NOT EXISTS { ?parentWorkflow p1:hasSubProgram ?workflow }
+}

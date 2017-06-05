@@ -1,0 +1,24 @@
+#  mq11: What program blocks are immediately downstream of calculate_strategy?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?program_name
+WHERE
+{   
+  ?downprogram   rdf:type            p1:Program ;
+                 rdfs:label          ?program_name ;                 
+                 p1:hasInPort        ?inport .
+    
+  ?outport       rdf:type            p1:Port ;
+                 rdfs:label          ?port_name .
+      
+  ?inport        rdf:type            p1:Port ;
+                 rdfs:label          ?port_name .
+                                     
+  ?program       rdf:type            p1:Program ;
+                 rdfs:label          "calculate_strategy" ;
+                 p1:hasOutPort       ?outport .
+}

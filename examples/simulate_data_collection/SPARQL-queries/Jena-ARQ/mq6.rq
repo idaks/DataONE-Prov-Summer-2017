@@ -1,0 +1,22 @@
+#  mq6: What data is output by program block simulate_data_collection.collect_data_set?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?name ?description
+WHERE
+{
+  ?port          rdf:type            p1:Port ;
+                 rdfs:label          ?name ;
+                 rdfs:comment        ?description .
+      
+  ?program       rdf:type            p1:Program ;
+                 rdfs:label          "collect_data_set" ;
+                 p1:hasOutPort       ?port .
+    
+  ?parentprogram rdf:type            p1:Workflow ;
+                 rdfs:label          "simulate_data_collection" ;
+                 p1:hasSubProgram    ?program .
+}

@@ -1,0 +1,5 @@
+% mq1:  Where is the definition of block simulate_data_collection.collect_data_set?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>

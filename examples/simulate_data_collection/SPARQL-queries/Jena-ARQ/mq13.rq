@@ -1,0 +1,42 @@
+#  mq13: What program blocks are upstream of transform_images?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?program_name
+WHERE
+{       
+  { 
+      ?upprogram     rdf:type            p1:Program ;
+                     rdfs:label          ?program_name ;                 
+                     p1:hasOutPort       ?outport .
+    
+      ?outport       rdf:type            p1:Port ;
+                     rdfs:label          ?port_name .
+      
+      ?inport        rdf:type            p1:Port ;
+                     rdfs:label          ?port_name .
+                                     
+      ?program       rdf:type            p1:Program ;
+                     rdfs:label          "transform_images" ;
+                     p1:hasInPort        ?inport .
+  }
+  UNION
+  {
+      ?topprogram    rdf:type            p1:Program ;
+                     rdfs:label          ?program_name ;                 
+                     p1:hasOutPort       ?upoutport .
+    
+      ?upoutport     rdf:type            p1:Port ;
+                     rdfs:label          ?upport_name .
+      
+      ?upinport      rdf:type            p1:Port ;
+                     rdfs:label          ?upport_name .
+                                     
+      ?upprogram     rdf:type            p1:Program ;
+                     p1:hasInPort        ?upinport .
+  }
+  FILTER (?program_name != "transform_images")    
+}

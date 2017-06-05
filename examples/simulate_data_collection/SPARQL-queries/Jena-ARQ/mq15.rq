@@ -1,0 +1,20 @@
+#  mq15: What data is immediately downstream of raw_image?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?port_name
+WHERE
+{   
+  ?outport       rdf:type            p1:Port ;
+                 rdfs:label          ?port_name .
+      
+  ?program       rdf:type            p1:Program ;
+                 p1:hasInPort        ?port ;
+                 p1:hasOutPort       ?outport .                   
+                                     
+  ?port          rdf:type            p1:Port ;
+                 rdfs:label          "raw_image" .
+}

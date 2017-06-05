@@ -1,0 +1,17 @@
+#  mq4:  What are the names of the programs comprising the top-level workflow?
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?name
+WHERE
+{
+  ?program      rdf:type            p1:Program ;
+                rdfs:label          ?name .
+                
+  ?workflow p1:hasSubProgram ?program.
+  
+  FILTER NOT EXISTS { ?parentWorkflow p1:hasSubProgram ?workflow }
+}
