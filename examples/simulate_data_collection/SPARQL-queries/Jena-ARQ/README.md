@@ -11,13 +11,15 @@ ARQ is a query engine for [Jena](http://jena.apache.org/) that supports the [SPA
 To use the Jena tools from the command line, we need to set the `JENA_HOME` environment variable to point to the location where you have unzipped the Jena distribution:
 
   1. Windows:
-    * set `JENA_HOME=\path\to\apache-jena-x.y.z`
+    * set `JENA_HOME=...\apache-jena-x.y.z`
     
     * add a new environment variable `%JENA_HOME%\bat`
        
   2. Linux:
-    * Open a file ".bashrc", and add two lines like 
+    * Open a file ".bashrc", and add two lines like
+    
     `export JENA_HOME=/Users/syc/jena/apache-jena-3.1.1` 
+    
     `export PATH="/Users/syc/jena/apache-jena-3.1.1/bin:$PATH"`
     
     * Run the following commands `source ~/.bashrc` Then we can call the command "arq" from the command line.
