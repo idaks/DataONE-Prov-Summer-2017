@@ -27,11 +27,11 @@
 
 3. Loading data into Virtuoso DB:
 
-   - In order to use SPARQL to query data, first you need to load data into Virtuoso DB. In this example, we want to query the rdf (turtle) file named [similate_data_collection_wf_model.ttl](DataONE-Prov-Summer-2017/examples/simulate_data_collection/RDF-facts/simulate_data_collection_wf_model.ttl). Therefore, we have to move this RDF file into Virtuoso folder by the following command:
+   - In order to use SPARQL to query data, first you need to load data into Virtuoso DB. In this example, we want to query the rdf (turtle) file named [simulate_data_collection_wf_model.ttl](DataONE-Prov-Summer-2017/examples/simulate_data_collection/RDF-facts/simulate_data_collection_wf_model.ttl). Therefore, we have to move this RDF file into Virtuoso folder by the following command:
 
-         mv ~/Downloads/similate_data_collection_wf_model.ttl /usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db/similate_data_collection_wf_model.ttl 
+         mv ~/Downloads/simulate_data_collection_wf_model.ttl /usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db/simulate_data_collection_wf_model.ttl 
  
    - Open "isql" shell, using the following command to load the similate_data_collection_wf_model.ttl file in to the Virtuoso DB:
    
-         DB.DBA.TTLP_MT (file_to_string_output (‘./similate_data_collection_wf_model.ttl'), '', 'http://mytest.com'); 
+         DB.DBA.TTLP_MT (file_to_string_output (‘./simulate_data_collection_wf_model.ttl'), '', 'http://mytest.com'); 
 
