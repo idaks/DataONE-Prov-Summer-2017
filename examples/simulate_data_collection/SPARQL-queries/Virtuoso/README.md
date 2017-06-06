@@ -37,7 +37,7 @@
    
    - Open "isql" shell, using the following command to load the similate_data_collection_wf_model.ttl file in to the Virtuoso DB:
    
-         ld_dir ('/usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db', 'simulate_data_collection.ttl', 'http://dbpedia.org');
+         DB.DBA.TTLP_MT (file_to_string_output ('/usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db/simulate_data_collection_wf_model.ttl'), '', 'http://mytest.com')
 	 
 4. Testing SPARQL queries:
    - All the sample SPARQL queries are stored in the bash file "virtuoso_run_queries.sh".
