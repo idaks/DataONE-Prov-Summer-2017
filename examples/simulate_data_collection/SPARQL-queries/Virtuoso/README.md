@@ -33,7 +33,7 @@
  
    - Now start accessing Virtuoso by using the command line:
    
-   	  virtuoso-t –f 
+         virtuoso-t –f 
    
    - Open "isql" shell, using the following command to load the similate_data_collection_wf_model.ttl file in to the Virtuoso DB:
    
