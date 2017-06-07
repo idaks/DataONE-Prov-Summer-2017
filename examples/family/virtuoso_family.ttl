@@ -1,0 +1,25 @@
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix c: <http://learningsparql.com/ns/parenthoods#> . 
+@prefix : <http://learningsparql.com/ns/person#> .
+
+:william dc:name "William" . 
+
+:john  rdfs:label "John" ;
+        c:child :william . 
+
+:james c:child :john . 
+
+:bill c:child :james , :sue . 
+
+:carol c:child :james, :sue . 
+
+:mary c:child :william . 
+
+:michelle c:child :mary, :peter.
+
+:henry c:child :mary, :peter.
+
+:anna c:child :michelle.
+
