@@ -1,6 +1,6 @@
 This is an example of how to use PROPERTY PATH in SPARQL to run recursive queries.
 
-Data: [virtuoso_family.ttl](DataONE-Prov-Summer-2017/examples/family/virtuoso_family.ttl)
+Data: [virtuoso_family.ttl](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/family/virtuoso_family.ttl)
 
 Before running the queries, 
 
