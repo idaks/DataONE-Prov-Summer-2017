@@ -27,7 +27,7 @@
 
 3. Loading data into Virtuoso DB:
 
-   - In order to use SPARQL to query data, first you need to load data into Virtuoso DB. In this example, we want to query the rdf (turtle) file named [simulate_data_collection_wf_model.ttl](DataONE-Prov-Summer-2017/examples/simulate_data_collection/RDF-facts/simulate_data_collection_wf_model.ttl). Therefore, we have to move this RDF file into Virtuoso folder by the following command:
+   - In order to use SPARQL to query data, first you need to load data into Virtuoso DB. In this example, we want to query the rdf (turtle) file named [simulate_data_collection_wf_model.ttl](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/RDF-facts/simulate_data_collection_wf_model.ttl). Therefore, we have to move this RDF file into Virtuoso folder by the following command:
 
          mv ~/Downloads/simulate_data_collection_wf_model.ttl /usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db/simulate_data_collection_wf_model.ttl 
  
@@ -40,7 +40,10 @@
          DB.DBA.TTLP_MT (file_to_string_output ('/usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db/simulate_data_collection_wf_model.ttl'), '', 'http://mytest.com')
 	 
 4. Testing SPARQL queries:
-   - All the sample SPARQL queries are stored in the bash file "virtuoso_run_queries.sh".
-   - In order to run the file, open terminal, run the following command line:
+   - Connect to Virtuoso using the following command lines:
+   
+         cd usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db  
+	     virtuoso-t –f 
+   - All the sample SPARQL queries are stored in the bash file "virtuoso_run_queries.sh". In order to run the file, open new shell in the terminal, run the following command line:
          
          sh virtuoso_run_queries.sh
