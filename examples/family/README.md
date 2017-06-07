@@ -19,7 +19,12 @@ SPARQL Tool: Before running the queries, you need to have Virtuoso installed on 
          DB.DBA.TTLP_MT (file_to_string_output ('/usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db/virtuoso_family.ttl'), '', 'http://mytest.com')
 	 
 4. Testing SPARQL queries:
-   - All the sample SPARQL queries are stored in the bash file "virtuoso_run_queries.sh". In order to run the file, open terminal, run the following command line:
+   - Connect to Virtuoso using the following command lines:
+   
+   	      cd usr/local/Cellar/virtuoso/7.2.4.2/var/lib/virtuoso/db  
+	      virtuoso-t –f 
+   
+   - All the sample SPARQL queries are stored in the bash file "virtuoso_family_run_queries.sh". In order to run the file, open terminal, run the following command line:
          
-         sh virtuoso_run_queries.sh
+         sh virtuoso_family_run_queries.sh
 
