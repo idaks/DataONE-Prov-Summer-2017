@@ -56,7 +56,18 @@ WHERE {
  ?s c:child{2}/dc:name "William" . }
 ORDER BY ?s;
 
-print ("Query 6: Print distance between nodes");
+print ("Query 7 (two & three levels depth):  Who are grand children and grand grand children of William? - Not included William");
+
+SPARQL prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix c: <http://learningsparql.com/ns/parenthoods#>
+prefix : <http://learningsparql.com/ns/person#>
+SELECT ?s
+WHERE {
+ ?s c:child{2,3}/dc:name "William" . }
+ORDER BY ?s;
+
+print ("Query 7: Print distance between nodes");
 
 SPARQL prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
