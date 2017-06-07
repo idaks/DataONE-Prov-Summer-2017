@@ -2,7 +2,9 @@ This is an example of how to use PROPERTY PATH in SPARQL to run recursive querie
 
 Data: [virtuoso_family.ttl](DataONE-Prov-Summer-2017/examples/family/virtuoso_family.ttl)
 
- Loading data into Virtuoso DB:
+Before running the queries, 
+
+Loading data into Virtuoso DB:
 
    - In order to use SPARQL to query data, first you need to load data into Virtuoso DB. In this example, we want to query the rdf (turtle) file named [simulate_data_collection_wf_model.ttl](DataONE-Prov-Summer-2017/examples/simulate_data_collection/RDF-facts/simulate_data_collection_wf_model.ttl). Therefore, we have to move this RDF file into Virtuoso folder by the following command:
 
