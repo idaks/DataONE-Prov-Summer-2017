@@ -1,10 +1,10 @@
 This is an example of how to use PROPERTY PATH in SPARQL to run recursive queries.
 
+SPARQL Tool: Before running the queries, you need to have Virtuoso installed on your machine. Virtuoso installation & manual can be find here [Virtuoso Manual](https://github.com/idaks/DataONE-Prov-Summer-2017/tree/master/examples/simulate_data_collection/SPARQL-queries/Virtuoso)
+
 Data: [virtuoso_family.ttl](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/family/virtuoso_family.ttl)
 
 ![Family Example](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/family/family_example.png)
-
-SPARQL Tool: Before running the queries, you need to have Virtuoso installed on your machine. Virtuoso installation & manual can be find here [Virtuoso Manual](https://github.com/idaks/DataONE-Prov-Summer-2017/tree/master/examples/simulate_data_collection/SPARQL-queries/Virtuoso)
 
 1. Loading data into Virtuoso DB:
 
