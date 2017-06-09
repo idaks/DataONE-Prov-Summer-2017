@@ -236,6 +236,7 @@ sample_id
 
 ###############################
 ("Bonus 1:  What data is downstream 2 levels from "energies" ?")
+
 down_data_name
 LONG VARCHAR
 _______________________________________________________________________________
@@ -246,3 +247,13 @@ pixel_count
 total_intensity
 
 4 Rows. -- 5 msec.
+
+###############################
+("Bonus 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?");
+
+up_second_program_name
+LONG VARCHAR
+_______________________________________________________________________________
+
+load_screening_results
+calculate_strategy
