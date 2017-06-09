@@ -410,5 +410,38 @@ WHERE
    
 };
 
+print ("Bonus 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?");
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3c.org/ns/prov#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?up_second_program_name
+WHERE 
+ {    ?first_program       rdf:type             p1:Program ;
+                           rdfs:label           ?first_program_name .                                        
+    
+      ?first_program      (p1:hasInPort/p1:hasDefaultParam/^p1:hasDefaultParam/^p1:hasOutPort)+   ?up_first_program .
+      
+      ?up_first_program    rdf:type             p1:Program ;
+                           rdfs:label           ?up_first_program_name .
+
+      ?second_program       rdf:type             p1:Program ;
+                           rdfs:label            ?second_program_name .                                        
+    
+      ?second_program      (p1:hasInPort/p1:hasDefaultParam/^p1:hasDefaultParam/^p1:hasOutPort)+   ?up_second_program .
+      
+      ?up_second_program    rdf:type             p1:Program ;
+                           rdfs:label           ?up_second_program_name .
+      
+      FILTER (?first_program_name = "collect_data_set").
+      FILTER (?second_program_name = "log_rejected_sample").
+      FILTER (?up_second_program_name = ?up_first_program_name )
+       
+ };
 
 EOF
