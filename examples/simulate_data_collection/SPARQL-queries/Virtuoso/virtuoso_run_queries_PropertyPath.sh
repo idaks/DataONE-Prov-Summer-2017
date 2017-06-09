@@ -114,7 +114,7 @@ WHERE
    
 };
 
-print("Quey 10: How many data are read by more than port in workflow simulate_data_collection?");
+print("Query 10: How many data are read by more than port in workflow simulate_data_collection?");
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -159,7 +159,7 @@ WHERE
       ?down_program    rdf:type             p1:Program ;
                        rdfs:label           ?down_program_name .
        
- }
+ };
 
 print ("Query 12: What program blocks are immediately upstream of transform_images?");
 
