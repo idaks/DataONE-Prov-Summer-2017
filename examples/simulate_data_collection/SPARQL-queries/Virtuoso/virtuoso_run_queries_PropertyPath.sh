@@ -330,6 +330,61 @@ WHERE
    
 };
 
+print ("Query 19: What URI variables are associated with writes of data simulate_data_collection[corrected_image]");
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3c.org/ns/prov#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?associated_entity_name
+WHERE
+{    
+      ?entity        rdf:type             prov:Entity ;
+                     rdfs:label           ?entity_name;
+                     prov:wasDerivedFrom  ?associated_entity.  
+      
+      ?associated_entity    rdf:type             prov:Entity ;
+                            rdfs:label           ?associated_entity_name .
+
+  FILTER (?entity_name = "corrected_image")
+   
+};
+
+print ("Query 20: What URI variables do data written to raw_image and corrected_image have in common?");
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3c.org/ns/prov#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?raw_image_associated_entity_name
+WHERE
+{    
+      ?corrected_image_entity        rdf:type             prov:Entity ;
+                                     rdfs:label           "corrected_image";
+                                     prov:wasDerivedFrom  ?correct_image_associated_entity.  
+      
+      ?correct_image_associated_entity    rdf:type             prov:Entity ;
+                                          rdfs:label           ?correct_image_associated_entity_name .
+
+      ?raw_image_entity        rdf:type             prov:Entity ;
+                                     rdfs:label     "raw_image";
+                                     prov:wasDerivedFrom  ?raw_image_associated_entity.  
+      
+      ?raw_image_associated_entity    rdf:type             prov:Entity ;
+                                      rdfs:label           ?raw_image_associated_entity_name .
+
+  FILTER (?raw_image_associated_entity_name = ?correct_image_associated_entity_name)
+   
+};
+
 print ("Bonus 1:  What data is downstream 2 levels from "energies" ?");
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
