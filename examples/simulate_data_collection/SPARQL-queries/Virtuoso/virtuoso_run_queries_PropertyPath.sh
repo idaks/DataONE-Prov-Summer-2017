@@ -199,9 +199,13 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
 SELECT DISTINCT ?up_program_name
 WHERE 
- {    ?program       rdf:type             p1:Program ;
-                     rdfs:label           "transform_images" .                                        
-    
+ {    #get the program with name "transform_images" and put into ?program variable
+      ?program       rdf:type             p1:Program ;
+                     rdfs:label           "transform_images" .   
+                     
+      #get all of the programs immediately connect to ?program (via ?hasOutPort, hasInPort, hasDefaultParam relationsips) 
+      #put these programs into ?down_program variable 
+      #the "+" sign is to run recursive queries.
       ?program      (p1:hasInPort/p1:hasDefaultParam/^p1:hasDefaultParam/^p1:hasOutPort)+   ?up_program .
       
       ?up_program    rdf:type             p1:Program ;
