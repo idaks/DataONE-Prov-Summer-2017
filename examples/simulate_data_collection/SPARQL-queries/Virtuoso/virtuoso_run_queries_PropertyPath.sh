@@ -149,13 +149,17 @@ PREFIX prov: <http://www.w3c.org/ns/prov#>
 PREFIX p1:   <http://dataone.org/ns/provone#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
-SELECT DISTINCT ?down_program_name
+SELECT DISTINCT ?down_program_name   #Get the direct downstream program name
 WHERE 
- {    ?program       rdf:type             p1:Program ;
-                     rdfs:label           "calculate_strategy" .                                        
-    
+ {    #get the program with name "calculate_strategy" and put into ?program variable
+      ?program       rdf:type             p1:Program ;           
+                     rdfs:label           "calculate_strategy" .    
+                     
+      #get all of the programs immediately connect to ?program (via ?hasOutPort, hasInPort, hasDefaultParam relationsips) 
+      #put these programs into ?down_program variable
       ?program      (p1:hasOutPort/p1:hasDefaultParam/^p1:hasDefaultParam/^p1:hasInPort)   ?down_program .
       
+      #get names of the down programs
       ?down_program    rdf:type             p1:Program ;
                        rdfs:label           ?down_program_name .
        
