@@ -16,14 +16,11 @@ To use the Jena tools from the command line, we need to set the `JENA_HOME` envi
     * add a new value `%JENA_HOME%\bat` to PATH variable
        
   2. Linux:
-  
-  Open the source file ".bashrc", and add two lines like
+  * Open the source file ".bashrc", and add two lines like
     
-    `export JENA_HOME=/Users/syc/jena/apache-jena-3.1.1`
+     `export JENA_HOME=/Users/syc/jena/apache-jena-3.1.1`
     
-    `export PATH="/Users/syc/jena/apache-jena-3.1.1/bin:$PATH"`
-    
-  Then we can call the command "arq" from the command line.
+     `export PATH="/Users/syc/jena/apache-jena-3.1.1/bin:$PATH"`
 
 ## Testing ARQ command
    
