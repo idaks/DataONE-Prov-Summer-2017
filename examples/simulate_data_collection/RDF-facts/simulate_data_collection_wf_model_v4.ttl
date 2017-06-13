@@ -26,7 +26,6 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
     rdfs:comment                "The desired redundancy of the data sets collected." .
 
 <simulate_data_collection#sample_spreadsheet_channel>
-    rdf:type                    p1:Data ;
     rdf:type                    p1:Channel ;
     rdfs:label                  "sample_spreadsheet" ;
     rdfs:comment                "CSV file giving quality score for each crystal." ;
@@ -34,14 +33,12 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
     yw:isAssociatedWith         <simulate_data_collection#cassette_id_channel> .
 
 <simulate_data_collection#calibration_image_channel>
-    rdf:type                    p1:Data ;
     rdf:type                    p1:Channel ;
     rdfs:label                  "calibration_image" ;
     rdfs:comment                "File used to correct raw diffraction images." ;
     yw:filePath                 "file:calibration.img" .
 
 <simulate_data_collection#run_log_channel>
-    rdf:type                    p1:Data ;
     rdf:type                    p1:Channel ;
     rdfs:label                  "run_log" ;
     rdfs:comment                "" ;
@@ -78,7 +75,6 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
     rdfs:comment                "" .
 
 <simulate_data_collection#rejection_log_channel>
-    rdf:type                    p1:Data ;
     rdf:type                    p1:Channel ;
     rdfs:label                  "rejection_log" ;
     rdfs:comment                "" ;
@@ -100,7 +96,6 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
     rdfs:comment                "Energy (in eV) at which the diffraction image was collected." .
 
 <simulate_data_collection#raw_image_channel>
-    rdf:type                    p1:Data ;
     rdf:type                    p1:Channel ;
     rdfs:label                  "raw_image" ;
     rdfs:comment                "Path of file storing the raw diffraction image." ;
@@ -111,7 +106,6 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
                                 <simulate_data_collection#frame_number_channel> .
 
 <simulate_data_collection#corrected_image_channel>
-    rdf:type                    p1:Data ;
     rdf:type                    p1:Channel ;
     rdfs:label                  "corrected_image" ;
     rdfs:comment                "The corrected diffraction images collected on all crystals." ;
@@ -131,7 +125,6 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
     rdfs:comment                "" .
 
 <simulate_data_collection#collection_log_channel>
-    rdf:type                    p1:Data ;
     rdf:type                    p1:Channel ;
     rdfs:label                  "collection_log" ;
     rdfs:comment                "" ;
