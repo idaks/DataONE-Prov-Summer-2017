@@ -1,0 +1,14 @@
+SPARQL prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix c: <http://learningsparql.com/ns/parenthoods#>
+prefix : <http://learningsparql.com/ns/person#>
+SELECT SAMPLE(?t) ?super ?sub (count(?mid) as ?distance)
+WHERE {
+        { SELECT distinct ?super
+          WHERE { ?x c:child ?super }
+        }
+       ?mid c:child* ?super.
+       ?sub c:child+ ?mid.
+      }
+GROUP BY ?super ?sub
+ORDER BY ?super ?sub;
