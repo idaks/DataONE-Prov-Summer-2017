@@ -1,7 +1,7 @@
 #!/bin/bash
-/usr/local/Cellar/virtuoso/7.2.4.2/bin/isql 1111 dba dba << 'EOF'
+/usr/local/Cellar/virtuoso/7.2.4.2/bin/isql 1111 dba dba errors=stdout << 'EOF'
 
-print ("Query 6: What data is output by program block simulate_data_collection.collect_data_set?");
+echo "Query 6: What data is output by program block simulate_data_collection.collect_data_set?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -27,9 +27,9 @@ WHERE
                  
                 
   FILTER regex(?program_name, "collect_data_set")
-} ORDER BY ?channel_name ;
+} ORDER BY ?channel_name;
 
-print ("Query 7: What program blocks provide input directly to simulate_data_collection.collect_data_set?");
+echo "Query 7: What program blocks provide input directly to simulate_data_collection.collect_data_set?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -51,7 +51,7 @@ WHERE
  } ORDER BY ?up_program_name;
 
 
-print ("Query 8: What programs have input ports that receive data simulate_data_collection[cassette_id]");
+echo "Query 8: What programs have input ports that receive data simulate_data_collection[cassette_id]";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -81,7 +81,7 @@ WHERE
    
 } ORDER BY ?program_name;
 
-print ("Query 9: How many ports read data simulate_data_collection[frame_number]?");
+echo "Query 9: How many ports read data simulate_data_collection[frame_number]?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -109,7 +109,7 @@ WHERE
    
 };
 
-print("Query 10: How many data are read by more than port in workflow simulate_data_collection?");
+echo "Query 10: How many data are read by more than port in workflow simulate_data_collection?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -133,7 +133,7 @@ GROUP BY ?channel_name
 HAVING (count(?port) > 1);
 
 
-print ("Query 11: What program blocks are immediately downstream of calculate_strategy?");
+echo "Query 11: What program blocks are immediately downstream of calculate_strategy?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -158,7 +158,7 @@ WHERE
        
  } ORDER BY ?down_program_name;
 
-print ("Query 12: What program blocks are immediately upstream of transform_images?");
+echo "Query 12: What program blocks are immediately upstream of transform_images?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -179,7 +179,7 @@ WHERE
        
  } ORDER BY ?up_program_name ;
 
-print ("Query 13: (UpstreamProgramName) - What program blocks are upstream of transform_images?");
+echo "Query 13: (UpstreamProgramName) - What program blocks are upstream of transform_images?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -205,7 +205,7 @@ WHERE
  } ORDER BY ?up_program_name;
 
 
-print ("Query 14: What program blocks are anywhere downstream of calculate_strategy?");
+echo "Query 14: What program blocks are anywhere downstream of calculate_strategy?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -226,7 +226,7 @@ WHERE
        
  } ORDER BY ?down_program_name;
 
-print ("Query 15 (DownstreamDataName): What data is immediately downstream of raw_image?");
+echo "Query 15 (DownstreamDataName): What data is immediately downstream of raw_image?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -251,7 +251,7 @@ WHERE
 } ORDER BY ?down_program_name;
 
 
-print ("Query 16 (UpstreamDataName): What data is immediately upstream of raw_image?");
+echo "Query 16 (UpstreamDataName): What data is immediately upstream of raw_image?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -275,7 +275,7 @@ WHERE
    
 } ORDER BY ?up_channel_name;
 
-print ("Query 17 (DownstreamDataName): What data is downstream of accepted_sample?");
+echo "Query 17 (DownstreamDataName): What data is downstream of accepted_sample?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -301,7 +301,7 @@ WHERE
 } ORDER BY ?down_channel_name;
 
 
-print ("Query 18 (UpstreamDataName): What data is upstream of raw_image?");
+echo "Query 18 (UpstreamDataName): What data is upstream of raw_image?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -325,7 +325,7 @@ WHERE
    
 } ORDER BY ?up_channel_name;
 
-print ("Query 19: What URI variables are associated with writes of data simulate_data_collection[corrected_image]");
+echo "Query 19: What URI variables are associated with writes of data simulate_data_collection[corrected_image]";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -348,7 +348,7 @@ WHERE
    
 } ORDER BY ?associated_channel_name ;
 
-print ("Query 20: What URI variables do data written to raw_image and corrected_image have in common?");
+echo "Query 20: What URI variables do data written to raw_image and corrected_image have in common?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -378,7 +378,7 @@ WHERE
    
 } ORDER BY ?raw_image_associated_channel_name;
 
-print ("Bonus 1:  What data is downstream 2 levels from "energies" ?");
+echo "Extra 1:  What data is downstream 2 levels from "energies" ?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -402,7 +402,7 @@ WHERE
    
 } ORDER BY ?down_channel_name ;
 
-print ("Bonus 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?");
+echo "Extra 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?";
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
