@@ -47,3 +47,7 @@
    - All the sample SPARQL queries are stored in the bash file "virtuoso_run_queries.sh". In order to run the file, open new shell in the terminal, run the following command line:
          
          sh virtuoso_run_queries.sh
+   - If you want to export the results to txt file, use the following command lines:
+   
+         sh virtuoso_run_queries.sh > virtuoso_queries_results.txt
+   
