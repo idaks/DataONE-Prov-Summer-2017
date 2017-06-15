@@ -1,0 +1,199 @@
+
+# mq6: What data is output by program block simulate_data_collection.collect_data_set?
+
+-----------------------------------------------------------------------------------
+| channel_name   | channel_description                                            |
+===================================================================================
+| "energy"       | "Energy (in eV) at which the diffraction image was collected." |
+| "frame_number" | "Index of diffraction image within data set."                  |
+| "raw_image"    | "Path of file storing the raw diffraction image."              |
+| "sample_id"    | "The crystal that the diffraction image was collected from."   |
+-----------------------------------------------------------------------------------
+
+# mq7: What program blocks provide input directly to simulate_data_collection.collect_data_set?
+
+------------------------
+| up_program_name      |
+========================
+| "calculate_strategy" |
+------------------------
+
+# mq8: What programs have input ports that receive data simulate_data_collection[cassette_id]
+
+---------------------------------
+| program_name                  |
+=================================
+| "collect_data_set"            |
+| "load_screening_results"      |
+| "log_average_image_intensity" |
+| "log_rejected_sample"         |
+---------------------------------
+
+# mq9: How many ports read data simulate_data_collection[frame_number]?
+
+---------
+| count |
+=========
+| 2     |
+---------
+
+# mq10: How many data are read by more than port in workflow simulate_data_collection?
+
+--------------------------------------
+| channel_name          | port_count |
+======================================
+| "sample_id"           | 3          |
+| "rejected_sample"     | 2          |
+| "total_intensity"     | 2          |
+| "sample_spreadsheet"  | 2          |
+| "energy"              | 2          |
+| "sample_name"         | 2          |
+| "run_log"             | 2          |
+| "num_images"          | 2          |
+| "calibration_image"   | 2          |
+| "corrected_image"     | 3          |
+| "collection_log"      | 2          |
+| "data_redundancy"     | 2          |
+| "pixel_count"         | 2          |
+| "rejection_log"       | 2          |
+| "sample_quality"      | 2          |
+| "cassette_id"         | 5          |
+| "sample_score_cutoff" | 2          |
+| "frame_number"        | 3          |
+| "raw_image"           | 2          |
+| "accepted_sample"     | 2          |
+| "energies"            | 2          |
+--------------------------------------
+
+# mq11: What program blocks are immediately downstream of calculate_strategy?
+-------------------------
+| down_program_name     |
+=========================
+| "collect_data_set"    |
+| "log_rejected_sample" |
+-------------------------
+
+# mq12: What program blocks are immediately upstream of transform_images?
+----------------------
+| up_program_name    |
+======================
+| "collect_data_set" |
+----------------------
+
+#  mq13: What program blocks are upstream of transform_images?
+----------------------------
+| up_program_name          |
+============================
+| "collect_data_set"       |
+| "calculate_strategy"     |
+| "load_screening_results" |
+----------------------------
+
+# mq14: What program blocks are anywhere downstream of calculate_strategy?
+---------------------------------
+| down_program_name             |
+=================================
+| "collect_data_set"            |
+| "transform_images"            |
+| "log_average_image_intensity" |
+| "log_rejected_sample"         |
+---------------------------------
+
+##  mq15: What data is immediately downstream of raw_image?
+---------------------
+| down_channel_name |
+=====================
+| "pixel_count"     |
+| "total_intensity" |
+| "corrected_image" |
+---------------------
+
+#  mq16: What data is immediately upstream of raw_image?
+---------------------
+| upchannel_name    |
+=====================
+| "cassette_id"     |
+| "energies"        |
+| "num_images"      |
+| "accepted_sample" |
+---------------------
+
+#  mq17: What data is downstream of accepted_sample?
+---------------------
+| downchannel_name  |
+=====================
+| "sample_id"       |
+| "pixel_count"     |
+| "collection_log"  |
+| "total_intensity" |
+| "corrected_image" |
+| "energy"          |
+| "frame_number"    |
+| "raw_image"       |
+---------------------
+
+#  mq18: What data is upstream of raw_image?
+-------------------------
+| upchannel_name        |
+=========================
+| "cassette_id"         |
+| "energies"            |
+| "data_redundancy"     |
+| "sample_name"         |
+| "sample_spreadsheet"  |
+| "sample_score_cutoff" |
+| "sample_quality"      |
+| "num_images"          |
+| "accepted_sample"     |
+-------------------------
+
+# mq19: What URI variables are associated with writes of data simulate_data_collection[corrected_image]
+
+---------------------------
+| associated_channel_name |
+===========================
+| "energy"                |
+| "frame_number"          |
+| "sample_id"             |
+---------------------------
+
+# mq20: What URI variables do data written to raw_image and corrected_image have in common?
+
+-------------------------------------
+| raw_image_associated_channel_name |
+=====================================
+| "energy"                          |
+| "frame_number"                    |
+| "sample_id"                       |
+-------------------------------------
+
+# Extra query 1: 
+
+
+# Extra query 2: 
+
+----------------------------
+| up_second_program_name   |
+============================
+| "calculate_strategy"     |
+| "load_screening_results" |
+----------------------------
+
+# Extra query 3: 
+
+------------------------------------------------------------
+| Accestor_Program         | Descendant_Programs           |
+============================================================
+| "calculate_strategy"     | "collect_data_set"            |
+| "calculate_strategy"     | "log_average_image_intensity" |
+| "calculate_strategy"     | "log_rejected_sample"         |
+| "calculate_strategy"     | "transform_images"            |
+| "collect_data_set"       | "log_average_image_intensity" |
+| "collect_data_set"       | "transform_images"            |
+| "load_screening_results" | "calculate_strategy"          |
+| "load_screening_results" | "collect_data_set"            |
+| "load_screening_results" | "log_average_image_intensity" |
+| "load_screening_results" | "log_rejected_sample"         |
+| "load_screening_results" | "transform_images"            |
+| "transform_images"       | "log_average_image_intensity" |
+------------------------------------------------------------
