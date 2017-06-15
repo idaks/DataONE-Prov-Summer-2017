@@ -167,10 +167,10 @@
 | "sample_id"                       |
 -------------------------------------
 
-# Extra query 1: 
+# Extra 1:  What data is downstream 2 levels from energies ? 
 
 
-# Extra query 2: 
+# Extra 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?
 
 ----------------------------
 | up_second_program_name   |
@@ -179,7 +179,7 @@
 | "load_screening_results" |
 ----------------------------
 
-# Extra query 3: 
+# Extra 3: Print all programs and their descendant programs in the workflow
 
 ------------------------------------------------------------
 | Accestor_Program         | Descendant_Programs           |
@@ -197,3 +197,161 @@
 | "load_screening_results" | "transform_images"            |
 | "transform_images"       | "log_average_image_intensity" |
 ------------------------------------------------------------
+
+# Extra 4: Print all parameter ports
+
+-------------------------
+| port_name             |
+=========================
+| "cassette_id"         |
+| "sample_id"           |
+| "sample_score_cutoff" |
+| "energies"            |
+| "frame_number"        |
+| "total_intensity"     |
+| "data_redundancy"     |
+| "energy"              |
+| "sample_name"         |
+| "rejected_sample"     |
+| "num_images"          |
+| "sample_quality"      |
+| "pixel_count"         |
+| "accepted_sample"     |
+-------------------------
+
+# Extra 5: Print all input ports
+
+-----------------------------
+| port_name                 |
+=============================
+| "calibration_image_file"  |
+| "corrected_image_file"    |
+| "sample_spreadsheet"      |
+| "calibration_image"       |
+| "raw_image_file"          |
+| "sample_spreadsheet_file" |
+-----------------------------
+
+# Extra 6: CROSS RDF TURTLE FILES - Print all resources belong to raw_image data (channel)
+
+---------------------------------------------
+| resource_name                             |
+=============================================
+| "run/raw/q55/DRT240/e10000/image_001.raw" |
+| "run/raw/q55/DRT240/e10000/image_002.raw" |
+| "run/raw/q55/DRT240/e10000/image_003.raw" |
+| "run/raw/q55/DRT240/e10000/image_004.raw" |
+| "run/raw/q55/DRT240/e10000/image_005.raw" |
+| "run/raw/q55/DRT240/e10000/image_006.raw" |
+| "run/raw/q55/DRT240/e10000/image_007.raw" |
+| "run/raw/q55/DRT240/e10000/image_008.raw" |
+| "run/raw/q55/DRT240/e10000/image_009.raw" |
+| "run/raw/q55/DRT240/e10000/image_010.raw" |
+| "run/raw/q55/DRT240/e10000/image_011.raw" |
+| "run/raw/q55/DRT240/e10000/image_012.raw" |
+| "run/raw/q55/DRT240/e10000/image_013.raw" |
+| "run/raw/q55/DRT240/e10000/image_014.raw" |
+| "run/raw/q55/DRT240/e10000/image_015.raw" |
+| "run/raw/q55/DRT240/e10000/image_016.raw" |
+| "run/raw/q55/DRT240/e10000/image_017.raw" |
+| "run/raw/q55/DRT240/e10000/image_018.raw" |
+| "run/raw/q55/DRT240/e10000/image_019.raw" |
+| "run/raw/q55/DRT240/e10000/image_020.raw" |
+| "run/raw/q55/DRT240/e10000/image_021.raw" |
+| "run/raw/q55/DRT240/e10000/image_022.raw" |
+| "run/raw/q55/DRT240/e10000/image_023.raw" |
+| "run/raw/q55/DRT240/e10000/image_024.raw" |
+| "run/raw/q55/DRT240/e10000/image_025.raw" |
+| "run/raw/q55/DRT240/e10000/image_026.raw" |
+| "run/raw/q55/DRT240/e10000/image_027.raw" |
+| "run/raw/q55/DRT240/e10000/image_028.raw" |
+| "run/raw/q55/DRT240/e10000/image_029.raw" |
+| "run/raw/q55/DRT240/e10000/image_030.raw" |
+| "run/raw/q55/DRT240/e10000/image_031.raw" |
+| "run/raw/q55/DRT240/e10000/image_032.raw" |
+| "run/raw/q55/DRT240/e10000/image_033.raw" |
+| "run/raw/q55/DRT240/e10000/image_034.raw" |
+| "run/raw/q55/DRT240/e10000/image_035.raw" |
+| "run/raw/q55/DRT240/e10000/image_036.raw" |
+| "run/raw/q55/DRT240/e10000/image_037.raw" |
+| "run/raw/q55/DRT240/e10000/image_038.raw" |
+| "run/raw/q55/DRT240/e10000/image_039.raw" |
+| "run/raw/q55/DRT240/e10000/image_040.raw" |
+| "run/raw/q55/DRT240/e10000/image_041.raw" |
+| "run/raw/q55/DRT240/e10000/image_042.raw" |
+| "run/raw/q55/DRT240/e10000/image_043.raw" |
+| "run/raw/q55/DRT240/e10000/image_044.raw" |
+| "run/raw/q55/DRT240/e10000/image_045.raw" |
+| "run/raw/q55/DRT240/e10000/image_046.raw" |
+| "run/raw/q55/DRT240/e10000/image_047.raw" |
+| "run/raw/q55/DRT240/e11000/image_001.raw" |
+---------------------------------------------
+
+# Extra 7: CROSS RDF TURTLE FILES - Print all URI variables that associated with raw_image data via resources?
+
+--------------------
+| urivariable_name |
+====================
+| "energy"         |
+| "cassette_id"    |
+| "sample_id"      |
+| "frame_number"   |
+--------------------
+
+# Extra 8: CROSS RDF FILES - Print all URI variables value that associated with raw_image data via resources?
+
+----------------------------------------
+| urivariable_name | urivariable_value |
+========================================
+| "energy"         | "10000"           |
+| "cassette_id"    | "q55"             |
+| "sample_id"      | "DRT240"          |
+| "frame_number"   | "023"             |
+| "frame_number"   | "027"             |
+| "frame_number"   | "004"             |
+| "frame_number"   | "036"             |
+| "frame_number"   | "001"             |
+| "energy"         | "11000"           |
+| "frame_number"   | "014"             |
+| "frame_number"   | "033"             |
+| "frame_number"   | "005"             |
+| "frame_number"   | "042"             |
+| "frame_number"   | "046"             |
+| "frame_number"   | "019"             |
+| "frame_number"   | "026"             |
+| "frame_number"   | "013"             |
+| "frame_number"   | "008"             |
+| "frame_number"   | "007"             |
+| "frame_number"   | "010"             |
+| "frame_number"   | "016"             |
+| "frame_number"   | "020"             |
+| "frame_number"   | "021"             |
+| "frame_number"   | "030"             |
+| "frame_number"   | "034"             |
+| "frame_number"   | "043"             |
+| "frame_number"   | "028"             |
+| "frame_number"   | "002"             |
+| "frame_number"   | "012"             |
+| "frame_number"   | "017"             |
+| "frame_number"   | "029"             |
+| "frame_number"   | "025"             |
+| "frame_number"   | "003"             |
+| "frame_number"   | "038"             |
+| "frame_number"   | "047"             |
+| "frame_number"   | "044"             |
+| "frame_number"   | "018"             |
+| "frame_number"   | "031"             |
+| "frame_number"   | "035"             |
+| "frame_number"   | "011"             |
+| "frame_number"   | "032"             |
+| "frame_number"   | "037"             |
+| "frame_number"   | "009"             |
+| "frame_number"   | "024"             |
+| "frame_number"   | "015"             |
+| "frame_number"   | "006"             |
+| "frame_number"   | "039"             |
+| "frame_number"   | "041"             |
+| "frame_number"   | "022"             |
+| "frame_number"   | "045"             |
+| "frame_number"   | "040"             |
+----------------------------------------
