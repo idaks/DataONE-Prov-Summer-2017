@@ -285,3 +285,28 @@ load_screening_results                                                          
 transform_images                                                                  log_average_image_intensity
 
 12 Rows. -- 7 msec.
+
+Extra 3: Print all parameter ports
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+port_name
+LONG VARCHAR
+_______________________________________________________________________________
+
+num_images
+total_intensity
+rejected_sample
+cassette_id
+data_redundancy
+sample_score_cutoff
+sample_name
+sample_quality
+accepted_sample
+energies
+frame_number
+pixel_count
+sample_id
+energy
+
+14 Rows. -- 3 msec.
