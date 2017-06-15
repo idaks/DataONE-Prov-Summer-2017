@@ -1,0 +1,140 @@
+
+Query 1:  Who are descendants of William? - Included William
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+s
+LONG VARCHAR
+_______________________________________________________________________________
+
+http://learningsparql.com/ns/person#anna
+http://learningsparql.com/ns/person#bill
+http://learningsparql.com/ns/person#carol
+http://learningsparql.com/ns/person#henry
+http://learningsparql.com/ns/person#james
+http://learningsparql.com/ns/person#john
+http://learningsparql.com/ns/person#mary
+http://learningsparql.com/ns/person#michelle
+http://learningsparql.com/ns/person#william
+
+9 Rows. -- 2 msec.
+
+Query 2:  Who are descendants of William? - Not included William
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+s
+LONG VARCHAR
+_______________________________________________________________________________
+
+http://learningsparql.com/ns/person#anna
+http://learningsparql.com/ns/person#bill
+http://learningsparql.com/ns/person#carol
+http://learningsparql.com/ns/person#henry
+http://learningsparql.com/ns/person#james
+http://learningsparql.com/ns/person#john
+http://learningsparql.com/ns/person#mary
+http://learningsparql.com/ns/person#michelle
+http://learningsparql.com/ns/person#william
+
+9 Rows. -- 2 msec.
+
+Query 3:  Who are children of William? - Included William
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+-- More than 0 parameters, ignoring all the rest of the statement #line 1 "/Users/phuong/DataONE-Prov-Summer-2017/examples/family/queries/query3.sparql"
+SPARQL prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix c: <http://learningsparql.com/ns/parenthoods#>
+prefix : <http://learningsparql.com/ns/person#>
+SELECT ?s
+WHERE {
+ ?s c:child?/dc:name "William" . }
+ORDER BY ?s
+s
+LONG VARCHAR
+_______________________________________________________________________________
+
+http://learningsparql.com/ns/person#john
+http://learningsparql.com/ns/person#mary
+http://learningsparql.com/ns/person#william
+
+3 Rows. -- 2 msec.
+
+Query 4:  Who are children of William? - Not included William
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+s
+LONG VARCHAR
+_______________________________________________________________________________
+
+http://learningsparql.com/ns/person#john
+http://learningsparql.com/ns/person#mary
+
+2 Rows. -- 1 msec.
+
+Query 5:  Who are grand children of William? - Not included William
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+s
+LONG VARCHAR
+_______________________________________________________________________________
+
+http://learningsparql.com/ns/person#henry
+http://learningsparql.com/ns/person#james
+http://learningsparql.com/ns/person#michelle
+
+3 Rows. -- 1 msec.
+
+Query 6:  Who are grand children and grand grand children of William? - Not included William
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+s
+LONG VARCHAR
+_______________________________________________________________________________
+
+http://learningsparql.com/ns/person#anna
+http://learningsparql.com/ns/person#bill
+http://learningsparql.com/ns/person#carol
+http://learningsparql.com/ns/person#henry
+http://learningsparql.com/ns/person#james
+http://learningsparql.com/ns/person#michelle
+
+6 Rows. -- 1 msec.
+
+Query 7: Print distance between nodes
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+callret-0                                                                         super                                                                             sub                                                                               distance
+LONG VARCHAR                                                                      LONG VARCHAR                                                                      LONG VARCHAR                                                                      LONG VARCHAR
+_______________________________________________________________________________
+
+NULL                                                                              http://learningsparql.com/ns/person#james                                         http://learningsparql.com/ns/person#bill                                          1
+NULL                                                                              http://learningsparql.com/ns/person#james                                         http://learningsparql.com/ns/person#carol                                         1
+NULL                                                                              http://learningsparql.com/ns/person#john                                          http://learningsparql.com/ns/person#bill                                          2
+NULL                                                                              http://learningsparql.com/ns/person#john                                          http://learningsparql.com/ns/person#carol                                         2
+NULL                                                                              http://learningsparql.com/ns/person#john                                          http://learningsparql.com/ns/person#james                                         1
+NULL                                                                              http://learningsparql.com/ns/person#mary                                          http://learningsparql.com/ns/person#anna                                          2
+NULL                                                                              http://learningsparql.com/ns/person#mary                                          http://learningsparql.com/ns/person#henry                                         1
+NULL                                                                              http://learningsparql.com/ns/person#mary                                          http://learningsparql.com/ns/person#michelle                                      1
+NULL                                                                              http://learningsparql.com/ns/person#michelle                                      http://learningsparql.com/ns/person#anna                                          1
+NULL                                                                              http://learningsparql.com/ns/person#peter                                         http://learningsparql.com/ns/person#anna                                          2
+NULL                                                                              http://learningsparql.com/ns/person#peter                                         http://learningsparql.com/ns/person#henry                                         1
+NULL                                                                              http://learningsparql.com/ns/person#peter                                         http://learningsparql.com/ns/person#michelle                                      1
+NULL                                                                              http://learningsparql.com/ns/person#sue                                           http://learningsparql.com/ns/person#bill                                          1
+NULL                                                                              http://learningsparql.com/ns/person#sue                                           http://learningsparql.com/ns/person#carol                                         1
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#anna                                          3
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#bill                                          3
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#carol                                         3
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#henry                                         2
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#james                                         2
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#john                                          1
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#mary                                          1
+NULL                                                                              http://learningsparql.com/ns/person#william                                       http://learningsparql.com/ns/person#michelle                                      2
+
+22 Rows. -- 5 msec.
