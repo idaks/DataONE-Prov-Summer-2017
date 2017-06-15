@@ -29,4 +29,10 @@ Data: [virtuoso_family.ttl](https://github.com/idaks/DataONE-Prov-Summer-2017/bl
    - All the sample SPARQL queries are stored in the bash file "virtuoso_family_run_queries.sh". In order to run the file, open new shell in the terminal, run the following command line:
          
          sh virtuoso_family_run_queries.sh
+	 
+   - If you want to export the results to txt file, use the following command:
+                
+         sh virtuoso_family_run_queries.sh > family_queries_results.txt
+	
+   
 
