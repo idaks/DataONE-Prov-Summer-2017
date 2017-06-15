@@ -1,0 +1,1481 @@
+## filename: simulate_data_collection_wf_recon_v1.ttl
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+
+<simulate_data_collection#sample_spreadsheet_resource/001>
+    rdf:type                yw:Resource ;
+    rdfs:label              "cassette_q55_spreadsheet.csv" ;
+    yw:instantiates         <simulate_data_collection#sample_spreadsheet_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#sample_spreadsheet_resource/001/v1> .
+
+    <simulate_data_collection#sample_spreadsheet_resource/001/v1>
+        rdf:type               yw:URIVariable ;
+        yw:variableName        "cassette_id" ;
+        yw:variableValue       "q55" .
+
+<simulate_data_collection#calibration_image_resource/001>
+    rdf:type                yw:Resource ;
+    rdfs:label              "calibration.img" ;
+    yw:instantiates         <simulate_data_collection#calibration_image_channel> .
+
+<simulate_data_collection#run_log_resource/001>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/run_log.txt" ;
+    yw:instantiates         <simulate_data_collection#run_log_channel> .
+
+<simulate_data_collection#rejection_log_resource/001>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/rejected_samples.txt" ;
+    yw:instantiates         <simulate_data_collection#rejection_log_channel> .
+
+<simulate_data_collection#collection_log_resource/001>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/collected_images.csv" ;
+    yw:instantiates         <simulate_data_collection#collection_log_channel> .
+
+<simulate_data_collection#raw_image_resource/001>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_001.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/001/v1> ,
+                            <simulate_data_collection#raw_image_resource/001/v2> ,
+                            <simulate_data_collection#raw_image_resource/001/v3> ,
+                            <simulate_data_collection#raw_image_resource/001/v4> .
+
+    <simulate_data_collection#raw_image_resource/001/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/001/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/001/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/001/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "001" .
+
+<simulate_data_collection#raw_image_resource/002>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_002.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/002/v1> ,
+                            <simulate_data_collection#raw_image_resource/002/v2> ,
+                            <simulate_data_collection#raw_image_resource/002/v3> ,
+                            <simulate_data_collection#raw_image_resource/002/v4> .
+
+    <simulate_data_collection#raw_image_resource/002/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/002/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/002/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/002/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "002" .
+
+<simulate_data_collection#raw_image_resource/003>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_003.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/003/v1> ,
+                            <simulate_data_collection#raw_image_resource/003/v2> ,
+                            <simulate_data_collection#raw_image_resource/003/v3> ,
+                            <simulate_data_collection#raw_image_resource/003/v4> .
+
+    <simulate_data_collection#raw_image_resource/003/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/003/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/003/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/003/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "003" .
+
+<simulate_data_collection#raw_image_resource/004>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_004.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/004/v1> ,
+                            <simulate_data_collection#raw_image_resource/004/v2> ,
+                            <simulate_data_collection#raw_image_resource/004/v3> ,
+                            <simulate_data_collection#raw_image_resource/004/v4> .
+
+    <simulate_data_collection#raw_image_resource/004/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/004/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/004/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/004/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "004" .
+
+<simulate_data_collection#raw_image_resource/005>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_005.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/005/v1> ,
+                            <simulate_data_collection#raw_image_resource/005/v2> ,
+                            <simulate_data_collection#raw_image_resource/005/v3> ,
+                            <simulate_data_collection#raw_image_resource/005/v4> .
+
+    <simulate_data_collection#raw_image_resource/005/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/005/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/005/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/005/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "005" .
+
+<simulate_data_collection#raw_image_resource/006>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_006.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/006/v1> ,
+                            <simulate_data_collection#raw_image_resource/006/v2> ,
+                            <simulate_data_collection#raw_image_resource/006/v3> ,
+                            <simulate_data_collection#raw_image_resource/006/v4> .
+
+    <simulate_data_collection#raw_image_resource/006/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/006/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/006/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/006/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "006" .
+
+<simulate_data_collection#raw_image_resource/007>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_007.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/007/v1> ,
+                            <simulate_data_collection#raw_image_resource/007/v2> ,
+                            <simulate_data_collection#raw_image_resource/007/v3> ,
+                            <simulate_data_collection#raw_image_resource/007/v4> .
+
+    <simulate_data_collection#raw_image_resource/007/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/007/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/007/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/007/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "007" .
+
+<simulate_data_collection#raw_image_resource/008>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_008.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/008/v1> ,
+                            <simulate_data_collection#raw_image_resource/008/v2> ,
+                            <simulate_data_collection#raw_image_resource/008/v3> ,
+                            <simulate_data_collection#raw_image_resource/008/v4> .
+
+    <simulate_data_collection#raw_image_resource/008/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/008/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/008/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/008/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "008" .
+
+<simulate_data_collection#raw_image_resource/009>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_009.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/009/v1> ,
+                            <simulate_data_collection#raw_image_resource/009/v2> ,
+                            <simulate_data_collection#raw_image_resource/009/v3> ,
+                            <simulate_data_collection#raw_image_resource/009/v4> .
+
+    <simulate_data_collection#raw_image_resource/009/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/009/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/009/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/009/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "009" .
+
+<simulate_data_collection#raw_image_resource/010>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_010.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/010/v1> ,
+                            <simulate_data_collection#raw_image_resource/010/v2> ,
+                            <simulate_data_collection#raw_image_resource/010/v3> ,
+                            <simulate_data_collection#raw_image_resource/010/v4> .
+
+    <simulate_data_collection#raw_image_resource/010/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/010/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/010/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/010/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "010" .
+
+<simulate_data_collection#raw_image_resource/011>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_011.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/011/v1> ,
+                            <simulate_data_collection#raw_image_resource/011/v2> ,
+                            <simulate_data_collection#raw_image_resource/011/v3> ,
+                            <simulate_data_collection#raw_image_resource/011/v4> .
+
+    <simulate_data_collection#raw_image_resource/011/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/011/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/011/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/011/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "011" .
+
+<simulate_data_collection#raw_image_resource/012>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_012.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/012/v1> ,
+                            <simulate_data_collection#raw_image_resource/012/v2> ,
+                            <simulate_data_collection#raw_image_resource/012/v3> ,
+                            <simulate_data_collection#raw_image_resource/012/v4> .
+
+    <simulate_data_collection#raw_image_resource/012/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/012/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/012/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/012/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "012" .
+
+<simulate_data_collection#raw_image_resource/013>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_013.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/013/v1> ,
+                            <simulate_data_collection#raw_image_resource/013/v2> ,
+                            <simulate_data_collection#raw_image_resource/013/v3> ,
+                            <simulate_data_collection#raw_image_resource/013/v4> .
+
+    <simulate_data_collection#raw_image_resource/013/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/013/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/013/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/013/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "013" .
+
+<simulate_data_collection#raw_image_resource/014>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_014.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/014/v1> ,
+                            <simulate_data_collection#raw_image_resource/014/v2> ,
+                            <simulate_data_collection#raw_image_resource/014/v3> ,
+                            <simulate_data_collection#raw_image_resource/014/v4> .
+
+    <simulate_data_collection#raw_image_resource/014/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/014/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/014/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/014/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "014" .
+
+<simulate_data_collection#raw_image_resource/015>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_015.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/015/v1> ,
+                            <simulate_data_collection#raw_image_resource/015/v2> ,
+                            <simulate_data_collection#raw_image_resource/015/v3> ,
+                            <simulate_data_collection#raw_image_resource/015/v4> .
+
+    <simulate_data_collection#raw_image_resource/015/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/015/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/015/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/015/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "015" .
+
+<simulate_data_collection#raw_image_resource/016>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_016.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/016/v1> ,
+                            <simulate_data_collection#raw_image_resource/016/v2> ,
+                            <simulate_data_collection#raw_image_resource/016/v3> ,
+                            <simulate_data_collection#raw_image_resource/016/v4> .
+
+    <simulate_data_collection#raw_image_resource/016/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/016/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/016/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/016/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "016" .
+
+<simulate_data_collection#raw_image_resource/017>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_017.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/017/v1> ,
+                            <simulate_data_collection#raw_image_resource/017/v2> ,
+                            <simulate_data_collection#raw_image_resource/017/v3> ,
+                            <simulate_data_collection#raw_image_resource/017/v4> .
+
+    <simulate_data_collection#raw_image_resource/017/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/017/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/017/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/017/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "017" .
+
+<simulate_data_collection#raw_image_resource/018>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_018.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/018/v1> ,
+                            <simulate_data_collection#raw_image_resource/018/v2> ,
+                            <simulate_data_collection#raw_image_resource/018/v3> ,
+                            <simulate_data_collection#raw_image_resource/018/v4> .
+
+    <simulate_data_collection#raw_image_resource/018/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/018/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/018/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/018/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "018" .
+
+<simulate_data_collection#raw_image_resource/019>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_019.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/019/v1> ,
+                            <simulate_data_collection#raw_image_resource/019/v2> ,
+                            <simulate_data_collection#raw_image_resource/019/v3> ,
+                            <simulate_data_collection#raw_image_resource/019/v4> .
+
+    <simulate_data_collection#raw_image_resource/019/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/019/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/019/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/019/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "019" .
+
+<simulate_data_collection#raw_image_resource/020>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_020.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/020/v1> ,
+                            <simulate_data_collection#raw_image_resource/020/v2> ,
+                            <simulate_data_collection#raw_image_resource/020/v3> ,
+                            <simulate_data_collection#raw_image_resource/020/v4> .
+
+    <simulate_data_collection#raw_image_resource/020/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/020/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/020/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/020/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "020" .
+
+<simulate_data_collection#raw_image_resource/021>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_021.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/021/v1> ,
+                            <simulate_data_collection#raw_image_resource/021/v2> ,
+                            <simulate_data_collection#raw_image_resource/021/v3> ,
+                            <simulate_data_collection#raw_image_resource/021/v4> .
+
+    <simulate_data_collection#raw_image_resource/021/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/021/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/021/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/021/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "021" .
+
+<simulate_data_collection#raw_image_resource/022>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_022.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/022/v1> ,
+                            <simulate_data_collection#raw_image_resource/022/v2> ,
+                            <simulate_data_collection#raw_image_resource/022/v3> ,
+                            <simulate_data_collection#raw_image_resource/022/v4> .
+
+    <simulate_data_collection#raw_image_resource/022/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/022/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/022/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/022/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "022" .
+
+<simulate_data_collection#raw_image_resource/023>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_023.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/023/v1> ,
+                            <simulate_data_collection#raw_image_resource/023/v2> ,
+                            <simulate_data_collection#raw_image_resource/023/v3> ,
+                            <simulate_data_collection#raw_image_resource/023/v4> .
+
+    <simulate_data_collection#raw_image_resource/023/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/023/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/023/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/023/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "023" .
+
+<simulate_data_collection#raw_image_resource/024>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_024.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/024/v1> ,
+                            <simulate_data_collection#raw_image_resource/024/v2> ,
+                            <simulate_data_collection#raw_image_resource/024/v3> ,
+                            <simulate_data_collection#raw_image_resource/024/v4> .
+
+    <simulate_data_collection#raw_image_resource/024/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/024/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/024/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/024/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "024" .
+
+<simulate_data_collection#raw_image_resource/025>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_025.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/025/v1> ,
+                            <simulate_data_collection#raw_image_resource/025/v2> ,
+                            <simulate_data_collection#raw_image_resource/025/v3> ,
+                            <simulate_data_collection#raw_image_resource/025/v4> .
+
+    <simulate_data_collection#raw_image_resource/025/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/025/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/025/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/025/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "025" .
+
+<simulate_data_collection#raw_image_resource/026>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_026.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/026/v1> ,
+                            <simulate_data_collection#raw_image_resource/026/v2> ,
+                            <simulate_data_collection#raw_image_resource/026/v3> ,
+                            <simulate_data_collection#raw_image_resource/026/v4> .
+
+    <simulate_data_collection#raw_image_resource/026/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/026/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/026/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/026/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "026" .
+
+<simulate_data_collection#raw_image_resource/027>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_027.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/027/v1> ,
+                            <simulate_data_collection#raw_image_resource/027/v2> ,
+                            <simulate_data_collection#raw_image_resource/027/v3> ,
+                            <simulate_data_collection#raw_image_resource/027/v4> .
+
+    <simulate_data_collection#raw_image_resource/027/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/027/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/027/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/027/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "027" .
+
+<simulate_data_collection#raw_image_resource/028>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_028.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/028/v1> ,
+                            <simulate_data_collection#raw_image_resource/028/v2> ,
+                            <simulate_data_collection#raw_image_resource/028/v3> ,
+                            <simulate_data_collection#raw_image_resource/028/v4> .
+
+    <simulate_data_collection#raw_image_resource/028/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/028/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/028/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/028/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "028" .
+
+<simulate_data_collection#raw_image_resource/029>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_029.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/029/v1> ,
+                            <simulate_data_collection#raw_image_resource/029/v2> ,
+                            <simulate_data_collection#raw_image_resource/029/v3> ,
+                            <simulate_data_collection#raw_image_resource/029/v4> .
+
+    <simulate_data_collection#raw_image_resource/029/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/029/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/029/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/029/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "029" .
+
+<simulate_data_collection#raw_image_resource/030>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_030.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/030/v1> ,
+                            <simulate_data_collection#raw_image_resource/030/v2> ,
+                            <simulate_data_collection#raw_image_resource/030/v3> ,
+                            <simulate_data_collection#raw_image_resource/030/v4> .
+
+    <simulate_data_collection#raw_image_resource/030/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/030/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/030/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/030/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "030" .
+
+<simulate_data_collection#raw_image_resource/031>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_031.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/031/v1> ,
+                            <simulate_data_collection#raw_image_resource/031/v2> ,
+                            <simulate_data_collection#raw_image_resource/031/v3> ,
+                            <simulate_data_collection#raw_image_resource/031/v4> .
+
+    <simulate_data_collection#raw_image_resource/031/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/031/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/031/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/031/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "031" .
+
+<simulate_data_collection#raw_image_resource/032>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_032.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/032/v1> ,
+                            <simulate_data_collection#raw_image_resource/032/v2> ,
+                            <simulate_data_collection#raw_image_resource/032/v3> ,
+                            <simulate_data_collection#raw_image_resource/032/v4> .
+
+    <simulate_data_collection#raw_image_resource/032/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/032/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/032/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/032/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "032" .
+
+<simulate_data_collection#raw_image_resource/033>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_033.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/033/v1> ,
+                            <simulate_data_collection#raw_image_resource/033/v2> ,
+                            <simulate_data_collection#raw_image_resource/033/v3> ,
+                            <simulate_data_collection#raw_image_resource/033/v4> .
+
+    <simulate_data_collection#raw_image_resource/033/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/033/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/033/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/033/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "033" .
+
+<simulate_data_collection#raw_image_resource/034>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_034.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/034/v1> ,
+                            <simulate_data_collection#raw_image_resource/034/v2> ,
+                            <simulate_data_collection#raw_image_resource/034/v3> ,
+                            <simulate_data_collection#raw_image_resource/034/v4> .
+
+    <simulate_data_collection#raw_image_resource/034/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/034/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/034/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/034/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "034" .
+
+<simulate_data_collection#raw_image_resource/035>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_035.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/035/v1> ,
+                            <simulate_data_collection#raw_image_resource/035/v2> ,
+                            <simulate_data_collection#raw_image_resource/035/v3> ,
+                            <simulate_data_collection#raw_image_resource/035/v4> .
+
+    <simulate_data_collection#raw_image_resource/035/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/035/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/035/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/035/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "035" .
+
+<simulate_data_collection#raw_image_resource/036>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_036.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/036/v1> ,
+                            <simulate_data_collection#raw_image_resource/036/v2> ,
+                            <simulate_data_collection#raw_image_resource/036/v3> ,
+                            <simulate_data_collection#raw_image_resource/036/v4> .
+
+    <simulate_data_collection#raw_image_resource/036/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/036/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/036/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/036/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "036" .
+
+<simulate_data_collection#raw_image_resource/037>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_037.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/037/v1> ,
+                            <simulate_data_collection#raw_image_resource/037/v2> ,
+                            <simulate_data_collection#raw_image_resource/037/v3> ,
+                            <simulate_data_collection#raw_image_resource/037/v4> .
+
+    <simulate_data_collection#raw_image_resource/037/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/037/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/037/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/037/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "037" .
+
+<simulate_data_collection#raw_image_resource/038>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_038.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/038/v1> ,
+                            <simulate_data_collection#raw_image_resource/038/v2> ,
+                            <simulate_data_collection#raw_image_resource/038/v3> ,
+                            <simulate_data_collection#raw_image_resource/038/v4> .
+
+    <simulate_data_collection#raw_image_resource/038/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/038/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/038/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/038/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "038" .
+
+<simulate_data_collection#raw_image_resource/039>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_039.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/039/v1> ,
+                            <simulate_data_collection#raw_image_resource/039/v2> ,
+                            <simulate_data_collection#raw_image_resource/039/v3> ,
+                            <simulate_data_collection#raw_image_resource/039/v4> .
+
+    <simulate_data_collection#raw_image_resource/039/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/039/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/039/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/039/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "039" .
+
+<simulate_data_collection#raw_image_resource/040>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_040.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/040/v1> ,
+                            <simulate_data_collection#raw_image_resource/040/v2> ,
+                            <simulate_data_collection#raw_image_resource/040/v3> ,
+                            <simulate_data_collection#raw_image_resource/040/v4> .
+
+    <simulate_data_collection#raw_image_resource/040/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/040/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/040/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/040/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "040" .
+
+<simulate_data_collection#raw_image_resource/041>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_041.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/041/v1> ,
+                            <simulate_data_collection#raw_image_resource/041/v2> ,
+                            <simulate_data_collection#raw_image_resource/041/v3> ,
+                            <simulate_data_collection#raw_image_resource/041/v4> .
+
+    <simulate_data_collection#raw_image_resource/041/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/041/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/041/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/041/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "041" .
+
+<simulate_data_collection#raw_image_resource/042>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_042.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/042/v1> ,
+                            <simulate_data_collection#raw_image_resource/042/v2> ,
+                            <simulate_data_collection#raw_image_resource/042/v3> ,
+                            <simulate_data_collection#raw_image_resource/042/v4> .
+
+    <simulate_data_collection#raw_image_resource/042/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/042/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/042/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/042/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "042" .
+
+<simulate_data_collection#raw_image_resource/043>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_043.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/043/v1> ,
+                            <simulate_data_collection#raw_image_resource/043/v2> ,
+                            <simulate_data_collection#raw_image_resource/043/v3> ,
+                            <simulate_data_collection#raw_image_resource/043/v4> .
+
+    <simulate_data_collection#raw_image_resource/043/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/043/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/043/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/043/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "043" .
+
+<simulate_data_collection#raw_image_resource/044>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_044.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/044/v1> ,
+                            <simulate_data_collection#raw_image_resource/044/v2> ,
+                            <simulate_data_collection#raw_image_resource/044/v3> ,
+                            <simulate_data_collection#raw_image_resource/044/v4> .
+
+    <simulate_data_collection#raw_image_resource/044/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/044/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/044/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/044/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "044" .
+
+<simulate_data_collection#raw_image_resource/045>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_045.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/045/v1> ,
+                            <simulate_data_collection#raw_image_resource/045/v2> ,
+                            <simulate_data_collection#raw_image_resource/045/v3> ,
+                            <simulate_data_collection#raw_image_resource/045/v4> .
+
+    <simulate_data_collection#raw_image_resource/045/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/045/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/045/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/045/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "045" .
+
+<simulate_data_collection#raw_image_resource/046>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_046.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/046/v1> ,
+                            <simulate_data_collection#raw_image_resource/046/v2> ,
+                            <simulate_data_collection#raw_image_resource/046/v3> ,
+                            <simulate_data_collection#raw_image_resource/046/v4> .
+
+    <simulate_data_collection#raw_image_resource/046/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/046/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/046/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/046/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "046" .
+
+<simulate_data_collection#raw_image_resource/047>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e10000/image_047.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/047/v1> ,
+                            <simulate_data_collection#raw_image_resource/047/v2> ,
+                            <simulate_data_collection#raw_image_resource/047/v3> ,
+                            <simulate_data_collection#raw_image_resource/047/v4> .
+
+    <simulate_data_collection#raw_image_resource/047/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/047/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/047/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#raw_image_resource/047/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "047" .
+
+<simulate_data_collection#raw_image_resource/048>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/raw/q55/DRT240/e11000/image_001.raw" ;
+    yw:instantiates         <simulate_data_collection#raw_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/048/v1> ,
+                            <simulate_data_collection#raw_image_resource/048/v2> ,
+                            <simulate_data_collection#raw_image_resource/048/v3> ,
+                            <simulate_data_collection#raw_image_resource/048/v4> .
+
+    <simulate_data_collection#raw_image_resource/048/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/048/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240" .
+
+    <simulate_data_collection#raw_image_resource/048/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "11000" .
+
+    <simulate_data_collection#raw_image_resource/048/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "001" .
+
+
+#<simulate_data_collection#corrected_image_resource>
+
+<simulate_data_collection#corrected_image_resource/001>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/data/DRT240/DRT240_10000eV_001.img" ;
+    yw:instantiates         <simulate_data_collection#corrected_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#corrected_image_resource/001/v1> ,
+                            <simulate_data_collection#corrected_image_resource/001/v2> ,
+                            <simulate_data_collection#corrected_image_resource/001/v3> .
+
+    <simulate_data_collection#corrected_image_resource/001/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240".
+
+    <simulate_data_collection#corrected_image_resource/001/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "10000" .
+
+    <simulate_data_collection#corrected_image_resource/001/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "001" .
+
+<simulate_data_collection#corrected_image_resource/048>
+    rdf:type                yw:Resource ;
+    rdfs:label              "run/data/DRT240/DRT240_11000eV_001.img" ;
+    yw:instantiates         <simulate_data_collection#corrected_image_channel> ;
+    yw:hasURIVariable       <simulate_data_collection#corrected_image_resource/048/v1> ,
+                            <simulate_data_collection#corrected_image_resource/048/v2> ,
+                            <simulate_data_collection#corrected_image_resource/048/v3> .
+
+    <simulate_data_collection#corrected_image_resource/048/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT240".
+
+    <simulate_data_collection#corrected_image_resource/048/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "11000" .
+
+    <simulate_data_collection#corrected_image_resource/048/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "001" .
