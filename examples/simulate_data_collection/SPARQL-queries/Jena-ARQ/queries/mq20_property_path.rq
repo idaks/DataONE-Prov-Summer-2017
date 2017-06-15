@@ -1,0 +1,27 @@
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?raw_image_associated_channel_name
+WHERE
+{    
+      ?corrected_image_channel        rdf:type             p1:Channel ;
+                                      rdfs:label           "corrected_image";
+                                      yw:isAssociatedWith  ?correct_image_associated_channel.  
+      
+      ?correct_image_associated_channel    rdf:type             p1:Channel ;
+                                          rdfs:label           ?correct_image_associated_channel_name .
+
+      ?raw_image_channel             rdf:type        p1:Channel ;
+                                     rdfs:label     "raw_image";
+                                     yw:isAssociatedWith  ?raw_image_associated_channel.  
+      
+      ?raw_image_associated_channel    rdf:type             p1:Channel ;
+                                      rdfs:label            ?raw_image_associated_channel_name .
+
+  FILTER (?raw_image_associated_channel_name = ?correct_image_associated_channel_name)
+   
+} ORDER BY ?raw_image_associated_channel_name
