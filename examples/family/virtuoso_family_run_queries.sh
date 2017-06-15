@@ -6,9 +6,9 @@ echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/family/queries/query1.sparql
 
 echo ""
-echo Query 2:  Who are descendants of William? - Not included William"
+echo "Query 2:  Who are descendants of William? - Not included William"
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/family/queries/query2.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/family/queries/query1.sparql
 
 echo ""
 echo "Query 3:  Who are children of William? - Included William"
@@ -16,17 +16,17 @@ echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/family/queries/query3.sparql
 
 echo ""
-echo "Query 4 (one-level depth):  Who are children of William? - Not included William"
+echo "Query 4:  Who are children of William? - Not included William"
 echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/family/queries/query4.sparql
 
 echo ""
-echo "Query 5 (two-level depth):  Who are grand children of William? - Not included William"
+echo "Query 5:  Who are grand children of William? - Not included William"
 echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/family/queries/query5.sparql
 
 echo ""
-echo "Query 6 (two & three levels depth):  Who are grand children and grand grand children of William? - Not included William"
+echo "Query 6:  Who are grand children and grand grand children of William? - Not included William"
 echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/family/queries/query6.sparql
 
