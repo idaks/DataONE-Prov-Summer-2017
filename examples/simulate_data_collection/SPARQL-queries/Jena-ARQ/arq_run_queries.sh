@@ -116,19 +116,19 @@ echo ""
 echo "# Extra 6: CROSS RDF TURTLE FILES - Print all resources belong to raw_image data (channel)"
 echo ""
 arq --data simulate_data_collection_wf_model_v4.ttl                                                     \
-    --data simulate_data_collection_wf_recon.ttl                                                        \
+    --data simulate_data_collection_wf_recon_v1.ttl                                                        \
     --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/extra_mq6.rq
 
 echo ""
 echo "# Extra 7: CROSS RDF TURTLE FILES - Print all URI variables that associated with raw_image data via resources?"
 echo ""
 arq --data simulate_data_collection_wf_model_v4.ttl                                                     \
-    --data simulate_data_collection_wf_recon.ttl                                                        \
+    --data simulate_data_collection_wf_recon_v1.ttl                                                        \
     --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/extra_mq7.rq
 
 echo ""
 echo "# Extra 8: CROSS RDF FILES - Print all URI variables value that associated with raw_image data via resources?"
 echo ""
 arq --data simulate_data_collection_wf_model_v4.ttl                                                     \
-    --data simulate_data_collection_wf_recon.ttl                                                        \
+    --data simulate_data_collection_wf_recon_v1.ttl                                                        \
     --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/extra_mq8.rq
