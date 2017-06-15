@@ -12,7 +12,7 @@ frame_number                                                                    
 raw_image                                                                         Path of file storing the raw diffraction image.
 sample_id                                                                         The crystal that the diffraction image was collected from.
 
-4 Rows. -- 25 msec.
+4 Rows. -- 26 msec.
 
 Query 7: What program blocks provide input directly to simulate_data_collection.collect_data_set?
 
@@ -39,7 +39,7 @@ load_screening_results
 log_average_image_intensity
 log_rejected_sample
 
-4 Rows. -- 18 msec.
+4 Rows. -- 15 msec.
 
 Query 9: How many ports read data simulate_data_collection[frame_number]?
 
@@ -51,7 +51,7 @@ _______________________________________________________________________________
 
 2
 
-1 Rows. -- 14 msec.
+1 Rows. -- 12 msec.
 
 Query 10: How many data are read by more than port in workflow simulate_data_collection?
 
@@ -85,7 +85,7 @@ total_intensity                                                                 
 
 21 Rows. -- 4 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 11: What program blocks are immediately downstream of calculate_strategy?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -96,9 +96,9 @@ _______________________________________________________________________________
 collect_data_set
 log_rejected_sample
 
-2 Rows. -- 3 msec.
+2 Rows. -- 4 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 12: What program blocks are immediately upstream of transform_images?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -108,9 +108,9 @@ _______________________________________________________________________________
 
 collect_data_set
 
-1 Rows. -- 4 msec.
+1 Rows. -- 5 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 13: (UpstreamProgramName) - What program blocks are upstream of transform_images?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -124,7 +124,7 @@ load_screening_results
 
 3 Rows. -- 5 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 14: What program blocks are anywhere downstream of calculate_strategy?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -139,7 +139,7 @@ transform_images
 
 4 Rows. -- 4 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 15 (DownstreamDataName): What data is immediately downstream of raw_image?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -153,7 +153,7 @@ total_intensity
 
 3 Rows. -- 3 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 16 (UpstreamDataName): What data is immediately upstream of raw_image?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -168,7 +168,7 @@ num_images
 
 4 Rows. -- 4 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 17 (DownstreamDataName): What data is downstream of accepted_sample?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -181,9 +181,9 @@ corrected_image
 pixel_count
 total_intensity
 
-4 Rows. -- 5 msec.
+4 Rows. -- 4 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 18 (UpstreamDataName): What data is upstream of raw_image?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -201,9 +201,9 @@ sample_quality
 sample_score_cutoff
 sample_spreadsheet
 
-9 Rows. -- 5 msec.
+9 Rows. -- 7 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 19: What URI variables are associated with writes of data simulate_data_collection[corrected_image]
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -215,9 +215,9 @@ energy
 frame_number
 sample_id
 
-3 Rows. -- 3 msec.
+3 Rows. -- 2 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Query 20: What URI variables do data written to raw_image and corrected_image have in common?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -229,9 +229,9 @@ energy
 frame_number
 sample_id
 
-3 Rows. -- 6 msec.
+3 Rows. -- 5 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Extra 1:  What data is downstream 2 levels from energies ?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -246,7 +246,7 @@ total_intensity
 
 4 Rows. -- 5 msec.
 
-Query 10: How many data are read by more than port in workflow simulate_data_collection?
+Extra 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?
 
 Connected to OpenLink Virtuoso
 Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
@@ -257,4 +257,4 @@ _______________________________________________________________________________
 calculate_strategy
 load_screening_results
 
-2 Rows. -- 34 msec.
+2 Rows. -- 29 msec.
