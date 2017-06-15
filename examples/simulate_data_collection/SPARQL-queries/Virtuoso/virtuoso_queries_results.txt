@@ -258,3 +258,26 @@ calculate_strategy
 load_screening_results
 
 2 Rows. -- 29 msec.
+
+Extra 3: Print all programs and their descendant programs in the workflow.
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+Accestor_Program                                                                  Descendant_Programs
+LONG VARCHAR                                                                      LONG VARCHAR
+_______________________________________________________________________________
+
+calculate_strategy                                                                collect_data_set
+calculate_strategy                                                                transform_images
+calculate_strategy                                                                log_average_image_intensity
+calculate_strategy                                                                log_rejected_sample
+collect_data_set                                                                  transform_images
+collect_data_set                                                                  log_average_image_intensity
+load_screening_results                                                            collect_data_set
+load_screening_results                                                            log_rejected_sample
+load_screening_results                                                            transform_images
+load_screening_results                                                            calculate_strategy
+load_screening_results                                                            log_average_image_intensity
+transform_images                                                                  log_average_image_intensity
+
+12 Rows. -- 81 msec.
