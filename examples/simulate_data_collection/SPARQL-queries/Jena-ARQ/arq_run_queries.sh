@@ -98,3 +98,15 @@ echo "# Extra query 3: "
 echo ""
 arq --data simulate_data_collection_wf_model_v4.ttl                                                     \
     --query extra_mq3.rq     
+    
+echo ""
+echo "Extra 4: Print all parameter ports"
+echo ""
+arq --data simulate_data_collection_wf_model_v4.ttl                                                     \
+    --query extra_mq4.rq    
+
+echo ""
+echo "Extra 5: Print all input ports"
+echo ""
+arq --data simulate_data_collection_wf_model_v4.ttl                                                     \
+    --query extra_mq5.rq
