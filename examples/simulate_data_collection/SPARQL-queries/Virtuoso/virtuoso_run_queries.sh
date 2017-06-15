@@ -84,3 +84,8 @@ echo ""
 echo "Extra 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?"
 echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query2.sparql
+
+echo ""
+echo "Extra 3: Print all programs and their descendant programs in the workflow"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query3.sparql
