@@ -94,3 +94,24 @@ echo ""
 echo "Extra 4: Print all parameter ports"
 echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query4.sparql
+
+echo ""
+echo "Extra 5: Print all input ports"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query5.sparql
+
+echo ""
+echo "Extra 6: CROSS RDF TURTLE FILES - Print all resources belong to raw_image data (channel) "
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query6.sparql
+
+
+echo ""
+echo "Extra 7: CROSS RDF TURTLE FILES - Print all URI variables that associated with raw_image data via resources?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query7.sparql
+
+echo ""
+echo "Extra 8: CROSS RDF FILES - Print all URI variables value that associated with raw_image data via resources?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query8.sparql
