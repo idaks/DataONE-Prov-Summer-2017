@@ -17,6 +17,6 @@ WHERE
       ?down_channel    rdf:type           p1:Channel;
                        rdfs:label           ?down_channel_name .
 
-  FILTER (?channel_name = "raw_image")
+  FILTER (?channel_name = "accepted_sample")
    
 } ORDER BY ?down_channel_name;
