@@ -12,7 +12,7 @@ frame_number                                                                    
 raw_image                                                                         Path of file storing the raw diffraction image.
 sample_id                                                                         The crystal that the diffraction image was collected from.
 
-4 Rows. -- 71 msec.
+4 Rows. -- 32 msec.
 
 Query 7: What program blocks provide input directly to simulate_data_collection.collect_data_set?
 
@@ -24,7 +24,7 @@ _______________________________________________________________________________
 
 calculate_strategy
 
-1 Rows. -- 19 msec.
+1 Rows. -- 4 msec.
 
 Query 8: What programs have input ports that receive data simulate_data_collection[cassette_id]
 
@@ -39,7 +39,7 @@ load_screening_results
 log_average_image_intensity
 log_rejected_sample
 
-4 Rows. -- 15 msec.
+4 Rows. -- 16 msec.
 
 Query 9: How many ports read data simulate_data_collection[frame_number]?
 
@@ -83,7 +83,7 @@ sample_name                                                                     
 sample_score_cutoff                                                               2
 total_intensity                                                                   2
 
-21 Rows. -- 4 msec.
+21 Rows. -- 5 msec.
 
 Query 11: What program blocks are immediately downstream of calculate_strategy?
 
@@ -108,7 +108,7 @@ _______________________________________________________________________________
 
 collect_data_set
 
-1 Rows. -- 3 msec.
+1 Rows. -- 4 msec.
 
 Query 13: (UpstreamProgramName) - What program blocks are upstream of transform_images?
 
@@ -122,7 +122,7 @@ calculate_strategy
 collect_data_set
 load_screening_results
 
-3 Rows. -- 7 msec.
+3 Rows. -- 6 msec.
 
 Query 14: What program blocks are anywhere downstream of calculate_strategy?
 
@@ -151,7 +151,7 @@ pixel_count
 corrected_image
 total_intensity
 
-3 Rows. -- 4 msec.
+3 Rows. -- 3 msec.
 
 Query 16 (UpstreamDataName): What data is immediately upstream of raw_image?
 
@@ -166,7 +166,7 @@ cassette_id
 energies
 num_images
 
-4 Rows. -- 4 msec.
+4 Rows. -- 3 msec.
 
 Query 17 (DownstreamDataName): What data is downstream of accepted_sample?
 
@@ -219,7 +219,7 @@ energy
 frame_number
 sample_id
 
-3 Rows. -- 13 msec.
+3 Rows. -- 2 msec.
 
 Query 20: What URI variables do data written to raw_image and corrected_image have in common?
 
@@ -233,7 +233,7 @@ energy
 frame_number
 sample_id
 
-3 Rows. -- 7 msec.
+3 Rows. -- 6 msec.
 
 Extra 1:  What data is downstream 2 levels from energies ?
 
@@ -248,7 +248,7 @@ corrected_image
 pixel_count
 total_intensity
 
-4 Rows. -- 6 msec.
+4 Rows. -- 5 msec.
 
 Extra 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?
 
@@ -261,4 +261,27 @@ _______________________________________________________________________________
 calculate_strategy
 load_screening_results
 
-2 Rows. -- 41 msec.
+2 Rows. -- 35 msec.
+
+Extra 3: Print all programs and their descendant programs in the workflow
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+Accestor_Program                                                                  Descendant_Programs
+LONG VARCHAR                                                                      LONG VARCHAR
+_______________________________________________________________________________
+
+calculate_strategy                                                                collect_data_set
+calculate_strategy                                                                transform_images
+calculate_strategy                                                                log_average_image_intensity
+calculate_strategy                                                                log_rejected_sample
+collect_data_set                                                                  transform_images
+collect_data_set                                                                  log_average_image_intensity
+load_screening_results                                                            collect_data_set
+load_screening_results                                                            log_rejected_sample
+load_screening_results                                                            transform_images
+load_screening_results                                                            calculate_strategy
+load_screening_results                                                            log_average_image_intensity
+transform_images                                                                  log_average_image_intensity
+
+12 Rows. -- 7 msec.
