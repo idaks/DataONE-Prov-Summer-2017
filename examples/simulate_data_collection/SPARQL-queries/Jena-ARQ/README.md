@@ -26,5 +26,9 @@ To use the Jena tools from the command line, we need to set the `JENA_HOME` envi
    
 Please put the RDF facts Turtle file and the SPARQL files in the same folder. Then we can try the YW model query example on the local computer by typing the following in command line:
 
- `arq --data wf_model.ttl --query mq2.rq`.
-             
+ `arq --data simulate_data_collection_wf_model_v4.ttl --query mq10_property_path.rq`
+ 
+You can also query on multiple Turtle files by adding another data, such as the following example:
+ 
+ `arq --data simulate_data_collection_wf_model_v4.ttl --data simulate_data_collection_wf_recon_v1.ttl --query extra_mq6.rq`
+
