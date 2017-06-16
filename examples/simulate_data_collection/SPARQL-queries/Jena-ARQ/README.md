@@ -30,5 +30,9 @@ Please put the RDF facts Turtle file and the SPARQL files in the same folder. Th
  
 You can also query on multiple Turtle files by adding another data, such as the following example:
  
- `arq --data simulate_data_collection_wf_model_v4.ttl --data simulate_data_collection_wf_recon_v1.ttl --query extra_mq6.rq`
+ ```
+ arq --data simulate_data_collection_wf_model_v4.ttl 
+     --data simulate_data_collection_wf_recon_v1.ttl 
+     --query extra_mq6.rq
+ ```
 
