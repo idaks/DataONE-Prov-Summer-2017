@@ -1,6 +1,6 @@
 # YesWorkflow Data Model Vocabulary
 
-Table 1: YesWorkflow Conceptual Model
+**Table 1: YesWorkflow Conceptual Model**
 <table>
   <tr>
     <th>Class (Subject)</th><th></th><th>Predicate</th><th>Object</th><th>Comment</th>
