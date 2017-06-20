@@ -150,3 +150,6 @@
     <td>yw:variableValue</td><td>n/a</td>
   </tr>
 </table>
+
+**Figure 1: YesWorkflow UML Model**
+![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/YesWorkflow_UML.png)
