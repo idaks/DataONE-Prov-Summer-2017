@@ -120,33 +120,33 @@
     <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
   </tr>
   <tr>
-    <td rowspan="4">yw:Port</td><td rowspan="4">p1:Port</td><td>yw:portType</td><td>null</td>
+    <td rowspan="4">yw:Port</td><td rowspan="4">p1:Port</td><td>yw:portType</td><td>n/a</td>
   </tr>
   <tr>
     <td>yw:connectsTo</td><td>p1:connectsTo</td>
   </tr>
   <tr>
-    <td>yw:filePathTemplate</td><td>null</td>
+    <td>yw:filePathTemplate</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:hasVariableSource</td><td>null</td>
+    <td>yw:hasVariableSource</td><td>n/a</td>
   </tr>
   <tr>
     <td>yw:Data</td><td>p1:Channel</td><td></td><td></td>
   </tr>
   <tr>
-    <td rowspan="3">yw:Resource</td><td rowspan="3">null</td><td>yw:actualFilePath</td><td>null</td>
+    <td rowspan="3">yw:Resource</td><td rowspan="3">n/a</td><td>yw:actualFilePath</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:isGeneratedBy</td><td>null</td>
+    <td>yw:isGeneratedBy</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:hasURIVariable</td><td>null</td>
+    <td>yw:hasURIVariable</td><td>n/a</td>
   </tr>
   <tr>
-    <td rowspan="2">yw:URIVariable</td><td rowspan="2">null</td><td>yw:variableName</td><td>null</td>
+    <td rowspan="2">yw:URIVariable</td><td rowspan="2">n/a</td><td>yw:variableName</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:variableValue</td><td>null</td>
+    <td>yw:variableValue</td><td>n/a</td>
   </tr>
 </table>
