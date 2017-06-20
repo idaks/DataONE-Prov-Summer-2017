@@ -57,7 +57,7 @@
     <th rowspan="2">Association Attribute</th><td>yw:connectsTo</td><td>yw:Data</td><td>Data that the port connects to</td>
   </tr>
   <tr>
-    <td>(yw:filePathVariableSource)</td><td>(yw:Data)</td><td>Optional attribute: Data (variables) that current URI template (contains “{}”) includes</td>
+    <td>(yw:hasVariableSource)</td><td>(yw:Data)</td><td>Optional attribute: Data (variables) that current URI template (contains “{}”) includes</td>
   </tr>
   <tr>
     <td rowspan="3">yw:Data</td><th rowspan="3">Self Attribute</th><td>rdf:type</td><td>"yw:Data"</td><td>Declare the type of the entity: Data</td>
@@ -88,5 +88,64 @@
   </tr>
   <tr>
     <td>yw:variableValue</td><td>""</td><td>Value of the variable in the actual file path of current resource</td>
+  </tr>
+</table>
+
+
+**Table 2: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
+<table>
+  <tr>
+    <th colspan="2">Class</th><th colspan="2">Attribute</th>
+  </tr>
+  <tr>
+    <th>YesWorkflow</th><th>ProvONE</th><th>YesWorkflow</th><th>ProvONE</th>
+  </tr>
+  <tr>
+    <td rowspan="3">yw:Block</td><td rowspan="3">p1:Block</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
+  </tr>
+  <tr>
+    <td>yw:hasInPort</td><td>p1:hasInPort</td>
+  </tr>
+  <tr>
+    <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
+  </tr>
+  <tr>
+    <td rowspan="3">yw:Workflow</td><td rowspan="3">p1:Workflow</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
+  </tr>
+  <tr>
+    <td>yw:hasInPort</td><td>p1:hasInPort</td>
+  </tr>
+  <tr>
+    <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
+  </tr>
+  <tr>
+    <td rowspan="4">yw:Port</td><td rowspan="4">p1:Port</td><td>yw:portType</td><td>null</td>
+  </tr>
+  <tr>
+    <td>yw:connectsTo</td><td>p1:connectsTo</td>
+  </tr>
+  <tr>
+    <td>yw:filePathTemplate</td><td>null</td>
+  </tr>
+  <tr>
+    <td>yw:hasVariableSource</td><td>null</td>
+  </tr>
+  <tr>
+    <td>yw:Data</td><td>p1:Channel</td>
+  </tr>
+  <tr>
+    <td rowspan="3">yw:Resource</td><td rowspan="3">null</td><td>yw:actualFilePath</td><td>null</td>
+  </tr>
+  <tr>
+    <td>yw:isGeneratedBy</td><td>null</td>
+  </tr>
+  <tr>
+    <td>yw:hasURIVariable</td><td>null</td>
+  </tr>
+  <tr>
+    <td rowspan="2">yw:URIVariable</td><td rowspan="2">null</td><td>yw:variableName</td><td>null</td>
+  </tr>
+  <tr>
+    <td>yw:variableValue</td><td>null</td>
   </tr>
 </table>
