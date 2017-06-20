@@ -102,7 +102,7 @@
     <th>YesWorkflow</th><th>ProvONE</th><th>YesWorkflow</th><th>ProvONE</th>
   </tr>
   <tr>
-    <td rowspan="3">yw:Block</td><td rowspan="3">p1:Block</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
+    <td rowspan="3">yw:Block</td><td rowspan="3">p1:Program</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
   </tr>
   <tr>
     <td>yw:hasInPort</td><td>p1:hasInPort</td>
