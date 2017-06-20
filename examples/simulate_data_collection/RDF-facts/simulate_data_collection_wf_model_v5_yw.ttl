@@ -1,0 +1,577 @@
+## filename: simulate_data_collection_wf_model_v5_yw.ttl
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+
+#####  Channels  #####
+
+<simulate_data_collection#cassette_id_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "cassette_id" ;
+    rdfs:comment                "The unique ID of the cassette containing the crystals." .
+
+<simulate_data_collection#sample_score_cutoff_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "sample_score_cutoff" ;
+    rdfs:comment                "The minimum quality score required of crystals." .
+
+<simulate_data_collection#data_redundancy_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "data_redundancy" ;
+    rdfs:comment                "The desired redundancy of the data sets collected." .
+
+<simulate_data_collection#sample_spreadsheet_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "sample_spreadsheet" ;
+    rdfs:comment                "CSV file giving quality score for each crystal." .
+
+<simulate_data_collection#calibration_image_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "calibration_image" ;
+    rdfs:comment                "File used to correct raw diffraction images." .
+
+<simulate_data_collection#run_log_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "run_log" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#sample_name_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "sample_name" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#sample_quality_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "sample_quality" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#rejected_sample_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "rejected_sample" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#accepted_sample_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "accepted_sample" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#num_images_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "num_images" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#energies_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "energies" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#rejection_log_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "rejection_log" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#frame_number_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "frame_number" ;
+    rdfs:comment                "Index of diffraction image within data set." .
+
+<simulate_data_collection#sample_id_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "sample_id" ;
+    rdfs:comment                "The crystal that the diffraction image was collected from." .
+
+<simulate_data_collection#energy_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "energy" ;
+    rdfs:comment                "Energy (in eV) at which the diffraction image was collected." .
+
+<simulate_data_collection#raw_image_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "raw_image" ;
+    rdfs:comment                "Path of file storing the raw diffraction image." .
+
+<simulate_data_collection#corrected_image_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "corrected_image" ;
+    rdfs:comment                "The corrected diffraction images collected on all crystals." .
+
+<simulate_data_collection#total_intensity_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "total_intensity" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#pixel_count_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "pixel_count" ;
+    rdfs:comment                "" .
+
+<simulate_data_collection#collection_log_channel>
+    rdf:type                    yw:Data ;
+    rdfs:label                  "collection_log" ;
+    rdfs:comment                "" .
+
+#####################################################################################################################################
+#      simulate_data_collection                                                                                                     #
+#####################################################################################################################################
+<simulate_data_collection>
+    rdf:type            yw:Workflow ;
+    rdfs:label          "simulate_data_collection" ;
+    rdfs:comment        "Workflow for collecting diffraction data from high quality crystals in a cassette." ;
+    yw:hasInPort        <simulate_data_collection#cassette_id_port> ,
+                        <simulate_data_collection#sample_score_cutoff_port> ,
+                        <simulate_data_collection#sample_spreadsheet_port> ,
+						<simulate_data_collection#data_redundancy_port> ,
+                        <simulate_data_collection#calibration_image_port> ;
+    yw:hasOutPort       <simulate_data_collection#corrected_image_port> ,
+                        <simulate_data_collection#run_log_port> ,
+                        <simulate_data_collection#collection_log_port> ,
+                        <simulate_data_collection#rejection_log_port> ;
+    yw:hasSubBlock      <simulate_data_collection/initialize_run> ,
+                        <simulate_data_collection/load_screening_results> ,
+                        <simulate_data_collection/calculate_strategy> ,
+                        <simulate_data_collection/log_rejected_sample> ,
+                        <simulate_data_collection/collect_data_set> ,
+                        <simulate_data_collection/transform_images> ,
+                        <simulate_data_collection/log_average_image_intensity>.
+
+#####  Port  #####
+
+<simulate_data_collection#cassette_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "cassette_id" ;
+    yw:connectsTo               <simulate_data_collection#cassette_id_channel> .
+
+<simulate_data_collection#sample_score_cutoff_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "sample_score_cutoff" ;
+    yw:connectsTo               <simulate_data_collection#sample_score_cutoff_channel> .
+
+<simulate_data_collection#sample_spreadsheet_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "in" ;
+    rdfs:label                  "sample_spreadsheet" ;
+    yw:connectsTo               <simulate_data_collection#sample_spreadsheet_channel> .
+
+<simulate_data_collection#data_redundancy_port>
+	rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "data_redundancy" ;
+    yw:connectsTo               <simulate_data_collection#data_redundancy_channel> .
+
+<simulate_data_collection#calibration_image_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "in" ;
+    rdfs:label                  "calibration_image" ;
+    yw:connectsTo               <simulate_data_collection#calibration_image_channel> .
+
+<simulate_data_collection#corrected_image_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "corrected_image" ;
+    yw:connectsTo               <simulate_data_collection#corrected_image_channel> .
+
+<simulate_data_collection#run_log_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "run_log" ;
+    yw:connectsTo               <simulate_data_collection#run_log_channel> .
+
+<simulate_data_collection#collection_log_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "collection_log" ;
+    yw:connectsTo               <simulate_data_collection#collection_log_channel> .
+
+<simulate_data_collection#rejection_log_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "rejection_log" ;
+    yw:connectsTo               <simulate_data_collection#rejection_log_channel> .
+
+#####################################################################################################################################
+#   simulate_data_collection                                                                                                        #
+#       initialize_run                                                                                                              #
+#####################################################################################################################################
+<simulate_data_collection/initialize_run>
+    rdf:type            yw:Block ;
+    rdfs:label          "initialize_run" ;
+    rdfs:comment        "Create run directory and initialize log files." ;
+    yw:hasOutPort       <simulate_data_collection/initialize_run#run_log_port> .
+
+##### Port #####
+
+<simulate_data_collection/initialize_run#run_log_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "run_log" ;
+    yw:connectsTo               <simulate_data_collection#run_log_channel> ;
+    yw:filePathTemplate         "file:run/run_log.txt" .
+
+#####################################################################################################################################
+#   simulate_data_collection                                                                                                        #
+#       load_screening_results                                                                                                      #
+#####################################################################################################################################
+<simulate_data_collection/load_screening_results>
+    rdf:type            yw:Block ;
+    rdfs:label          "load_screening_results" ;
+    rdfs:comment        "Load sample information from spreadsheet." ;
+    yw:hasInPort        <simulate_data_collection/load_screening_results#cassette_id_port> ,
+                        <simulate_data_collection/load_screening_results#sample_spreadsheet_port>  ;
+    yw:hasOutPort       <simulate_data_collection/load_screening_results#sample_name_port> ,
+                        <simulate_data_collection/load_screening_results#sample_quality_port> .
+
+##### Port #####
+
+<simulate_data_collection/load_screening_results#cassette_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "cassette_id" ;
+    yw:connectsTo               <simulate_data_collection#cassette_id_channel> .
+
+<simulate_data_collection/load_screening_results#sample_spreadsheet_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "in" ;
+    rdfs:label                  "sample_spreadsheet_file" ;
+    yw:connectsTo               <simulate_data_collection#sample_spreadsheet_channel> ;
+    yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;
+    yw:hasVariableSource        <simulate_data_collection#cassette_id_channel> .
+
+<simulate_data_collection/load_screening_results#sample_name_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "sample_name" ;
+    yw:connectsTo               <simulate_data_collection#sample_name_channel> .
+
+<simulate_data_collection/load_screening_results#sample_quality_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "sample_quality" ;
+    yw:connectsTo               <simulate_data_collection#sample_quality_channel> .
+
+#####################################################################################################################################
+#   simulate_data_collection                                                                                                        #
+#       calculate_strategy                                                                                                          #
+#####################################################################################################################################
+<simulate_data_collection/calculate_strategy>
+    rdf:type            yw:Block ;
+    rdfs:label          "calculate_strategy" ;
+    rdfs:comment        "Reject unsuitable crystals and compute \n best data set to collect for accepted crystals." ;
+    yw:hasInPort        <simulate_data_collection/calculate_strategy#sample_score_cutoff_port> ,
+                        <simulate_data_collection/calculate_strategy#sample_name_port> ,
+						<simulate_data_collection/calculate_strategy#data_redundancy_port> ,
+                        <simulate_data_collection/calculate_strategy#sample_quality_port> ;
+	yw:hasOutPort       <simulate_data_collection/calculate_strategy#rejected_sample_port> ,
+                        <simulate_data_collection/calculate_strategy#energies_port> ,
+						<simulate_data_collection/calculate_strategy#accepted_sample_port> ,
+						<simulate_data_collection/calculate_strategy#num_images_port> .
+
+##### Port #####
+
+<simulate_data_collection/calculate_strategy#sample_name_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "sample_name" ;
+    yw:connectsTo               <simulate_data_collection#sample_name_channel> .
+
+<simulate_data_collection/calculate_strategy#sample_score_cutoff_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "sample_score_cutoff" ;
+    yw:connectsTo               <simulate_data_collection#sample_score_cutoff_channel> .
+
+<simulate_data_collection/calculate_strategy#sample_quality_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "sample_quality" ;
+    yw:connectsTo               <simulate_data_collection#sample_quality_channel> .
+
+<simulate_data_collection/calculate_strategy#data_redundancy_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "data_redundancy" ;
+    yw:connectsTo               <simulate_data_collection#data_redundancy_channel> .
+
+<simulate_data_collection/calculate_strategy#rejected_sample_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "rejected_sample" ;
+    yw:connectsTo               <simulate_data_collection#rejected_sample_channel> .
+
+<simulate_data_collection/calculate_strategy#energies_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "energies" ;
+    yw:connectsTo               <simulate_data_collection#energies_channel> .
+
+<simulate_data_collection/calculate_strategy#accepted_sample_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "accepted_sample" ;
+    yw:connectsTo               <simulate_data_collection#accepted_sample_channel> .
+
+<simulate_data_collection/calculate_strategy#num_images_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "num_images" ;
+    yw:connectsTo               <simulate_data_collection#num_images_channel> .
+	
+#####################################################################################################################################
+#   simulate_data_collection                                                                                                        #
+#       log_rejected_sample                                                                                                         #
+#####################################################################################################################################
+<simulate_data_collection/log_rejected_sample>
+    rdf:type            yw:Block ;
+    rdfs:label          "log_rejected_sample" ;
+    rdfs:comment        "Record which samples were rejected." ;
+    yw:hasInPort        <simulate_data_collection/log_rejected_sample#cassette_id_port> ,
+                        <simulate_data_collection/log_rejected_sample#rejected_sample_port> ;
+    yw:hasOutPort       <simulate_data_collection/log_rejected_sample#rejection_log_port> .
+
+##### Port #####
+
+<simulate_data_collection/log_rejected_sample#cassette_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "cassette_id" ;
+    yw:connectsTo               <simulate_data_collection#cassette_id_channel> .
+
+<simulate_data_collection/log_rejected_sample#rejected_sample_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "rejected_sample" ;
+    yw:connectsTo               <simulate_data_collection#rejected_sample_channel> .
+
+<simulate_data_collection/log_rejected_sample#rejection_log_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "rejection_log" ;
+    yw:connectsTo               <simulate_data_collection#rejection_log_channel> ;
+    yw:filePathTemplate         "file:run/rejected_samples.txt" .
+
+#####################################################################################################################################
+#   simulate_data_collection                                                                                                        #
+#       collect_data_set                                                                                                            #
+#####################################################################################################################################
+<simulate_data_collection/collect_data_set>
+    rdf:type            yw:Block ;
+    rdfs:label          "collect_data_set" ;
+    rdfs:comment        "Collect data set using the given data collection parameters." ;
+    yw:hasInPort        <simulate_data_collection/collect_data_set#cassette_id_port> ,
+						<simulate_data_collection/collect_data_set#energies_port> ,
+                        <simulate_data_collection/collect_data_set#accepted_sample_port> ,
+						<simulate_data_collection/collect_data_set#num_images_port> ;
+    yw:hasOutPort       <simulate_data_collection/collect_data_set#frame_number_port> ,
+						<simulate_data_collection/collect_data_set#sample_id_port> ,
+						<simulate_data_collection/collect_data_set#energy_port> ,
+						<simulate_data_collection/collect_data_set#raw_image_port> .
+
+##### Port #####
+
+<simulate_data_collection/collect_data_set#cassette_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "cassette_id" ;
+    yw:connectsTo               <simulate_data_collection#cassette_id_channel> .
+
+<simulate_data_collection/collect_data_set#energies_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "energies" ;
+    yw:connectsTo               <simulate_data_collection#energies_channel> .
+
+<simulate_data_collection/collect_data_set#accepted_sample_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "accepted_sample" ;
+    yw:connectsTo               <simulate_data_collection#accepted_sample_channel> .
+
+<simulate_data_collection/collect_data_set#num_images_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "num_images" ;
+    yw:connectsTo               <simulate_data_collection#num_images_channel> .
+
+<simulate_data_collection/collect_data_set#frame_number_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "frame_number" ;
+    yw:connectsTo               <simulate_data_collection#frame_number_channel> .
+
+<simulate_data_collection/collect_data_set#sample_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "sample_id" ;
+    yw:connectsTo               <simulate_data_collection#sample_id_channel> .
+
+<simulate_data_collection/collect_data_set#energy_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "energy" ;
+    yw:connectsTo               <simulate_data_collection#energy_channel> .
+
+<simulate_data_collection/collect_data_set#raw_image_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "raw_image_file" ;
+    yw:connectsTo               <simulate_data_collection#raw_image_channel> ;
+    yw:filePathTemplate         "file:run/raw/{cassette_id}/{sample_id}/e{energy}/image_{frame_number}.raw" ;
+    yw:hasVariableSource        <simulate_data_collection#cassette_id_channel> ,
+                                <simulate_data_collection#sample_id_channel> ,
+                                <simulate_data_collection#energy_channel> ,
+                                <simulate_data_collection#frame_number_channel> .
+
+#####################################################################################################################################
+#   simulate_data_collection                                                                                                        #
+#       transform_images                                                                                                            #
+#####################################################################################################################################
+<simulate_data_collection/transform_images>
+    rdf:type            yw:Block ;
+    rdfs:label          "transform_images" ;
+	rdfs:comment		"Correct raw image using the detector calibration image." ;
+    yw:hasInPort        <simulate_data_collection/transform_images#frame_number_port> ,
+						<simulate_data_collection/transform_images#sample_id_port> ,
+						<simulate_data_collection/transform_images#energy_port> ,
+						<simulate_data_collection/transform_images#raw_image_port> ,
+						<simulate_data_collection/transform_images#calibration_image_port> ;
+    yw:hasOutPort       <simulate_data_collection/transform_images#pixel_count_port> ,
+						<simulate_data_collection/transform_images#total_intensity_port> ,
+						<simulate_data_collection/transform_images#corrected_image_port> .
+
+##### Port #####
+
+<simulate_data_collection/transform_images#frame_number_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "frame_number" ;
+    yw:connectsTo               <simulate_data_collection#frame_number_channel> .
+
+<simulate_data_collection/transform_images#sample_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "sample_id" ;
+    yw:connectsTo               <simulate_data_collection#sample_id_channel> .
+
+<simulate_data_collection/transform_images#energy_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "energy" ;
+    yw:connectsTo               <simulate_data_collection#energy_channel> .
+
+<simulate_data_collection/transform_images#raw_image_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "in" ;
+    rdfs:label                  "raw_image_file" ;
+    yw:connectsTo               <simulate_data_collection#raw_image_channel> .
+
+<simulate_data_collection/transform_images#calibration_image_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "in" ;
+    rdfs:label                  "calibration_image_file" ;
+    yw:connectsTo               <simulate_data_collection#calibration_image_channel> ;
+    yw:filePathTemplate         "file:calibration.img" .
+
+<simulate_data_collection/transform_images#pixel_count_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "pixel_count" ;
+    yw:connectsTo               <simulate_data_collection#pixel_count_channel> .
+
+<simulate_data_collection/transform_images#total_intensity_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "total_intensity" ;
+    yw:connectsTo               <simulate_data_collection#total_intensity_channel> .	
+
+<simulate_data_collection/transform_images#corrected_image_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "corrected_image_file" ;
+    yw:connectsTo               <simulate_data_collection#corrected_image_channel> ;
+    yw:filePathTemplate         "file:run/data/{sample_id}/{sample_id}_{energy}eV_{frame_number}.img" ;
+    yw:hasVariableSource        <simulate_data_collection#sample_id_channel> ,
+                                <simulate_data_collection#energy_channel> ,
+                                <simulate_data_collection#frame_number_channel> .
+	
+#####################################################################################################################################
+#   simulate_data_collection                                                                                                        #
+#       log_average_image_intensity                                                                                                 #
+#####################################################################################################################################
+<simulate_data_collection/log_average_image_intensity>
+    rdf:type            yw:Block ;
+    rdfs:label          "log_average_image_intensity" ;
+	rdfs:comment		"Record statistics about each diffraction image." ;
+	yw:hasInPort		<simulate_data_collection/log_average_image_intensity#cassette_id_port> ,
+						<simulate_data_collection/log_average_image_intensity#frame_number_port> ,
+						<simulate_data_collection/log_average_image_intensity#sample_id_port> ,
+						<simulate_data_collection/log_average_image_intensity#total_intensity_port> ,
+						<simulate_data_collection/log_average_image_intensity#pixel_count_port> ,
+						<simulate_data_collection/log_average_image_intensity#corrected_image_port> ;
+	yw:hasOutPort		<simulate_data_collection/log_average_image_intensity#collection_log_port> .
+
+##### Port #####
+
+<simulate_data_collection/log_average_image_intensity#cassette_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "cassette_id" ;
+    yw:connectsTo               <simulate_data_collection#cassette_id_channel> .
+
+<simulate_data_collection/log_average_image_intensity#frame_number_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "frame_number" ;
+    yw:connectsTo               <simulate_data_collection#frame_number_channel> .
+
+<simulate_data_collection/log_average_image_intensity#sample_id_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "sample_id" ;
+    yw:connectsTo               <simulate_data_collection#sample_id_channel> .	
+
+<simulate_data_collection/log_average_image_intensity#total_intensity_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "total_intensity" ;
+    yw:connectsTo               <simulate_data_collection#total_intensity_channel> .
+
+<simulate_data_collection/log_average_image_intensity#pixel_count_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "param" ;
+    rdfs:label                  "pixel_count" ;
+    yw:connectsTo               <simulate_data_collection#pixel_count_channel> .	
+
+<simulate_data_collection/log_average_image_intensity#corrected_image_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "in" ;
+    rdfs:label                  "corrected_image_file" ;
+    yw:connectsTo               <simulate_data_collection#corrected_image_channel> .	
+
+<simulate_data_collection/log_average_image_intensity#collection_log_port>
+    rdf:type                    yw:Port ;
+    yw:portType                 "out" ;
+    rdfs:label                  "collection_log" ;
+    yw:connectsTo               <simulate_data_collection#collection_log_channel> ;
+    yw:filePathTemplate         "file:run/collected_images.csv" .
+		
+#####################################################################################################################################
+#   collect_next_image                                                                                                              #
+#####################################################################################################################################
+<collect_next_image>
+    rdf:type            yw:Block ;
+    rdf:type            yw:Function ;
+    rdfs:label          "collect_next_image" .
+
+#####################################################################################################################################
+#   transform_image                                                                                                                 #
+#####################################################################################################################################
+<transform_image>
+    rdf:type            yw:Block ;
+    rdf:type            yw:Function ;
+    rdfs:label          "transform_image" .
