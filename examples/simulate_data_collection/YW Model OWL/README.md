@@ -91,6 +91,7 @@
   </tr>
 </table>
 
+<br>
 
 **Table 2: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
 <table>
@@ -131,7 +132,7 @@
     <td>yw:hasVariableSource</td><td>null</td>
   </tr>
   <tr>
-    <td>yw:Data</td><td>p1:Channel</td>
+    <td>yw:Data</td><td>p1:Channel</td><td></td><td></td>
   </tr>
   <tr>
     <td rowspan="3">yw:Resource</td><td rowspan="3">null</td><td>yw:actualFilePath</td><td>null</td>
