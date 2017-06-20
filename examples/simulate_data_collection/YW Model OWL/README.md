@@ -1,6 +1,7 @@
 # YesWorkflow Data Model Vocabulary
 
 **Table 1: YesWorkflow Conceptual Model**
+<center>
 <table>
   <tr>
     <th>Class (Subject)</th><th></th><th>Predicate</th><th>Object</th><th>Comment</th>
@@ -90,10 +91,12 @@
     <td>yw:variableValue</td><td>""</td><td>Value of the variable in the actual file path of current resource</td>
   </tr>
 </table>
+</center>
 
 <br>
 
 **Table 2: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
+<center>
 <table>
   <tr>
     <th colspan="2">Class</th><th colspan="2">Attribute</th>
@@ -150,3 +153,4 @@
     <td>yw:variableValue</td><td>n/a</td>
   </tr>
 </table>
+</center>
