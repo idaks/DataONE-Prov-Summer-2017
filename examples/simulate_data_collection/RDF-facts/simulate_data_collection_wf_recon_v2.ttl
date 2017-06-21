@@ -8055,28 +8055,28 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
         yw:variableName         "frame_number" ;
         yw:variableValue        "001" .
 
-<simulate_data_collection#corrected_image_resource/096>
-    rdf:type                yw:Resource ;
-    yw:actualFilePath       "run/data/DRT240/DRT240_12000eV_002.img" ;
-    yw:isGeneratedBy        <simulate_data_collection/transform_images#corrected_image_port> ;
-    yw:hasURIVariable       <simulate_data_collection#corrected_image_resource/096/v1> ,
-                            <simulate_data_collection#corrected_image_resource/096/v2> ,
-                            <simulate_data_collection#corrected_image_resource/096/v3> .
-
-    <simulate_data_collection#corrected_image_resource/096/v1>
-        rdf:type                yw:URIVariable ;
-        yw:variableName         "sample_id" ;
-        yw:variableValue        "DRT240".
-
-    <simulate_data_collection#corrected_image_resource/096/v2>
-        rdf:type                yw:URIVariable ;
-        yw:variableName         "energy" ;
-        yw:variableValue        "12000" .
-
-    <simulate_data_collection#corrected_image_resource/096/v3>
-        rdf:type                yw:URIVariable ;
-        yw:variableName         "frame_number" ;
-        yw:variableValue        "002" .
+#<simulate_data_collection#corrected_image_resource/096>
+#    rdf:type                yw:Resource ;
+#    yw:actualFilePath       "run/data/DRT240/DRT240_12000eV_002.img" ;
+#    yw:isGeneratedBy        <simulate_data_collection/transform_images#corrected_image_port> ;
+#    yw:hasURIVariable       <simulate_data_collection#corrected_image_resource/096/v1> ,
+#                            <simulate_data_collection#corrected_image_resource/096/v2> ,
+#                            <simulate_data_collection#corrected_image_resource/096/v3> .
+#
+#    <simulate_data_collection#corrected_image_resource/096/v1>
+#        rdf:type                yw:URIVariable ;
+#        yw:variableName         "sample_id" ;
+#        yw:variableValue        "DRT240".
+#
+#    <simulate_data_collection#corrected_image_resource/096/v2>
+#        rdf:type                yw:URIVariable ;
+#        yw:variableName         "energy" ;
+#        yw:variableValue        "12000" .
+#
+#    <simulate_data_collection#corrected_image_resource/096/v3>
+#        rdf:type                yw:URIVariable ;
+#        yw:variableName         "frame_number" ;
+#        yw:variableValue        "002" .
 
 <simulate_data_collection#corrected_image_resource/097>
     rdf:type                yw:Resource ;
