@@ -123,7 +123,7 @@
     <td rowspan="4">yw:Port</td><td rowspan="4">p1:Port</td><td>yw:portType</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:connectsTo</td><td>p1:connectsTo</td>
+    <td>yw:connectsTo</td><td>n/a</td>
   </tr>
   <tr>
     <td>yw:filePathTemplate</td><td>n/a</td>
@@ -132,7 +132,7 @@
     <td>yw:hasVariableSource</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:Data</td><td>p1:Channel</td><td></td><td></td>
+    <td>yw:Data</td><td>n/a</td><td></td><td></td>
   </tr>
   <tr>
     <td rowspan="3">yw:Resource</td><td rowspan="3">n/a</td><td>yw:actualFilePath</td><td>n/a</td>
