@@ -157,7 +157,7 @@ The following is a list of SPARQL queries that can be implemented based on YW RD
     <td>cq06: What are the downstream resources from "raw_image" data?</td><td></td>
   </tr>
   <tr>
-    <td>cq07: What are the downstream resources from file "calibration.img"?</td><td></td>
+    <td><font color="red">cq07: What are the downstream resources from file "calibration.img"?</font></td><td></td>
   </tr>
   <tr>
     <td>cq08: What ports with filePathTemplate are upstreams of "run/data/DRT240/DRT240_11000eV_003.img"?</td><td></td>
