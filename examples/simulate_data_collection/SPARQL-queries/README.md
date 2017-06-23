@@ -130,13 +130,13 @@ The following is a list of SPARQL queries that can be implemented based on YW RD
     <td>rq03: What energies were used during collection of images from sample "DRT322"?</td><td></td>
   </tr>
   <tr>
-    <td>rq04: Where is the raw image from which corrected image "run/data/DRT322/DRT322_11000eV_028.img" is derived?</td><td></td>
+    <td>rq04: Where is the raw image from which corrected image "run/data/DRT322/DRT322_11000eV_028.img" is derived? -- NOT DONE YET --</td><td></td>
   </tr>
   <tr>
-    <td>rq05: Are there any raw images for which there are no corresponding corrected images?</td><td></td>
+    <td>rq05: Are there any raw images for which there are no corresponding corrected images? -- NOT DONE YET --</td><td></td>
   </tr>
   <tr>
-    <td>rq06: What cassette held the sample from which "run/data/DRT240/DRT240_10000eV_010.img" was derived?</td><td></td>
+    <td>rq06: What cassette held the sample from which "run/data/DRT240/DRT240_10000eV_010.img" was derived? -- NOT DONE YET --</td><td></td>
   </tr>
   <tr>
     <th rowspan="8">Combined Queries</th><td>cq01: How many resources belong to "raw_image" data?</td><td></td>
@@ -157,9 +157,9 @@ The following is a list of SPARQL queries that can be implemented based on YW RD
     <td>cq06: What are the downstream resources from "raw_image" data?</td><td></td>
   </tr>
   <tr>
-    <td><font color="red">cq07: What are the downstream resources from file "calibration.img"?</font></td><td></td>
+    <td>cq07: What are the downstream resources from file "calibration.img"? -- NOT DONE YET -- </td><td></td>
   </tr>
   <tr>
-    <td>cq08: What ports with filePathTemplate are upstreams of "run/data/DRT240/DRT240_11000eV_003.img"?</td><td></td>
+    <td>cq08: What ports with filePathTemplate are upstreams of "run/data/DRT240/DRT240_11000eV_003.img"? -- NOT DONE YET -- </td><td></td>
   </tr>
 </table>
