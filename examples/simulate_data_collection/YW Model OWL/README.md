@@ -24,13 +24,16 @@
     <td>yw:hasOutPort</td><td>yw:Port</td><td>Ports going out from current block</td>
   </tr>
   <tr>
-    <td rowspan="6">yw:Workflow</td><th rowspan="3">Self Attribute</th><td>rdf:type</td><td>“yw:Workflow”</td><td>Declare the type of the entity: Workflow</td>
+    <td rowspan="7">yw:Workflow</td><th rowspan="4">Self Attribute</th><td>rdf:type</td><td>“yw:Workflow”</td><td>Declare the type of the entity: Workflow</td>
   </tr>
   <tr>
     <td>rdfs:label</td><td>""</td><td>Workflow name</td>
   </tr>
   <tr>
     <td>rdfs:comment</td><td>""</td><td>Workflow description</td>
+  </tr>
+  <tr>
+    <td>yw:sourceScript</td><td>""</td><td>The name of the source script file</td>
   </tr>
   <tr>
     <th rowspan="3">Association Attribute</th><td>yw:hasSubBlock</td><td>yw:Block</td><td>Sub block(s) of current workflow</td>
@@ -111,13 +114,16 @@
     <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
   </tr>
   <tr>
-    <td rowspan="3">yw:Workflow</td><td rowspan="3">p1:Workflow</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
+    <td rowspan="4">yw:Workflow</td><td rowspan="3">p1:Workflow</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
   </tr>
   <tr>
     <td>yw:hasInPort</td><td>p1:hasInPort</td>
   </tr>
   <tr>
     <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
+  </tr>
+  <tr>
+    <td>yw:sourceScript</td><td>n/a</td>
   </tr>
   <tr>
     <td rowspan="4">yw:Port</td><td rowspan="4">p1:Port</td><td>yw:portType</td><td>n/a</td>
