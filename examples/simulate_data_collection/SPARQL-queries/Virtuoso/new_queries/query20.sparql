@@ -1,0 +1,35 @@
+#Query 20: What URI variables do data written to raw_image and corrected_image have in common?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?corrected_image_variableSource_name
+WHERE
+{    
+      ?corrected_image_data          rdf:type             yw:Data ;
+                                     rdfs:label           "corrected_image".  
+      
+      ?corrected_image_port          rdf:type               yw:Port;
+                                     yw:hasVariableSource   ?corrected_image_variableSource;
+                                     yw:connectsTo          ?corrected_image_data.
+      
+      ?corrected_image_variableSource     rdf:type             yw:Data ;
+                                          rdfs:label           ?corrected_image_variableSource_name.
+
+      ?raw_image_data          rdf:type             yw:Data ;
+                                rdfs:label           "raw_image".  
+      
+      ?raw_image_port          rdf:type               yw:Port;
+                               yw:hasVariableSource   ?raw_image_variableSource;
+                               yw:connectsTo          ?raw_image_data.
+      
+      ?raw_image_variableSource     rdf:type             yw:Data ;
+                                    rdfs:label           ?raw_image_variableSource_name.
+
+  FILTER (?raw_image_variableSource_name = ?corrected_image_variableSource_name)
+   
+} ORDER BY ?corrected_image_variableSource_name;

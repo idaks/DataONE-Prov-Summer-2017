@@ -1,0 +1,24 @@
+#Query 11: What program blocks are immediately downstream of calculate_strategy?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_block_name   #Get the direct downstream program name
+WHERE 
+ {    #get the program with name "calculate_strategy" and put into ?program variable
+      ?block         rdf:type             yw:Block ;           
+                     rdfs:label           "calculate_strategy" .    
+                     
+      #get all of the programs immediately connect to ?program (via ?hasOutPort, hasInPort, hasDefaultParam relationsips) 
+      #put these programs into ?down_program variable
+      ?block      (yw:hasOutPort/yw:connectsTo/^yw:connectsTo/^yw:hasInPort)   ?down_block .
+      
+      #get names of the down programs
+      ?down_block      rdf:type               yw:Block ;
+                       rdfs:label           ?down_block_name .
+       
+ } ORDER BY ?down_block_name;

@@ -1,0 +1,25 @@
+#Query 31: Print all YW data only used as output ports and param ports.
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT  DISTINCT ?data_name
+WHERE
+{    
+      ?port             rdf:type        yw:Port ;
+                        yw:portType     "param";
+                        yw:connectsTo   ?data .  
+
+      ?data             rdf:type        yw:Data ;
+                        rdfs:label      ?data_name . 
+    
+      FILTER NOT EXISTS {
+            ?port2      rdf:type        yw:Port ;
+                        yw:portType     "in";
+                        yw:connectsTo   ?data . 
+      }
+};

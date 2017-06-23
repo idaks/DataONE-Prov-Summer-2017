@@ -1,0 +1,24 @@
+#Query 5: (DataName) - What are the names and descriptions of the inputs to the top-level workflow?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?port_name ?port_description
+WHERE
+{   ?yw          rdf:type            yw:Workflow;
+                 rdfs:label          ?yw_name;
+                 yw:hasInPort        ?port.
+
+    ?port        rdf:type            yw:Port;
+                 rdfs:label          ?port_name;
+                 yw:connectsTo       ?data.
+    
+    ?data       rdf:type       yw:Data;
+                rdfs:comment   ?port_description
+    
+
+};

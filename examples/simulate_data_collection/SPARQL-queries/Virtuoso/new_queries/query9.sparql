@@ -1,0 +1,27 @@
+#Query 9: How many ports read data simulate_data_collection[frame_number]?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT count(DISTINCT ?port) as ?count
+WHERE
+{  
+  ?block     rdf:type         yw:Block;
+             rdfs:label      ?block_name;
+             yw:hasInPort    ?port.
+
+  ?port      rdf:type         yw:Port;
+             rdfs:label       ?port_name;
+             yw:connectsTo    ?data.
+
+  ?data      rdf:type        yw:Data;
+             rdfs:label      ?data_name;
+             rdfs:comment    ?data_description.
+
+  FILTER (?data_name = "frame_number")
+   
+};

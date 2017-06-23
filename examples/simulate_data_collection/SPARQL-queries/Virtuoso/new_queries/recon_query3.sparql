@@ -1,0 +1,37 @@
+#Recon query 3: What energies were used during collection of images from sample DRT322?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?variableValue
+WHERE
+{    
+     ?port      rdf:type         yw:Port;
+                rdfs:label       ?port_name;
+                yw:connectsTo    ?data.
+
+     ?data      rdf:type         yw:Data;
+                rdfs:label      "raw_image";
+                rdfs:comment    ?data_description.
+
+     ?resource   rdf:type     yw:Resource;
+                 yw:actualFilePath   ?resource_path;
+                 yw:isGeneratedBy    ?port;
+                 yw:hasURIVariable   ?sample_id_variable, ?energies_variable.
+
+     ?sample_id_variable  rdf:type    yw:URIVariable;
+                          yw:variableName         "sample_id";
+                          yw:variableValue   "DRT322".
+    
+     ?energies_variable rdf:type    yw:URIVariable;
+                        yw:variableName         "energy";
+                        yw:variableValue  ?variableValue.
+
+   
+};
+
+ 

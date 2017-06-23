@@ -1,0 +1,31 @@
+#Combined query 05: What are the program blocks between run/rejected_samples.txt and cassette_q55_spreadsheet.csv? List the program blocks in downstream order between the two files.
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3c.org/ns/prov#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?variable_name ?variable_value
+WHERE
+{        
+    ?resource1       rdf:type     yw:Resource;
+                     yw:actualFilePath   "run/rejected_samples.txt";
+                     yw:isGeneratedBy    ?port1.
+    
+    ?resource2       rdf:type     yw:Resource;
+                     yw:actualFilePath   "cassette_q55_spreadsheet.csv";
+                     yw:isGeneratedBy    ?port2.
+    
+    ?port1           rdf:type        yw:Port ;
+                     rdfs:label      ?port_name;
+                     yw:connectsTo   ?data .
+    
+    ?port2           rdf:type        yw:Port ;
+                     rdfs:label      ?port_name;
+                     yw:connectsTo   ?data .  
+
+   
+} ORDER BY ?variable_name;

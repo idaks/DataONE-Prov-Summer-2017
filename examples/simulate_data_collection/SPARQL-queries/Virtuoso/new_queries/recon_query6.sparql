@@ -1,0 +1,77 @@
+#Recon query 6: What cassette held the sample from which run/data/DRT240/DRT240_10000eV_010.img was derived?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+ 
+SELECT DISTINCT ?recource1_URIVariableValue
+WHERE
+{   ?resource1                 rdf:type     yw:Resource;
+                               yw:actualFilePath   "run/data/DRT240/DRT240_10000eV_010.img";
+                               yw:hasURIVariable   ?recource1_URIVariable.
+
+    ?recource1_URIVariable             rdf:type    yw:URIVariable;
+                                       yw:variableName    ?recource1_URIVariableName;
+                                       yw:variableValue   ?recource1_URIVariableValue.
+   
+    ?resource2                rdf:type     yw:Resource;
+                              yw:actualFilePath   ?filePath;
+                              yw:hasURIVariable   ?recource2_URIVariable.
+
+    ?recource2_URIVariable     rdf:type    yw:URIVariable;
+                                yw:variableName   "cassette_id";
+                                yw:variableValue  ?recource1_URIVariableValue.
+    
+}
+
+
+
+
+
+
+                             
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT322".
+
+    <simulate_data_collection#corrected_image_resource/199/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "11000" .
+
+    <simulate_data_collection#corrected_image_resource/199/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "028" .
+
+
+    <simulate_data_collection#raw_image_resource/199>
+    rdf:type                yw:Resource ;
+    yw:actualFilePath       "run/raw/q55/DRT322/e11000/image_028.raw" ;
+    yw:isGeneratedBy        <simulate_data_collection/collect_data_set#raw_image_port> ;
+    yw:hasURIVariable       <simulate_data_collection#raw_image_resource/199/v1> ,
+                            <simulate_data_collection#raw_image_resource/199/v2> ,
+                            <simulate_data_collection#raw_image_resource/199/v3> ,
+                            <simulate_data_collection#raw_image_resource/199/v4> .
+    <simulate_data_collection#raw_image_resource/199/v1>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "cassette_id" ;
+        yw:variableValue        "q55".
+
+    <simulate_data_collection#raw_image_resource/199/v2>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "sample_id" ;
+        yw:variableValue        "DRT322" .
+
+    <simulate_data_collection#raw_image_resource/199/v3>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "energy" ;
+        yw:variableValue        "11000" .
+
+    <simulate_data_collection#raw_image_resource/199/v4>
+        rdf:type                yw:URIVariable ;
+        yw:variableName         "frame_number" ;
+        yw:variableValue        "028" .
