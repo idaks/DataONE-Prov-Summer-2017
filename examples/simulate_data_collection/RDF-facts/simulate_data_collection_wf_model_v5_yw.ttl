@@ -7,6 +7,7 @@ PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX p1:   <http://dataone.org/ns/provone#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
+## Source Script: simulate_data_collection.py
 
 #####  Channels  #####
 
@@ -122,6 +123,7 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
     rdf:type            yw:Workflow ;
     rdfs:label          "simulate_data_collection" ;
     rdfs:comment        "Workflow for collecting diffraction data from high quality crystals in a cassette." ;
+    yw:sourceScript     "simulate_data_collection.py" ;
     yw:hasInPort        <simulate_data_collection#cassette_id_port> ,
                         <simulate_data_collection#sample_score_cutoff_port> ,
                         <simulate_data_collection#sample_spreadsheet_port> ,
