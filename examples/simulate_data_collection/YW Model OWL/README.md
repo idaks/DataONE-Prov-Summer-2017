@@ -114,7 +114,7 @@
     <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
   </tr>
   <tr>
-    <td rowspan="4">yw:Workflow</td><td rowspan="3">p1:Workflow</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
+    <td rowspan="4">yw:Workflow</td><td rowspan="4">p1:Workflow</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
   </tr>
   <tr>
     <td>yw:hasInPort</td><td>p1:hasInPort</td>
