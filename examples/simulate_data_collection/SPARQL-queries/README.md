@@ -112,7 +112,7 @@ The following is a list of SPARQL queries that can be implemented based on YW RD
     <td>mq32: Print all data only used as output ports and input ports.</td><td></td>
   </tr>
   <tr>
-    <td>mq33: What program blocks are in between of programs: "load_screening_results" and "transform_images"?</td><td></td>
+    <td>mq33: What program blocks are in between of program "load_screening_results" and "transform_images"?</td><td></td>
   </tr>
   <tr>
     <td>mq34: What program blocks are in between of data "sample_name" and "total_intensity"?</td><td></td>
