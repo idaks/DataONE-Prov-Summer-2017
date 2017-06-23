@@ -1,0 +1,47 @@
+#Combined query 05: What are the program blocks between run/rejected_samples.txt and cassette_q55_spreadsheet.csv? List the program blocks in downstream order between the two files.
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3c.org/ns/prov#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_block_name
+WHERE
+{        
+    ?resource1       rdf:type     yw:Resource;
+                     yw:actualFilePath   "run/rejected_samples.txt";
+                     yw:isGeneratedBy    ?port1.  
+    
+    ?resource2       rdf:type     yw:Resource;
+                     yw:actualFilePath   "cassette_q55_spreadsheet.csv"; 
+                     yw:isGeneratedBy    ?port2.  
+    
+    ?port1           rdf:type        yw:Port ;
+                     rdfs:label      ?port1_name.
+    
+    ?port2           rdf:type        yw:Port ;
+                     rdfs:label      ?port2_name.
+    
+    #finding block 1 that has port1 outport
+    ?block1         rdf:type             yw:Block ;
+                    rdfs:label           ?block1_name; 
+                    yw:hasOutPort|yw:hasInPort        ?port1 .   
+
+     #finding block 2 that has port1 outport               
+     ?block2        rdf:type             yw:Block ;
+                    rdfs:label           ?block2_name;
+                    yw:hasOutPort|yw:hasInPort        ?port2 .
+
+     #finding all blocks in between block1 and block2
+      ?block1      ((yw:hasOutPort/yw:connectsTo/^yw:connectsTo/^yw:hasInPort)+)|((yw:hasInPort/yw:connectsTo/^yw:connectsTo/^yw:hasOutPort)+)   ?down_block .
+
+      ?down_block      ((yw:hasOutPort/yw:connectsTo/^yw:connectsTo/^yw:hasInPort)*)|((yw:hasInPort/yw:connectsTo/^yw:connectsTo/^yw:hasOutPort)*)   ?block2.
+
+      ?down_block      rdf:type             yw:Block ;
+                       rdfs:label           ?down_block_name .
+      FILTER (?down_block_name != ?block1_name && ?down_block_name != ?block2_name)
+   
+};
