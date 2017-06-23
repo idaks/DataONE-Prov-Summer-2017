@@ -30,5 +30,5 @@ WHERE
       FILTER (?up_second_program_name = ?up_first_program_name )
        
  }
- ORDER BY (count(?first_program) AS ?distance)
+ ORDER BY (count(?up_first_program) AS ?distance)
  LIMIT 1;
