@@ -1,0 +1,24 @@
+#  mq25: What program blocks are common upstream blocks of collect_data_set and log_rejected_sample?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?common_program_name
+WHERE
+{   
+      ?first_program       rdf:type             yw:Block ;
+                           rdfs:label           "collect_data_set" .                                        
+    
+      ?first_program       (yw:hasInPort/yw:connectsTo/^yw:connectsTo/^yw:hasOutPort)+   ?common_program .
+
+      ?second_program      rdf:type             yw:Block ;
+                           rdfs:label           "log_rejected_sample" .                                        
+    
+      ?second_program      (yw:hasInPort/yw:connectsTo/^yw:connectsTo/^yw:hasOutPort)+   ?common_program .
+    
+      ?common_program       rdf:type         yw:Block ;
+                            rdfs:label       ?common_program_name .
+}

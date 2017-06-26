@@ -1,0 +1,19 @@
+#  mq24: What program blocks are downstream 3 levels from load_screening_results?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_program_name
+WHERE
+{   
+      ?program       rdf:type             yw:Block ;
+                     rdfs:label           "load_screening_results" .   
+                     
+      ?program        (yw:hasOutPort/yw:connectsTo/^yw:connectsTo/^yw:hasInPort)/(yw:hasOutPort/yw:connectsTo/^yw:connectsTo/^yw:hasInPort)/(yw:hasOutPort/yw:connectsTo/^yw:connectsTo/^yw:hasInPort)      ?down_program .
+      
+      ?down_program    rdf:type             yw:Block ;
+                       rdfs:label           ?down_program_name . 
+}
