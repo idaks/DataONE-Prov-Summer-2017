@@ -1,9 +1,26 @@
 # YesWorkflow Data Model Vocabulary
 
-**Figure 1: YesWorkflow UML Model**
+**Figure 1: YesWorkflow Conceptual Model UML Diagram**
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/YesWorflow_UML.jpg)
 
+<br>
+
+**Table 1: Prefix and Namespaces used in this specification**
+
+| Prefix | Namespace IRI | Definition |
+| ------ | ------------- | ---------- |
+| yw     | http://yesworkflow.org/ns/yesworkflow | The YesWorkflow namespace |
+| p1     | http://purl.dataone.org/provone/2015/01/15/ontology# | The ProvONE namespace |
+| rdf    | http://www.w3.org/1999/02/22-rdf-syntax-ns# | The RDF namespace |
+| rdfs   | http://www.w3.org/2000/01/rdf-schema# | The RDFS namespace |
+
+<br>
+
+**Table 2: YesWorkflow Constructs**
+
+
+<br>
 
 **Table 1: YesWorkflow Conceptual Model**
 <table>
@@ -161,5 +178,3 @@
     <td>yw:variableValue</td><td>n/a</td>
   </tr>
 </table>
-
-<br>
