@@ -1,4 +1,4 @@
-#Query 1:  Where is the definition of block simulate_data_collection.collect_data_set?
+#Query 1:  What source files SF were YW annotations extracted from?
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -7,12 +7,12 @@ PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX p1:   <http://dataone.org/ns/provone#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
-SELECT DISTINCT ?block_description
+SELECT DISTINCT ?source_script
 WHERE
 {  
 
-  ?block         rdf:type            yw:Block;
-                 rdfs:label          "collect_data_set";
-                 rdfs:comment        ?block_description .
+  ?yw            rdf:type             yw:Workflow;
+                 rdfs:label           ?wf_name;
+                 yw:hasSourceScript   ?source_script .
 
 };
