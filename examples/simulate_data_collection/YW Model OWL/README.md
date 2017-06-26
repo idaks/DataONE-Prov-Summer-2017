@@ -18,7 +18,59 @@
 <br>
 
 **Table 2: YesWorkflow Constructs**
-
+<table>
+  <tr>
+    <th>YW Provenance</th><th>Construct Type</th><th>Name</th>
+  </tr>
+  <tr>
+    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td>
+  </tr>
+  <tr>
+    <td>Workflow</td>
+  </tr>
+  <tr>
+    <td>Port</td>
+  </tr>
+  <tr>
+    <td>InPort</td>
+  </tr>
+  <tr>
+    <td>ParamPort</td>
+  </tr>
+  <tr>
+    <td>OutPort</td>
+  </tr>
+  <tr>
+    <td>DataNode</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Association</td><td>hasSubBlock</td>
+  </tr>
+  <tr>
+    <td>hasInPort</td>
+  </tr>
+  <tr>
+    <td>hasOutPort</td>
+  </tr>
+  <tr>
+    <td>connectsTo</td>
+  </tr>
+  <tr>
+    <td>hasVariableSource</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td>
+  </tr>
+  <tr>
+    <td>URIVariable</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Association</td><td>isGeneratedBy</td>
+  </tr>
+  <tr>
+    <td>hasURIVariable</td>
+  </tr>
+</table>
 
 <br>
 
