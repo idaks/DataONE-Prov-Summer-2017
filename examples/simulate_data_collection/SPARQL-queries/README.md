@@ -91,7 +91,7 @@ The following is a list of SPARQL queries that can be implemented based on YW RD
     <td>mq25: What program blocks are common upstream blocks of block "collect_data_set" and "log_rejected_sample"?</td><td></td>
   </tr>
   <tr>
-    <td>mq26: What program blocks are least common upstream block of block "collect_data_set" and "log_rejected_sample"?</td><td></td>
+    <td>mq26: What program block is the closet upstream block (LCA) of block "collect_data_set" and "log_rejected_sample" in common?</td><td></td>
   </tr>
   <tr>
     <td>mq27: Print all program blocks and their descendant programs with downstream levels in the workflow.</td><td></td>
