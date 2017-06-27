@@ -172,7 +172,7 @@
 
 **Table 2: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
 
-![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONEvsYesWorkflow.png)
+![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONE_vs_YesWorkflow.png)
 
 <table>
   <tr>
