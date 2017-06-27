@@ -130,12 +130,12 @@ The following RDF Turtle fragment specifies a Workflow.
 
 ```
 yw:Workflow     rdf:type           rdfs:Class ;
-	              rdfs:subClassOf    yw:Block .
+	        rdfs:subClassOf    yw:Block .
 
 <simulate_data_collection>
     rdf:type            yw:Workflow ;
     rdfs:label          "simulate_data_collection" ;        # The name of the workflow
-    rdfs:comment        "Workflow for collecting diffraction data from high quality crystals in a cassette." ;   # The description
+    rdfs:comment        "Workflow for collecting diffraction data from high quality crystals in a cassette." ;   # The description of the workflow
     yw:sourceScript     "simulate_data_collection.py" ;       # The source script that the workflow is annotated for.
     yw:hasInPort        <simulate_data_collection#cassette_id_port> ,
                         <...> , <...> ;
@@ -155,7 +155,7 @@ A Port enables a Block to send or receive data items (as DataNode). There are th
 * yw:connectsTo, yw:hasVariableSource
 
 **is in range of**
-* yw:hasInPort, yw:hasOutPort
+* yw:hasInPort, yw:hasOutPort, yw:isGeneratedBy
 
 **Example:**
 
@@ -163,6 +163,12 @@ The following RDF Turtle fragment specifies a Port.
 
 ```
 yw:Port         rdf:type           rdfs:Class .
+yw:InPort       rdf:type           rdfs:Class ;
+	        rdfs:subClassOf    yw:Port .
+yw:OutPort      rdf:type           rdfs:Class ;
+	        rdfs:subClassOf    yw:Port .
+yw:ParamPort    rdf:type           rdfs:Class ;
+	        rdfs:subClassOf    yw:Port .
 
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;                       # InPort is a sub-class of Port
@@ -170,20 +176,135 @@ yw:Port         rdf:type           rdfs:Class .
     yw:connectsTo               <simulate_data_collection#sample_spreadsheet_data> ;   # The DataNode that the port connects to
     yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;    # (Optional) The URI template of the port
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .    # (Optional) The referred DataNode in the URI template
+
+<simulate_data_collection/log_rejected_sample#rejection_log_port>
+    rdf:type                    yw:OutPort ;    	         # OutPort is a sub-class of Port
+    rdfs:label                  "rejection_log" ;
+    yw:connectsTo               <simulate_data_collection#rejection_log_data> ;
+    yw:filePathTemplate         "file:run/rejected_samples.txt" .             # (Optional)
+
+<simulate_data_collection/log_average_image_intensity#cassette_id_port>
+    rdf:type                    yw:ParamPort ;                   #ParamPort is a sub-class of Port
+    rdfs:label                  "cassette_id" ;
+    yw:connectsTo               <simulate_data_collection#cassette_id_data> .
 ```
 
 <h3 id="2.4">2.4 InPort class</h3>
+An InPort is a sub-class of Port. It means the port is used as an input port of its Block or Workflow.
+
+**has self-attribute**
+* yw:filePathTemplate
+
+**is in domain of**
+* yw:connectsTo, yw:hasVariableSource
+
+**is in range of**
+* yw:hasInPort, yw:isGeneratedBy
+
+**Example:**
+The same as Port.
+
 <h3 id="2.5">2.5 ParamPort class</h3>
+A ParamPort is a sub-class of Port. It means the port is used as a parameter port of its Block or Workflow.
+
+**has self-attribute**
+* yw:filePathTemplate
+
+**is in domain of**
+* yw:connectsTo, yw:hasVariableSource
+
+**is in range of**
+* yw:hasInPort, yw:isGeneratedBy
+
+**Example:**
+The same as Port.
+
 <h3 id="2.6">2.6 OutPort class</h3>
+An OutPort is a sub-class of Port. It means the port is used as an output port of its Block or Workflow.
+
+**has self-attribute**
+* yw:filePathTemplate
+
+**is in domain of**
+* yw:connectsTo, yw:hasVariableSource
+
+**is in range of**
+* yw:hasOutPort, yw:isGeneratedBy
+
+**Example:**
+The same as Port.
+
 <h3 id="2.7">2.7 DataNode class</h3>
+A DataNode is a data item that multiple ports from different blocks or workflows connect to. The ports which connect to the same DataNode share the same actual data. In other words, ports with the same alias name connect to the same DataNode.
+
+**is in range of**
+* yw:connectsTo, yw:hasVariableSource
+
+**Example:**
+
+The following RDF Turtle fragment specifies a DataNode.
+```
+yw:DataNode     rdf:type           rdfs:Class .
+
+<simulate_data_collection#raw_image_data>
+    rdf:type                    yw:DataNode ;
+    rdfs:label                  "raw_image" ;       # The alias name of ports connected to the same DataNode
+    rdfs:comment                "Path of file storing the raw diffraction image." .  # The description of the DataNode
+```
+
 <h3 id="2.8">2.8 hasSubBlock object property</h3>
+
 <h3 id="2.9">2.9 hasInPort object property</h3>
+
 <h3 id="2.10">2.10 hasOutPort object property</h3>
+
 <h3 id="2.11">2.11 connectsTo object property</h3>
+
 <h3 id="2.12">2.12 hasVariableSource object property</h3>
+
 <h3 id="2.13">2.13 Resource class</h3>
+A Resource is an actual file (with its path) generated after running the source scipt. The Resource is named according to the filePathTemplate of its connected port.
+
+**has self-attribute**
+* yw:actualFilePath
+
+**is in domain of**
+* yw:isGeneratedBy, yw:hasURIVariable
+
+**Example:**
+The following RDF Turtle fragment specifies a Resource.
+```
+yw:Resource     rdf:type           rdfs:Class .
+
+<simulate_data_collection#sample_spreadsheet_resource/001>
+    rdf:type                yw:Resource ;
+    yw:actualFilePath       "cassette_q55_spreadsheet.csv" ;         # The actual file name (with its path) of the resource
+    yw:isGeneratedBy        <simulate_data_collection/load_screening_results#sample_spreadsheet_port> ;   # The port that the resource is named after
+    yw:hasURIVariable       <simulate_data_collection#sample_spreadsheet_resource/001/v1> , <...> .      # The referred URI variables in the resource file name (with its path)
+```
+
 <h3 id="2.14">2.14 URIVariable class</h3>
+An URIVariable is a variable referred in the resource file name (with its path). URIVariables have variable names between "{" and "}" in corresponding port's filePathTemplate. URIVariables have variable values in the actualFilePath string.
+
+**has self-attribute**
+* yw:variableName, yw:variableValue
+
+**is in range of**
+* yw:hasURIVariable
+
+**Example:**
+The following RDF Turtle fragment specifies an URIVariable.
+```
+yw:URIVariable  rdf:type           rdfs:Class .
+
+    <simulate_data_collection#sample_spreadsheet_resource/001/v1>
+        rdf:type               yw:URIVariable ;
+        yw:variableName        "cassette_id" ;        # The name of the URIVariable
+        yw:variableValue       "q55" .                # The value of the URIVariable
+```
+
 <h3 id="2.15">2.15 isGeneratedBy object property</h3>
+
 <h3 id="2.16">2.16 hasURIVariable object property</h3>
 
 ## 3. YesWorkflow Data Model Mapping to ProvONE Data Model
