@@ -4,8 +4,14 @@ BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+##### Class #####
+
+yw:Resource     rdf:type           rdfs:Class .
+
+yw:URIVariable  rdf:type           rdfs:Class .
 
 
 <simulate_data_collection#sample_spreadsheet_resource/001>
