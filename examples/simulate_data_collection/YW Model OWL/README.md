@@ -86,7 +86,7 @@ This section presents the specification of the various components of the YesWork
 
 **Table 3: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
 
-![]https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONEvsYesWorkflow_UML_Diagrams.png)
+![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONEvsYesWorkflow_UML_Diagrams.png)
 
 | Construct Type |  YesWorkflow Model | ProvONE Model |
 | ----- | ------------- | ---------- |
