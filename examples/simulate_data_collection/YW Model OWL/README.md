@@ -27,7 +27,7 @@ The ProvONE constructs are summarized in Table 2 below.
     <th>YW Provenance</th><th>Construct Type</th><th>Name</th><th>Specification</th>
   </tr>
   <tr>
-    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td><td>Section 2.1</td>
+    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td><td><a href="#2.1">Section 2.1</a></td>
   </tr>
   <tr>
     <td>Workflow</td><td>Section 2.2</td>
@@ -79,7 +79,7 @@ The ProvONE constructs are summarized in Table 2 below.
 ## 2. YesWorkflow Model Specification
 This section presents the specification of the various components of the YesWorkflow model outlined in the previous section.
 
-### 2.1 Block class
+<h3 id="2.1">2.1 Block class</h3>
 
 
 ## 3. YesWorkflow Data Model Mapping to ProvONE Data Model
