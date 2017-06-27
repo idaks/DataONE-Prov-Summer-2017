@@ -80,6 +80,38 @@ The ProvONE constructs are summarized in Table 2 below.
 This section presents the specification of the various components of the YesWorkflow model outlined in the previous section.
 
 <h3 id="2.1">2.1 Block class</h3>
+A Block represents a computational task that consumes and produces data through its input and output ports, respectively. It can be atomic or composite, the latter case represented by a possibly nested Block.
+
+**is in domain of**
+* yw:hasSubBlock, yw:hasInPort, yw:hasOutPort
+
+**is in range of**
+* yw:hasSubBlock
+
+**Example:**
+
+The following RDF Turtle fragment specifies a Block.
+
+```
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+yw:Block        rdf:type           rdfs:Class .
+
+<simulate_data_collection/load_screening_results>
+    rdf:type            yw:Block ;
+    rdfs:label          "load_screening_results" ;        # The name of the program block
+    rdfs:comment        "Load sample information from spreadsheet." ;       # The description of the program block
+    yw:hasInPort        <simulate_data_collection/load_screening_results#cassette_id_port> ,
+                        <simulate_data_collection/load_screening_results#sample_spreadsheet_port>  ;
+    yw:hasOutPort       <simulate_data_collection/load_screening_results#sample_name_port> ,
+                        <simulate_data_collection/load_screening_results#sample_quality_port> .
+    yw:hasSubBlock      <...> .
+```
+
 <h3 id="2.2">2.2 Workflow class</h3>
 <h3 id="2.3">2.3 Port class</h3>
 <h3 id="2.4">2.4 InPort class</h3>
@@ -106,6 +138,9 @@ This section presents the specification of the various components of the YesWork
 | ----- | ------------- | ---------- |
 | Class | yw:Block      | p1:Program |
 | Class | yw:Port       | p1:Port |
+| Class | yw:InPort       | n/a |
+| Class | yw:ParamPort    | n/a |
+| Class | yw:OutPort      | n/a |
 | Class | yw:Workflow   | p1:Workflow |
 | Class | yw:DataNode   | p1:Channel |
 | Class | yw:Resource   | n/a |
