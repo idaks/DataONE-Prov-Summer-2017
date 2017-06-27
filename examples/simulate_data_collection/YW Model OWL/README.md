@@ -42,7 +42,7 @@ The ProvONE constructs are summarized in Table 2 below.
     <td>ParamPort</td><td><a href="#2.5">Section 2.5</a></td>
   </tr>
   <tr>
-    <td>OutPort</td><td><a href="#2.6">ection 2.6</a></td>
+    <td>OutPort</td><td><a href="#2.6">Section 2.6</a></td>
   </tr>
   <tr>
     <td>DataNode</td><td><a href="#2.7">Section 2.7</a></td>
