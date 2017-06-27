@@ -1,10 +1,14 @@
 # YesWorkflow Data Model Vocabulary
 
+## 1. YesWorkflow Conceptual Model Overview
+
+The YesWorkflow conceptual model is illustrated by the UML diagram of Figure 1.
+
 **Figure 1: YesWorkflow Conceptual Model UML Diagram**
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/YesWorkflow_UML.jpg)
 
-<br>
+The following namespaces and prefixes are used in YesWorkflow RDF Turtle facts and SPARQL queries. 
 
 **Table 1: Prefix and Namespaces used in this specification**
 
@@ -15,162 +19,72 @@
 | rdf    | http://www.w3.org/1999/02/22-rdf-syntax-ns# | The RDF namespace |
 | rdfs   | http://www.w3.org/2000/01/rdf-schema# | The RDFS namespace |
 
-<br>
+The ProvONE constructs are summarized in Table 2 below.
 
 **Table 2: YesWorkflow Constructs**
 <table>
   <tr>
-    <th>YW Provenance</th><th>Construct Type</th><th>Name</th>
+    <th>YW Provenance</th><th>Construct Type</th><th>Name</th><th>Specification</th>
   </tr>
   <tr>
-    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td>
+    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td><td>Section 2.1</td>
   </tr>
   <tr>
-    <td>Workflow</td>
+    <td>Workflow</td><td>Section 2.2</td>
   </tr>
   <tr>
-    <td>Port</td>
+    <td>Port</td><td>Section 2.3</td>
   </tr>
   <tr>
-    <td>InPort</td>
+    <td>InPort</td><td>Section 2.4</td>
   </tr>
   <tr>
-    <td>ParamPort</td>
+    <td>ParamPort</td><td>Section 2.5</td>
   </tr>
   <tr>
-    <td>OutPort</td>
+    <td>OutPort</td><td>Section 2.6</td>
   </tr>
   <tr>
-    <td>DataNode</td>
+    <td>DataNode</td><td>Section 2.7</td>
   </tr>
   <tr>
-    <td rowspan="5">Association</td><td>hasSubBlock</td>
+    <td rowspan="5">Association</td><td>hasSubBlock</td><td>Section 2.8</td>
   </tr>
   <tr>
-    <td>hasInPort</td>
+    <td>hasInPort</td><td>Section 2.9</td>
   </tr>
   <tr>
-    <td>hasOutPort</td>
+    <td>hasOutPort</td><td>Section 2.10</td>
   </tr>
   <tr>
-    <td>connectsTo</td>
+    <td>connectsTo</td><td>Section 2.11</td>
   </tr>
   <tr>
-    <td>hasVariableSource</td>
+    <td>hasVariableSource</td><td>Section 2.12</td>
   </tr>
   <tr>
-    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td>
+    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td><td>Section 2.13</td>
   </tr>
   <tr>
-    <td>URIVariable</td>
+    <td>URIVariable</td><td>Section 2.14</td>
   </tr>
   <tr>
-    <td rowspan="2">Association</td><td>isGeneratedBy</td>
+    <td rowspan="2">Association</td><td>isGeneratedBy</td><td>Section 2.15</td>
   </tr>
   <tr>
-    <td>hasURIVariable</td>
+    <td>hasURIVariable</td><td>Section 2.16</td>
   </tr>
 </table>
 
-<br>
+## 2. YesWorkflow Model Specification
+This section presents the specification of the various components of the YesWorkflow model outlined in the previous section.
 
-**Table 1: YesWorkflow Conceptual Model**
-<table>
-  <tr>
-    <th>Class (Subject)</th><th></th><th>Predicate</th><th>Object</th><th>Comment</th>
-  </tr>
-  <tr>
-    <td rowspan="6">yw:Block</td><th rowspan="3">Self Attribute</th><td>rdf:type</td><td>“yw:Block”</td><td>Declare the type of the entity: Block</td>
-  </tr>
-  <tr>
-    <td>rdfs:label</td><td>""</td><td>Block name</td>
-  </tr>
-  <tr>
-    <td>rdfs:comment</td><td>""</td><td>Block description</td>
-  </tr>
-  <tr>
-    <th rowspan="3">Association Attribute</th><td>yw:hasSubBlock</td><td>yw:Block</td><td>Sub block(s) of current block</td>
-  </tr>
-  <tr>
-    <td>yw:hasInPort</td><td>yw:Port</td><td>Ports coming into current block</td>
-  </tr>
-  <tr>
-    <td>yw:hasOutPort</td><td>yw:Port</td><td>Ports going out from current block</td>
-  </tr>
-  <tr>
-    <td rowspan="7">yw:Workflow</td><th rowspan="4">Self Attribute</th><td>rdf:type</td><td>“yw:Workflow”</td><td>Declare the type of the entity: Workflow</td>
-  </tr>
-  <tr>
-    <td>rdfs:label</td><td>""</td><td>Workflow name</td>
-  </tr>
-  <tr>
-    <td>rdfs:comment</td><td>""</td><td>Workflow description</td>
-  </tr>
-  <tr>
-    <td>yw:sourceScript</td><td>""</td><td>The name of the source script file</td>
-  </tr>
-  <tr>
-    <th rowspan="3">Association Attribute</th><td>yw:hasSubBlock</td><td>yw:Block</td><td>Sub block(s) of current workflow</td>
-  </tr>
-  <tr>
-    <td>yw:hasInPort</td><td>yw:Port</td><td>Ports coming into current workflow</td>
-  </tr>
-  <tr>
-    <td>yw:hasOutPort</td><td>yw:Port</td><td>Ports going out from current workflow</td>
-  </tr>
-  <tr>
-    <td rowspan="6">yw:Port</td><th rowspan="4">Self Attribute</th><td>rdf:type</td><td>“yw:Port”</td><td>Declare the type of the entity: Port</td>
-  </tr>
-  <tr>
-    <td>rdfs:label</td><td>""</td><td>Port name that appears before @as tag</td>
-  </tr>
-  <tr>
-    <td>yw:portType</td><td>"in"/"out"/"param"</td><td>Port type: input, output or parameter</td>
-  </tr>
-  <tr>
-    <td>(yw:filePathTemplate)</td><td>""</td><td>Optional attribute: URI template of the port</td>
-  </tr>
-  <tr>
-    <th rowspan="2">Association Attribute</th><td>yw:connectsTo</td><td>yw:Data</td><td>Data that the port connects to</td>
-  </tr>
-  <tr>
-    <td>(yw:hasVariableSource)</td><td>(yw:Data)</td><td>Optional attribute: Data (variables) that current URI template (contains “{}”) includes</td>
-  </tr>
-  <tr>
-    <td rowspan="3">yw:Data</td><th rowspan="3">Self Attribute</th><td>rdf:type</td><td>"yw:Data"</td><td>Declare the type of the entity: Data</td>
-  </tr>
-  <tr>
-    <td>rdfs:label</td><td>""</td><td>Data name that appears after @as tag</td>
-  </tr>
-  <tr>
-    <td>rdfs:comment</td><td>""</td><td>Description of the data</td>
-  </tr>
-  <tr>
-    <td rowspan="4">yw:Resource</td><th rowspan="2">Self Attribute</th><td>rdf:type</td><td>"yw:Resource"</td><td>Declare the type of the entity: Resource</td>
-  </tr>
-  <tr>
-    <td>yw:actualFilePath</td><td>""</td><td>Specific file path and name of the Resource</td>
-  </tr>
-  <tr>
-    <th rowspan="2">Association Attribute</th><td>yw:isGeneratedBy</td><td>yw:Port</td><td>Port with URI template that the actual file path of current resource is generated by</td>
-  </tr>
-  <tr>
-    <td>(yw:hasURIVariable)</td><td>(yw:URIVariable)</td><td>Optional attribute: URI variables that current resource is associated with</td>
-  </tr>
-  <tr>
-    <td rowspan="3">yw:URIVariable</td><th rowspan="3">Self Attribute</th><td>rdf:type</td><td>"yw:URIVariable"</td><td>Declare the type of the entity: URIVariable</td>
-  </tr>
-  <tr>
-    <td>yw:variableName</td><td>""</td><td>Name of the variable in the URI template of the port that current resource is generated by</td>
-  </tr>
-  <tr>
-    <td>yw:variableValue</td><td>""</td><td>Value of the variable in the actual file path of current resource</td>
-  </tr>
-</table>
+### 2.1 Block class
 
-<br>
 
-**Table 2: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
+## 3. YesWorkflow Data Model Mapping to ProvONE Data Model
+
+**Table 3: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONE_vs_YesWorkflow.png)
 
