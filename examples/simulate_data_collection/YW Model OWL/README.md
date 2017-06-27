@@ -174,12 +174,12 @@
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONE_vs_YesWorkflow.png)
 
-|  YesWorkflow Model | ProvONE Model |
-| ------------- | ---------- |
-| yw:Block      | p1:Program |
-| yw:Port       | p1:Port |
-| yw:Workflow   | p1:Workflow |
-| yw:DataNode   | n/a |
+|       |  YesWorkflow Model | ProvONE Model |
+|       | ------------- | ---------- |
+|       | yw:Block      | p1:Program |
+| Class | yw:Port       | p1:Port |
+|       | yw:Workflow   | p1:Workflow |
+|       | yw:DataNode   | n/a |
 
 <table>
   <tr>
