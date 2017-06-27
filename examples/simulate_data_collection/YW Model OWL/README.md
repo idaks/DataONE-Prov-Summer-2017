@@ -109,11 +109,69 @@ yw:Block        rdf:type           rdfs:Class .
                         <simulate_data_collection/load_screening_results#sample_spreadsheet_port>  ;
     yw:hasOutPort       <simulate_data_collection/load_screening_results#sample_name_port> ,
                         <simulate_data_collection/load_screening_results#sample_quality_port> .
-    yw:hasSubBlock      <...> .
+    yw:hasSubBlock      <...> .         # (Optional) The sub-blocks of current block
 ```
 
 <h3 id="2.2">2.2 Workflow class</h3>
+A Workflow is a distinguished Block, representing an enire computational experiment for a source script. It has super-class Block.
+
+**has super-class**
+* yw:Block
+
+**has self-attribute**
+* yw:sourceScript
+
+**is in domain of**
+* yw:hasSubBlock, yw:hasInPort, yw:hasOutPort
+
+**Example:**
+
+The following RDF Turtle fragment specifies a Workflow.
+
+```
+yw:Workflow     rdf:type           rdfs:Class ;
+	              rdfs:subClassOf    yw:Block .
+
+<simulate_data_collection>
+    rdf:type            yw:Workflow ;
+    rdfs:label          "simulate_data_collection" ;        # The name of the workflow
+    rdfs:comment        "Workflow for collecting diffraction data from high quality crystals in a cassette." ;   # The description
+    yw:sourceScript     "simulate_data_collection.py" ;       # The source script that the workflow is annotated for.
+    yw:hasInPort        <simulate_data_collection#cassette_id_port> ,
+                        <...> , <...> ;
+    yw:hasOutPort       <simulate_data_collection#corrected_image_port> ,
+                        <...> , <...> ;
+    yw:hasSubBlock      <simulate_data_collection/initialize_run> ,
+                        <...> , <...> .
+```
+
 <h3 id="2.3">2.3 Port class</h3>
+A Port enables a Block to send or receive data items (as DataNode). There are three types of ports used as inputs, parameters and outputs. Therefore, Port is the super-class of class InPort, ParamPort and OutPort.
+
+**has self-attribute**
+* yw:filePathTemplate
+
+**is in domain of**
+* yw:connectsTo, yw:hasVariableSource
+
+**is in range of**
+* yw:hasInPort, yw:hasOutPort
+
+**Example:**
+
+The following RDF Turtle fragment specifies a Port.
+
+```
+yw:Port         rdf:type           rdfs:Class .
+
+<simulate_data_collection/load_screening_results#sample_spreadsheet_port>
+    rdf:type                    yw:InPort ;                       # InPort is a sub-class of Port
+    rdfs:label                  "sample_spreadsheet_file" ;        # The port name (not the alias)
+    yw:connectsTo               <simulate_data_collection#sample_spreadsheet_data> ;   # The DataNode that the port connects to
+    yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;    # (Optional) The URI template of the port
+    yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .    # (Optional) The referred DataNode in the URI template
+```
+
 <h3 id="2.4">2.4 InPort class</h3>
 <h3 id="2.5">2.5 ParamPort class</h3>
 <h3 id="2.6">2.6 OutPort class</h3>
