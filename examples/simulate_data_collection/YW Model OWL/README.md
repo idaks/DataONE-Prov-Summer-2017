@@ -179,12 +179,14 @@
 | Class | yw:Block      | p1:Program |
 | Class | yw:Port       | p1:Port |
 | Class | yw:Workflow   | p1:Workflow |
-| Class | yw:DataNode   | n/a |
+| Class | yw:DataNode   | p1:Channel |
 | Class | yw:Resource   | n/a |
 | Class | yw:URIVariable| n/a |
 | Association | yw:hasSubBlock  | p1:hasSubProgram |
 | Association | yw:hasInPort    | p1:hasInPort |
 | Association | yw:hasOutPort   | p1:hasOutPort |
+| Association | yw:connectsTo   | p1:connectsTo |
+| Association | yw:hasVariableSource | n/a |
 
 <table>
   <tr>
