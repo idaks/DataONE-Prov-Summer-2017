@@ -1,0 +1,17 @@
+#Q1: Recursive hamming numbers - what are the ancestor - hamming numbers of 30?
+
+SPARQL prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix p: <http://learningsparql.com/ns/parenthoods#>
+prefix hm: <http://learningsparql.com/ns/hammingnumber#>
+ 
+SELECT DISTINCT ?up_hm_value
+WHERE 
+ {   
+      ?hm      p:value  "30".   
+                     
+      ?hm     (p:parentNode)+   ?up_hm .
+      
+      ?up_hm   p:value  ?up_hm_value.   
+       
+ } ORDER BY ?up_hm_value;
