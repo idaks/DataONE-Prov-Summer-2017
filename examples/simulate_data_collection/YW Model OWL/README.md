@@ -77,9 +77,11 @@ The ProvONE constructs are summarized in Table 2 below.
 </table>
 
 ## 2. YesWorkflow Model Specification
+
 This section presents the specification of the various components of the YesWorkflow model outlined in the previous section.
 
 <h3 id="2.1">2.1 Block class</h3>
+
 A Block represents a computational task that consumes and produces data through its input and output ports, respectively. It can be atomic or composite, the latter case represented by a possibly nested Block.
 
 **is in domain of**
@@ -113,6 +115,7 @@ yw:Block        rdf:type           rdfs:Class .
 ```
 
 <h3 id="2.2">2.2 Workflow class</h3>
+
 A Workflow is a distinguished Block, representing an enire computational experiment for a source script. It has super-class Block.
 
 **has super-class**
@@ -146,6 +149,7 @@ yw:Workflow     rdf:type           rdfs:Class ;
 ```
 
 <h3 id="2.3">2.3 Port class</h3>
+
 A Port enables a Block to send or receive data items (as DataNode). There are three types of ports used as inputs, parameters and outputs. Therefore, Port is the super-class of class InPort, ParamPort and OutPort.
 
 **has self-attribute**
@@ -190,6 +194,7 @@ yw:ParamPort    rdf:type           rdfs:Class ;
 ```
 
 <h3 id="2.4">2.4 InPort class</h3>
+
 An InPort is a sub-class of Port. It means the port is used as an input port of its Block or Workflow.
 
 **has self-attribute**
@@ -202,9 +207,11 @@ An InPort is a sub-class of Port. It means the port is used as an input port of 
 * yw:hasInPort, yw:isGeneratedBy
 
 **Example:**
+
 The same as Port.
 
 <h3 id="2.5">2.5 ParamPort class</h3>
+
 A ParamPort is a sub-class of Port. It means the port is used as a parameter port of its Block or Workflow.
 
 **has self-attribute**
@@ -217,9 +224,11 @@ A ParamPort is a sub-class of Port. It means the port is used as a parameter por
 * yw:hasInPort, yw:isGeneratedBy
 
 **Example:**
+
 The same as Port.
 
 <h3 id="2.6">2.6 OutPort class</h3>
+
 An OutPort is a sub-class of Port. It means the port is used as an output port of its Block or Workflow.
 
 **has self-attribute**
@@ -232,9 +241,11 @@ An OutPort is a sub-class of Port. It means the port is used as an output port o
 * yw:hasOutPort, yw:isGeneratedBy
 
 **Example:**
+
 The same as Port.
 
 <h3 id="2.7">2.7 DataNode class</h3>
+
 A DataNode is a data item that multiple ports from different blocks or workflows connect to. The ports which connect to the same DataNode share the same actual data. In other words, ports with the same alias name connect to the same DataNode.
 
 **is in range of**
@@ -243,6 +254,7 @@ A DataNode is a data item that multiple ports from different blocks or workflows
 **Example:**
 
 The following RDF Turtle fragment specifies a DataNode.
+
 ```
 yw:DataNode     rdf:type           rdfs:Class .
 
@@ -263,6 +275,7 @@ The association *hasSubBlock* specifies the recursive composition of Blocks, a p
 * yw:Block
 
 **Example:**
+
 It is shown in class Block and Workflow.
 
 <h3 id="2.9">2.9 hasInPort object property</h3>
@@ -276,6 +289,7 @@ The association *hasInPort* specifies the InPorts or ParamPorts of a particular 
 * yw:InPort, yw:ParamPort
 
 **Example:**
+
 It is shown in class Block and Workflow.
 
 <h3 id="2.10">2.10 hasOutPort object property</h3>
@@ -289,6 +303,7 @@ The association *hasOutPort* specifies the OutPorts of a particular Block or Wor
 * yw:OutPort
 
 **Example:**
+
 It is shown in class Block and Workflow.
 
 <h3 id="2.11">2.11 connectsTo object property</h3>
@@ -302,6 +317,7 @@ The association *connectsTo* specifies that a Port connects to a DataNode. Ports
 * yw:DataNode
 
 **Example:**
+
 It is shown in class Port.
 
 <h3 id="2.12">2.12 hasVariableSource object property</h3>
@@ -315,9 +331,11 @@ The association *hasVariableSource* specifies that a Port with filePathTemplate 
 * yw:DataNode
 
 **Example:**
+
 It is shown in class Port.
 
 <h3 id="2.13">2.13 Resource class</h3>
+
 A Resource is an actual file (with its path) generated after running the source scipt. The Resource is named according to the filePathTemplate of its connected port.
 
 **has self-attribute**
@@ -327,7 +345,9 @@ A Resource is an actual file (with its path) generated after running the source 
 * yw:isGeneratedBy, yw:hasURIVariable
 
 **Example:**
+
 The following RDF Turtle fragment specifies a Resource.
+
 ```
 yw:Resource     rdf:type           rdfs:Class .
 
@@ -339,6 +359,7 @@ yw:Resource     rdf:type           rdfs:Class .
 ```
 
 <h3 id="2.14">2.14 URIVariable class</h3>
+
 An URIVariable is a variable referred in the resource file name (with its path). URIVariables have variable names between "{" and "}" in corresponding port's filePathTemplate. URIVariables have variable values in the actualFilePath string.
 
 **has self-attribute**
@@ -348,7 +369,9 @@ An URIVariable is a variable referred in the resource file name (with its path).
 * yw:hasURIVariable
 
 **Example:**
+
 The following RDF Turtle fragment specifies an URIVariable.
+
 ```
 yw:URIVariable  rdf:type           rdfs:Class .
 
@@ -359,6 +382,7 @@ yw:URIVariable  rdf:type           rdfs:Class .
 ```
 
 <h3 id="2.15">2.15 isGeneratedBy object property</h3>
+
 The association *isGeneratedBy* specifies that a Resource is generated by a Port following its URI file path template.
 
 **has domain**
@@ -368,6 +392,7 @@ The association *isGeneratedBy* specifies that a Resource is generated by a Port
 * yw:InPort, yw:ParamPort, yw:OutPort
 
 **Example:**
+
 It is shown in class Resource.
 
 <h3 id="2.16">2.16 hasURIVariable object property</h3>
@@ -381,6 +406,7 @@ The association *hasURIVariable* specifies that a Resource may have some URI var
 * yw:URIVariable
 
 **Example:**
+
 It is shown in class Resource.
 
 ## 3. YesWorkflow Data Model Mapping to ProvONE Data Model
