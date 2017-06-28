@@ -11,27 +11,45 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
 ##### Class #####
 
-yw:Block        rdf:type           rdfs:Class .
+yw:Block        rdf:type             rdfs:Class ;
+                owl:sameAs           p1:Program .
 
-yw:Workflow     rdf:type           rdfs:Class ;
-	            rdfs:subClassOf    yw:Block .
+yw:Workflow     rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:Block ;
+                owl:sameAs           p1:Workflow .
 
-yw:InPort       rdf:type           rdfs:Class ;
-	            rdfs:subClassOf    yw:Port .
+yw:InPort       rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:Port .
 
-yw:OutPort      rdf:type           rdfs:Class ;
-	            rdfs:subClassOf    yw:Port .
+yw:OutPort      rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:Port .
 
-yw:ParamPort    rdf:type           rdfs:Class ;
-	            rdfs:subClassOf    yw:InPort .
+yw:ParamPort    rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:InPort .
 
-yw:Port         rdf:type           rdfs:Class .
+yw:Port         rdf:type             rdfs:Class ;
+                owl:sameAS           p1:Port .
 
-yw:DataNode     rdf:type           rdfs:Class .
+yw:DataNode     rdf:type             rdfs:Class ;
+                owl:equivalentClass  p1:Channel .
 
-yw:Resource     rdf:type           rdfs:Class .
+yw:Resource     rdf:type             rdfs:Class .
 
-yw:URIVariable  rdf:type           rdfs:Class .
+yw:URIVariable  rdf:type             rdfs:Class .
+
+
+
+##### Equivalent Property #####
+
+yw:hasSubBlock      owl:sameAS                p1:hasSubProgram .
+
+yw:hasInPort        owl:sameAS                p1:hasInPort .
+
+yw:hasOutPort       owl:sameAS                p1:hasOutPort .
+
+yw:connectsTo       owl:equivalentProperty    p1:connectsTo .
+
+
 
 #####  DataNode  #####
 
