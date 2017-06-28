@@ -2,9 +2,9 @@ This is an example of how to use PROPERTY PATH in SPARQL to run recursive querie
 
 SPARQL Tool: Before running the queries, you need to have Virtuoso installed on your machine. Virtuoso installation & manual can be find here [Virtuoso Manual](https://github.com/idaks/DataONE-Prov-Summer-2017/tree/master/examples/simulate_data_collection/SPARQL-queries/Virtuoso)
 
-Data: [virtuoso_family.ttl](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/hamming_numbers/hamming_numbers.ttl)
+Data: [hamming_numbers.ttl](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/hamming_numbers/hamming_numbers.ttl)
 
-![Hamming Numbers Example](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/family/family_example.png)
+![Hamming Numbers Example](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/hamming_numbers/hamming_numbers.png)
 
 1. Loading data into Virtuoso DB:
 
