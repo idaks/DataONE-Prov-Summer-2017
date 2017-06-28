@@ -1,0 +1,44 @@
+
+Query 1:  Recursive hamming numbers - what are the ancestors/hamming numbers of 30?
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+up_hm_value
+LONG VARCHAR
+_______________________________________________________________________________
+
+1
+10
+15
+2
+3
+5
+6
+
+7 Rows. -- 9 msec.
+
+Query 2: Up stream common ancestors - what are the common hamming numbers - ancestors of 8 and 20 ? 
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+up_hm_4_value
+LONG VARCHAR
+_______________________________________________________________________________
+
+1
+2
+4
+
+3 Rows. -- 4 msec.
+
+Query 3: Closest Common Ancestor - what is the closest common ancestor - hamming number of 4 and 10? 
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+up_hm_4_value
+LONG VARCHAR
+_______________________________________________________________________________
+
+2
+
+1 Rows. -- 6 msec.
