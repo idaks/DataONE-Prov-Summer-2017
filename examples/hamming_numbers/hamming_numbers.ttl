@@ -1,0 +1,100 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix p: <http://learningsparql.com/ns/parenthoods#> .
+@prefix hm: <http://learningsparql.com/ns/hammingnumber#>
+
+hm:1 p:value "1".
+
+#starting from node 1
+hm:2 p:value "2";
+     p:multipliedBy hm:2;
+     p:parentNode hm:1.
+
+hm:3 p:value "3";
+     p:multipliedBy hm:3;
+     p:parentNode hm:1.
+
+hm:5 p:value "5";
+     p:multipliedBy hm:5;
+     p:parentNode hm:1.
+
+#starting from node 2
+hm:4 p:value "4";
+     p:multipliedBy hm:2;
+     p:parentNode hm:2.
+
+hm:6 p:value "6";
+     p:multipliedBy hm:3;
+     p:parentNode hm:2.
+
+hm:10 p:value "10";
+      p:multipliedBy hm:5;
+      p:parentNode hm:2.
+
+#starting from node 3
+hm:6 p:value "6";
+     p:multipliedBy hm:2;
+     p:parentNode hm:3.
+
+hm:9 p:value "9";
+   p:multipliedBy hm:3;
+   p:parentNode hm:3.
+
+hm:15 p:value "15";
+   p:multipliedBy hm:5;
+   p:parentNode hm:3.
+
+#starting from node 4
+hm:8  p:value "8";
+   p:multipliedBy hm:2;
+   p:parentNode hm:4.
+
+hm:12 p:value "12";
+   p:multipliedBy hm:3;
+   p:parentNode hm:4.
+
+hm:20 p:value "20";
+   p:multipliedBy hm:5;
+   p:parentNode hm:4.
+
+#starting from node 5
+hm:10 p:value "10";
+   p:multipliedBy hm:2;
+   p:parentNode hm:5.
+
+hm:15 p:value "15";
+   p:multipliedBy hm:3;
+   p:parentNode hm:5.
+
+hm:25 p:value "25";
+   p:multipliedBy hm:5;
+   p:parentNode hm:5.
+
+#so on...
+hm:50 p:value "50";
+   p:multipliedBy hm:5;
+   p:parentNode hm:10.
+
+hm:125 p:value "125";
+   p:multipliedBy hm:5;
+   p:parentNode hm:25.
+
+hm:30 p:value "30";
+   p:multipliedBy hm:5;
+   p:parentNode hm:6.
+
+hm:30 p:value "30";
+   p:multipliedBy hm:3;
+   p:parentNode hm:10.
+
+hm:30 p:value "30";
+   p:multipliedBy hm:2;
+   p:parentNode hm:15.
+
+hm:75 p:value "75";
+   p:multipliedBy hm:5;
+   p:parentNode hm:15.
+
+hm:18 p:value "18";
+   p:multipliedBy hm:2;
+   p:parentNode hm:9.
