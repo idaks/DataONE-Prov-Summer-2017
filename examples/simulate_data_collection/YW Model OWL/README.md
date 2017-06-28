@@ -253,7 +253,7 @@ yw:DataNode     rdf:type           rdfs:Class .
 ```
 
 <h3 id="2.8">2.8 hasSubBlock object property</h3>
-The association *hasSubBlock* specifies the recursive composition of Blocks, a parent Block includes a child Block as part of its specification.
+The association _hasSubBlock_ specifies the recursive composition of Blocks, a parent Block includes a child Block as part of its specification.
 
 **has domain**
 * yw:Block, yw:Workflow
