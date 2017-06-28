@@ -150,7 +150,7 @@ yw:Workflow     rdf:type           rdfs:Class ;
 
 <h3 id="2.3">2.3 Port class</h3>
 
-A Port enables a Block to send or receive data items (as DataNode). There are three types of ports used as inputs, parameters and outputs. Therefore, Port is the super-class of class InPort, ParamPort and OutPort.
+A Port enables a Block to send or receive data items (as DataNode). There are two main types of ports used as inputs and outputs. For input ports, they include both ports as input data and ports as input parameters. Therefore, Port is the super-class of class InPort and OutPort, and InPort is the super-class of ParamPort.
 
 **has self-attribute**
 * yw:filePathTemplate
@@ -172,7 +172,7 @@ yw:InPort       rdf:type           rdfs:Class ;
 yw:OutPort      rdf:type           rdfs:Class ;
 	        rdfs:subClassOf    yw:Port .
 yw:ParamPort    rdf:type           rdfs:Class ;
-	        rdfs:subClassOf    yw:Port .
+	        rdfs:subClassOf    yw:InPort .
 
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;                       # InPort is a sub-class of Port
@@ -195,7 +195,7 @@ yw:ParamPort    rdf:type           rdfs:Class ;
 
 <h3 id="2.4">2.4 InPort class</h3>
 
-An InPort is a sub-class of Port. It means the port is used as an input port of its Block or Workflow.
+An InPort is a sub-class of Port. It means the port is used as an input data port of its Block or Workflow.
 
 **has self-attribute**
 * yw:filePathTemplate
@@ -212,7 +212,7 @@ The same as Port.
 
 <h3 id="2.5">2.5 ParamPort class</h3>
 
-A ParamPort is a sub-class of Port. It means the port is used as a parameter port of its Block or Workflow.
+A ParamPort is a sub-class of InPort. It means the port is used as an input parameter port of its Block or Workflow.
 
 **has self-attribute**
 * yw:filePathTemplate
@@ -280,7 +280,7 @@ It is shown in class Block and Workflow.
 
 <h3 id="2.9">2.9 hasInPort object property</h3>
 
-The association *hasInPort* specifies the InPorts or ParamPorts of a particular Block or Workflow that are used as input or parameter ports.
+The association *hasInPort* specifies the InPorts (including ParamPorts) of a particular Block or Workflow that are used as input data or parameter ports.
 
 **has domain**
 * yw:Block, yw:Workflow
