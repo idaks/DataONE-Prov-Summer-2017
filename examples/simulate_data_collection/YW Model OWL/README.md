@@ -188,7 +188,7 @@ yw:ParamPort    rdf:type           rdfs:Class ;
     yw:filePathTemplate         "file:run/rejected_samples.txt" .             # (Optional)
 
 <simulate_data_collection/log_average_image_intensity#cassette_id_port>
-    rdf:type                    yw:ParamPort ;                   #ParamPort is a sub-class of Port
+    rdf:type                    yw:ParamPort ;                   #ParamPort is a sub-class of InPort
     rdfs:label                  "cassette_id" ;
     yw:connectsTo               <simulate_data_collection#cassette_id_data> .
 ```
