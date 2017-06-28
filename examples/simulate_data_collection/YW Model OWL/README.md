@@ -274,7 +274,7 @@ The association *hasInPort* specifies the InPorts or ParamPorts of a particular 
 * yw:InPort, yw:ParamPort
 
 **Example:**
-It is shown in class Port.
+It is shown in class Block and Workflow.
 
 <h3 id="2.10">2.10 hasOutPort object property</h3>
 The association *hasOutPort* specifies the OutPorts of a particular Block or Workflow that are used as output ports.
@@ -286,7 +286,7 @@ The association *hasOutPort* specifies the OutPorts of a particular Block or Wor
 * yw:OutPort
 
 **Example:**
-It is shown in class Port.
+It is shown in class Block and Workflow.
 
 <h3 id="2.11">2.11 connectsTo object property</h3>
 The association *connectsTo* specifies that a Port connects to a DataNode. Ports with the same alias names connect to the same DataNode.
@@ -298,7 +298,7 @@ The association *connectsTo* specifies that a Port connects to a DataNode. Ports
 * yw:DataNode
 
 **Example:**
-It is shown in class Port and DataNode.
+It is shown in class Port.
 
 <h3 id="2.12">2.12 hasVariableSource object property</h3>
 The association *hasVariableSource* specifies that a Port with filePathTemplate can have its corresponding URI variable names inside the string of filePathTemplate. The URI variable names are DataNode names indeed.
@@ -310,7 +310,7 @@ The association *hasVariableSource* specifies that a Port with filePathTemplate 
 * yw:DataNode
 
 **Example:**
-It is shown in class Port and DataNode.
+It is shown in class Port.
 
 <h3 id="2.13">2.13 Resource class</h3>
 A Resource is an actual file (with its path) generated after running the source scipt. The Resource is named according to the filePathTemplate of its connected port.
