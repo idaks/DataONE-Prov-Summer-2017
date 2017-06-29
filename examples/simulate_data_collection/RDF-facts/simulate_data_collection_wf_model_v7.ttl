@@ -9,14 +9,14 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
 ## Source Script: simulate_data_collection.py
 
-##### Class #####
+##### Class Equality #####
 
 yw:Block        rdf:type             rdfs:Class ;
-                owl:sameAs           p1:Program .
+                owl:equivalentClass           p1:Program .
 
 yw:Workflow     rdf:type             rdfs:Class ;
 	            rdfs:subClassOf      yw:Block ;
-                owl:sameAs           p1:Workflow .
+                owl:equivalentClass           p1:Workflow .
 
 yw:InPort       rdf:type             rdfs:Class ;
 	            rdfs:subClassOf      yw:Port .
@@ -28,7 +28,7 @@ yw:ParamPort    rdf:type             rdfs:Class ;
 	            rdfs:subClassOf      yw:InPort .
 
 yw:Port         rdf:type             rdfs:Class ;
-                owl:sameAs           p1:Port .
+                owl:equivalentClass           p1:Port .
 
 yw:DataNode     rdf:type             rdfs:Class .
 
@@ -37,13 +37,13 @@ yw:Resource     rdf:type             rdfs:Class .
 yw:URIVariable  rdf:type             rdfs:Class .
 
 
-##### Equivalent Property #####
+##### Property Equality #####
 
-yw:hasSubBlock      owl:sameAs                p1:hasSubProgram .
+yw:hasSubBlock      owl:equivalentProperty                p1:hasSubProgram .
 
-yw:hasInPort        owl:sameAs                p1:hasInPort .
+yw:hasInPort        owl:equivalentProperty                p1:hasInPort .
 
-yw:hasOutPort       owl:sameAs                p1:hasOutPort .
+yw:hasOutPort       owl:equivalentProperty                p1:hasOutPort .
 
 
 #####  DataNode  #####
