@@ -1,4 +1,4 @@
-#  mq26: What program blocks are least common upstream block of collect_data_set and log_rejected_sample?
+#  mq26: What program block is the closet common upstream block (LCA) of collect_data_set and log_rejected_sample?
 
 BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
