@@ -412,7 +412,6 @@ It is shown in class Resource.
 
 ## 3. YesWorkflow Data Model Mapping to ProvONE Data Model
 
-**Table 3: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvOnevsYesWorkflow_UML.jpg)
 
@@ -455,6 +454,10 @@ yw:hasInPort        owl:sameAs                p1:hasInPort .
 
 yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 ```
+
+The following table describes the mapping rules from YesWorkflow (yw) to ProvONE (p1) namespace.
+
+**Table 3: YesWorkflow (yw) Data Model Mapping to ProvONE (p1) Data Model**
 
 <table>
   <tr>
