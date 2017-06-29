@@ -412,6 +412,9 @@ It is shown in class Resource.
 
 ## 3. YesWorkflow Data Model Mapping to ProvONE Data Model
 
+The comparison between YesWorkflow Model and ProvONE Model is shown in the following figure.
+
+**Figure 2: ProvONE Model and YesWorkflow Model UML Diagrams**
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvOnevsYesWorkflow_UML.png)
 
