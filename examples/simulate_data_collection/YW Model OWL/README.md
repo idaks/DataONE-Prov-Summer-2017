@@ -425,17 +425,17 @@ yw:Block        rdf:type             rdfs:Class ;
                 owl:sameAs           p1:Program .
 
 yw:Workflow     rdf:type             rdfs:Class ;
-	            rdfs:subClassOf      yw:Block ;
+	        rdfs:subClassOf      yw:Block ;
                 owl:sameAs           p1:Workflow .
 
 yw:InPort       rdf:type             rdfs:Class ;
-	            rdfs:subClassOf      yw:Port .
+	        rdfs:subClassOf      yw:Port .
 
 yw:OutPort      rdf:type             rdfs:Class ;
-	            rdfs:subClassOf      yw:Port .
+	        rdfs:subClassOf      yw:Port .
 
 yw:ParamPort    rdf:type             rdfs:Class ;
-	            rdfs:subClassOf      yw:InPort .
+	        rdfs:subClassOf      yw:InPort .
 
 yw:Port         rdf:type             rdfs:Class ;
                 owl:sameAs           p1:Port .
@@ -447,11 +447,13 @@ yw:Resource     rdf:type             rdfs:Class .
 yw:URIVariable  rdf:type             rdfs:Class .
 
 
-##### Property Equality#####
+##### Property Equality #####
 
 yw:hasSubBlock      owl:sameAs                p1:hasSubProgram .
 
 yw:hasInPort        owl:sameAs                p1:hasInPort .
+
+yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 ```
 
 <table>
