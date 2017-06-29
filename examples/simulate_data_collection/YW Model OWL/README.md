@@ -18,6 +18,7 @@ The following namespaces and prefixes are used in YesWorkflow RDF Turtle facts a
 | p1     | http://purl.dataone.org/provone/2015/01/15/ontology# | The ProvONE namespace |
 | rdf    | http://www.w3.org/1999/02/22-rdf-syntax-ns# | The RDF namespace |
 | rdfs   | http://www.w3.org/2000/01/rdf-schema# | The RDFS namespace |
+| owl    | http://www.w3.org/2002/07/owl# | The OWL namespace |
 
 The ProvONE constructs are summarized in Table 2 below.
 
@@ -415,21 +416,94 @@ It is shown in class Resource.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONEvsYesWorkflow_UML_Diagrams.png)
 
-| Construct Type |  YesWorkflow Model | ProvONE Model |
-| ----- | ------------- | ---------- |
-| Class | yw:Block      | p1:Program |
-| Class | yw:Port       | p1:Port |
-| Class | yw:InPort       | n/a |
-| Class | yw:ParamPort    | n/a |
-| Class | yw:OutPort      | n/a |
-| Class | yw:Workflow   | p1:Workflow |
-| Class | yw:DataNode   | p1:Channel |
-| Class | yw:Resource   | n/a |
-| Class | yw:URIVariable| n/a |
-| Association | yw:hasSubBlock  | p1:hasSubProgram |
-| Association | yw:hasInPort    | p1:hasInPort |
-| Association | yw:hasOutPort   | p1:hasOutPort |
-| Association | yw:connectsTo   | p1:connectsTo |
-| Association | yw:hasVariableSource | n/a |
-| Association | yw:isGeneratedBy     | n/a |
-| Association | yw:hasURIVariable    | n/a |
+The built-in OWL property *owl:sameAs* is used for connecting equivalent classes and associations when mapping from YesWorkflow Model to ProvONE Model. Only some concepts are the same between yw and p1 namespaces. The following is the code in the RDF Turtle file.
+
+```
+##### Class Equality #####
+
+yw:Block        rdf:type             rdfs:Class ;
+                owl:sameAs           p1:Program .
+
+yw:Workflow     rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:Block ;
+                owl:sameAs           p1:Workflow .
+
+yw:InPort       rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:Port .
+
+yw:OutPort      rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:Port .
+
+yw:ParamPort    rdf:type             rdfs:Class ;
+	            rdfs:subClassOf      yw:InPort .
+
+yw:Port         rdf:type             rdfs:Class ;
+                owl:sameAs           p1:Port .
+
+yw:DataNode     rdf:type             rdfs:Class .
+
+yw:Resource     rdf:type             rdfs:Class .
+
+yw:URIVariable  rdf:type             rdfs:Class .
+
+
+##### Property Equality#####
+
+yw:hasSubBlock      owl:sameAs                p1:hasSubProgram .
+
+yw:hasInPort        owl:sameAs                p1:hasInPort .
+```
+
+<table>
+  <tr>
+    <th>YW Provenance</th><th>Construct Type</th><th>YesWorkflow Namespace</th><th>ProvONE Namespace</th>
+  </tr>
+  <tr>
+    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td><td></td>
+  </tr>
+  <tr>
+    <td>Workflow</td><td></td>
+  </tr>
+  <tr>
+    <td>Port</td><td></td>
+  </tr>
+  <tr>
+    <td>InPort</td><td></td>
+  </tr>
+  <tr>
+    <td>ParamPort</td><td></td>
+  </tr>
+  <tr>
+    <td>OutPort</td><td></td>
+  </tr>
+  <tr>
+    <td>DataNode</td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="5">Association</td><td>hasSubBlock</td><td></td>
+  </tr>
+  <tr>
+    <td>hasInPort</td><td></td>
+  </tr>
+  <tr>
+    <td>hasOutPort</td><td></td>
+  </tr>
+  <tr>
+    <td>connectsTo</td><td></td>
+  </tr>
+  <tr>
+    <td>hasVariableSource</td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td><td></td>
+  </tr>
+  <tr>
+    <td>URIVariable</td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Association</td><td>isGeneratedBy</td><td></td>
+  </tr>
+  <tr>
+    <td>hasURIVariable</td><td></td>
+  </tr>
+</table>
