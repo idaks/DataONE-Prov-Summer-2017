@@ -1,6 +1,8 @@
 # List of SPARQL Queries
 
-The following is a list of SPARQL queries that can be implemented based on YW RDF facts in both Jena-ARQ and Virtuoso.
+The following table is a list of SPARQL queries based on YesWorkflow Model for the simulate_data_collection example. These queries can be implemented in both Jena-ARQ and Virtuoso.
+
+**Table 1: SPARQL Queries based on YesWorkflow Model for "simulate_data_collection" RDF Facts**
 
 <table>
   <tr>
@@ -163,3 +165,20 @@ The following is a list of SPARQL queries that can be implemented based on YW RD
     <td>cq08: What ports with filePathTemplate are upstreams of "run/data/DRT240/DRT240_11000eV_003.img"? -- NOT DONE YET -- </td><td></td>
   </tr>
 </table>
+
+<br>
+
+In addition, some queries can also be answered from the perspective of ProvONE Model users.
+
+The following table is a list of SPARQL queries based on ProvONE Model for the simulate_data_collection example. These queries can be implemented in both Jena-ARQ and Virtuoso.
+
+**Table 2: SPARQL Queries based on ProvONE Model for "simulate_data_collection" RDF Facts**
+
+| ProvONE Model Query Description | Corresponding YW Model Queries |
+| ------------------------------- | ------------------------------ |
+| Is there a channel between output port collect_data_set[frame_number] and input port transform_images[frame_number]? | n/a |
+| Is there a channel between program "collect_data_set" and "log_average_image_intensity"? | n/a |
+| What are the channels between program "collect_data_set" and "log_average_image_intensity"? | n/a |
+| How many channels does output port collect_data_set[frame_number] connect to? What are they?| n/a |
+| How many channels are there between program "collect_data_set" and "transform_images"? | n/a |
+| What are the programs that output port collect_data_set[frame_number] connects to through channels? | n/a |
