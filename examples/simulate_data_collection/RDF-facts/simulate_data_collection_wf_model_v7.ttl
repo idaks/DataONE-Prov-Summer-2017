@@ -30,13 +30,11 @@ yw:ParamPort    rdf:type             rdfs:Class ;
 yw:Port         rdf:type             rdfs:Class ;
                 owl:sameAs           p1:Port .
 
-yw:DataNode     rdf:type             rdfs:Class ;
-                owl:equivalentClass  p1:Channel .
+yw:DataNode     rdf:type             rdfs:Class .
 
 yw:Resource     rdf:type             rdfs:Class .
 
 yw:URIVariable  rdf:type             rdfs:Class .
-
 
 
 ##### Equivalent Property #####
@@ -46,9 +44,6 @@ yw:hasSubBlock      owl:sameAs                p1:hasSubProgram .
 yw:hasInPort        owl:sameAs                p1:hasInPort .
 
 yw:hasOutPort       owl:sameAs                p1:hasOutPort .
-
-yw:connectsTo       owl:equivalentProperty    p1:connectsTo .
-
 
 
 #####  DataNode  #####
