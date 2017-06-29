@@ -461,51 +461,51 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
     <th>YW Provenance</th><th>Construct Type</th><th>YesWorkflow Namespace</th><th>ProvONE Namespace</th>
   </tr>
   <tr>
-    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td><td></td>
+    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>yw:Block</td><td>p1:Program</td>
   </tr>
   <tr>
-    <td>Workflow</td><td></td>
+    <td>yw:Workflow</td><td>p1:Workflow</td>
   </tr>
   <tr>
-    <td>Port</td><td></td>
+    <td>yw:Port</td><td>p1:Port</td>
   </tr>
   <tr>
-    <td>InPort</td><td></td>
+    <td>yw:InPort</td><td>n/a</td>
   </tr>
   <tr>
-    <td>ParamPort</td><td></td>
+    <td>yw:ParamPort</td><td>n/a</td>
   </tr>
   <tr>
-    <td>OutPort</td><td></td>
+    <td>yw:OutPort</td><td>n/a</td>
   </tr>
   <tr>
-    <td>DataNode</td><td></td>
+    <td>yw:DataNode</td><td>n/a</td>
   </tr>
   <tr>
-    <td rowspan="5">Association</td><td>hasSubBlock</td><td></td>
+    <td rowspan="5">Association</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
   </tr>
   <tr>
-    <td>hasInPort</td><td></td>
+    <td>yw:hasInPort</td><td>p1:hasInPort</td>
   </tr>
   <tr>
-    <td>hasOutPort</td><td></td>
+    <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
   </tr>
   <tr>
-    <td>connectsTo</td><td></td>
+    <td>yw:connectsTo</td><td>n/a</td>
   </tr>
   <tr>
-    <td>hasVariableSource</td><td></td>
+    <td>yw:hasVariableSource</td><td>n/a</td>
   </tr>
   <tr>
-    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td><td></td>
+    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>yw:Resource</td><td>n/a</td>
   </tr>
   <tr>
-    <td>URIVariable</td><td></td>
+    <td>yw:URIVariable</td><td>n/a</td>
   </tr>
   <tr>
-    <td rowspan="2">Association</td><td>isGeneratedBy</td><td></td>
+    <td rowspan="2">Association</td><td>yw:isGeneratedBy</td><td>n/a</td>
   </tr>
   <tr>
-    <td>hasURIVariable</td><td></td>
+    <td>yw:hasURIVariable</td><td>n/a</td>
   </tr>
 </table>
