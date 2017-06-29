@@ -97,19 +97,19 @@ The following is a list of SPARQL queries that can be implemented based on YW RD
     <td>mq27: Print all program blocks and their descendant programs with downstream levels in the workflow.</td><td></td>
   </tr>
   <tr>
-    <td>mq28: Print all ports as parameters.</td><td></td>
+    <td>mq28: Print the names of all ports used as parameters.</td><td></td>
   </tr>
   <tr>
-    <td>mq29: Print all ports as inputs.</td><td></td>
+    <td>mq29: Print the names of all input ports (including both input data and input parameters).</td><td></td>
   </tr>
   <tr>
-    <td>mq30: Print all data only used as param ports.</td><td></td>
+    <td>mq30: Print all data only connected by param ports.</td><td></td>
   </tr>
   <tr>
-    <td>mq31: Print all data only used as output ports and param ports.</td><td></td>
+    <td>mq31: Print all data only connected by output ports and param ports.</td><td></td>
   </tr>
   <tr>
-    <td>mq32: Print all data only used as output ports and input ports.</td><td></td>
+    <td>mq32: Print all data only connected by output ports and input data ports without param ports.</td><td></td>
   </tr>
   <tr>
     <td>mq33: What program blocks are in between of program "load_screening_results" and "transform_images"?</td><td></td>
