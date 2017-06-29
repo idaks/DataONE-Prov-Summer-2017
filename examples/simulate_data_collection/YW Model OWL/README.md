@@ -18,7 +18,7 @@ The following namespaces and prefixes are used in YesWorkflow RDF Turtle facts a
 | p1     | http://purl.dataone.org/provone/2015/01/15/ontology# | The ProvONE namespace |
 | rdf    | http://www.w3.org/1999/02/22-rdf-syntax-ns# | The RDF namespace |
 | rdfs   | http://www.w3.org/2000/01/rdf-schema# | The RDFS namespace |
-| owl    | http://www.w3.org/2002/07/owl# | The OWL namespace |
+| owl    | http://www.w3.org/2002/07/owl# | The OWL Full namespace |
 
 The ProvONE constructs are summarized in Table 2 below.
 
