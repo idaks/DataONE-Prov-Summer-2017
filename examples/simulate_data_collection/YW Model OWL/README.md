@@ -413,7 +413,7 @@ It is shown in class Resource.
 ## 3. YesWorkflow Data Model Mapping to ProvONE Data Model
 
 
-![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvOnevsYesWorkflow_UML.jpg)
+![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvOnevsYesWorkflow_UML.png)
 
 The built-in OWL property *owl:sameAs* is used for connecting equivalent classes and associations when mapping from YesWorkflow Model to ProvONE Model. Only some concepts are the same between yw and p1 namespaces. The following is the code in the RDF Turtle file.
 
