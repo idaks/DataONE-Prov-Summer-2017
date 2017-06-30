@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="urn:absolute:yw#"
+     xml:base="urn:absolute:yw"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:yw="http://yesworkflow.org/ns/yesworkflow">
+    <owl:Ontology rdf:about="urn:absolute:yw">
+        <owl:versionIRI rdf:resource="urn:absolute:yw"/>
+        <owl:imports rdf:resource="http://purl.dataone.org/provone/2015/01/15/ontology#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.dataone.org/provone/2015/01/15/ontology#connectsTo -->
+
+    <rdf:Description rdf:about="http://purl.dataone.org/provone/2015/01/15/ontology#connectsTo">
+        <owl:equivalentProperty rdf:resource="yw:connectsTo"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.dataone.org/provone/2015/01/15/ontology#hasInPort -->
+
+    <rdf:Description rdf:about="http://purl.dataone.org/provone/2015/01/15/ontology#hasInPort">
+        <owl:equivalentProperty rdf:resource="yw:hasInPort"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.dataone.org/provone/2015/01/15/ontology#hasOutPort -->
+
+    <rdf:Description rdf:about="http://purl.dataone.org/provone/2015/01/15/ontology#hasOutPort">
+        <owl:equivalentProperty rdf:resource="yw:hasOutPort"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.dataone.org/provone/2015/01/15/ontology#hasSubProgram -->
+
+    <rdf:Description rdf:about="http://purl.dataone.org/provone/2015/01/15/ontology#hasSubProgram">
+        <owl:equivalentProperty rdf:resource="yw:hasSubBlock"/>
+    </rdf:Description>
+    
+
+
+    <!-- yw:connectsTo -->
+
+    <owl:ObjectProperty rdf:about="yw:connectsTo">
+        <rdfs:domain rdf:resource="yw:Port"/>
+        <rdfs:range rdf:resource="yw:DataNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- yw:hasInPort -->
+
+    <owl:ObjectProperty rdf:about="yw:hasInPort">
+        <rdfs:domain rdf:resource="yw:Block"/>
+        <rdfs:range rdf:resource="yw:InPort"/>
+        <rdfs:range rdf:resource="yw:ParamPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- yw:hasOutPort -->
+
+    <owl:ObjectProperty rdf:about="yw:hasOutPort">
+        <rdfs:domain rdf:resource="yw:Block"/>
+        <rdfs:range rdf:resource="yw:OutPort"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- yw:hasSubBlock -->
+
+    <owl:ObjectProperty rdf:about="yw:hasSubBlock">
+        <rdfs:domain rdf:resource="yw:Block"/>
+        <rdfs:range rdf:resource="yw:Block"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- yw:hasURIVariable -->
+
+    <owl:ObjectProperty rdf:about="yw:hasURIVariable">
+        <rdfs:domain rdf:resource="yw:Resource"/>
+        <rdfs:range rdf:resource="yw:URIVariable"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- yw:hasVariableSource -->
+
+    <owl:ObjectProperty rdf:about="yw:hasVariableSource">
+        <rdfs:domain rdf:resource="yw:Port"/>
+        <rdfs:range rdf:resource="yw:DataNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.dataone.org/provone/2015/01/15/ontology#Port -->
+
+    <rdf:Description rdf:about="http://purl.dataone.org/provone/2015/01/15/ontology#Port">
+        <owl:equivalentClass rdf:resource="yw:Port"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.dataone.org/provone/2015/01/15/ontology#Program -->
+
+    <rdf:Description rdf:about="http://purl.dataone.org/provone/2015/01/15/ontology#Program">
+        <owl:equivalentClass rdf:resource="yw:Block"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.dataone.org/provone/2015/01/15/ontology#Workflow -->
+
+    <rdf:Description rdf:about="http://purl.dataone.org/provone/2015/01/15/ontology#Workflow">
+        <owl:equivalentClass rdf:resource="yw:Workflow"/>
+    </rdf:Description>
+    
+
+
+    <!-- yw:Block -->
+
+    <owl:Class rdf:about="yw:Block"/>
+    
+
+
+    <!-- yw:DataNode -->
+
+    <owl:Class rdf:about="yw:DataNode"/>
+    
+
+
+    <!-- yw:InPort -->
+
+    <owl:Class rdf:about="yw:InPort">
+        <rdfs:subClassOf rdf:resource="yw:Port"/>
+    </owl:Class>
+    
+
+
+    <!-- yw:OutPort -->
+
+    <owl:Class rdf:about="yw:OutPort">
+        <rdfs:subClassOf rdf:resource="yw:Port"/>
+    </owl:Class>
+    
+
+
+    <!-- yw:ParamPort -->
+
+    <owl:Class rdf:about="yw:ParamPort">
+        <rdfs:subClassOf rdf:resource="yw:InPort"/>
+    </owl:Class>
+    
+
+
+    <!-- yw:Port -->
+
+    <owl:Class rdf:about="yw:Port"/>
+    
+
+
+    <!-- yw:Resource -->
+
+    <owl:Class rdf:about="yw:Resource"/>
+    
+
+
+    <!-- yw:URIVariable -->
+
+    <owl:Class rdf:about="yw:URIVariable"/>
+    
+
+
+    <!-- yw:Workflow -->
+
+    <owl:Class rdf:about="yw:Workflow">
+        <rdfs:subClassOf rdf:resource="yw:Block"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
