@@ -1,29 +1,27 @@
-#  mq30: Print all YW data only used as param ports
+#  mq30: Print all data only connected by param ports.
 
 BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
 SELECT  DISTINCT ?data_name
 WHERE
 {    
-      ?port             rdf:type        yw:Port ;
-                        yw:portType     "param";
+      ?port             rdf:type        yw:ParamPort ;
                         yw:connectsTo   ?data .  
 
-      ?data             rdf:type        yw:Data ;
+      ?data             rdf:type        yw:DataNode ;
                         rdfs:label      ?data_name . 
     
       FILTER NOT EXISTS {
-            ?port2      rdf:type        yw:Port ;
-                        yw:portType     "in";
+            ?port2      rdf:type        yw:InPort ;
                         yw:connectsTo   ?data . 
       }
       FILTER NOT EXISTS {
-            ?port3      rdf:type        yw:Port ;
-                        yw:portType     "out";
+            ?port3      rdf:type        yw:OutPort ;
                         yw:connectsTo   ?data . 
       }
 }
