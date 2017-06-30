@@ -8,6 +8,8 @@ The YesWorkflow conceptual model is illustrated by the UML diagram of Figure 1.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/YesWorkflowUML.jpg)
 
+### 1.1 Prefix and Namespace
+
 The following namespaces and prefixes are used in YesWorkflow RDF Turtle facts and SPARQL queries. 
 
 **Table 1: Prefix and Namespaces used in this specification**
@@ -20,7 +22,9 @@ The following namespaces and prefixes are used in YesWorkflow RDF Turtle facts a
 | rdfs   | http://www.w3.org/2000/01/rdf-schema# | The RDFS namespace |
 | owl    | http://www.w3.org/2002/07/owl# | The OWL Full namespace |
 
-The ProvONE constructs are summarized in Table 2 below.
+### 1.2 YesWorkflow Model Constructs
+
+The YesWorkflow constructs are summarized in Table 2 below.
 
 **Table 2: YesWorkflow Constructs**
 <table>
