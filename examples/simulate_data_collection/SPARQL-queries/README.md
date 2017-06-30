@@ -1,5 +1,7 @@
 # List of SPARQL Queries
 
+## 1. SPARQL Queries in YesWorkflow Model
+
 The following table is a list of SPARQL queries based on YesWorkflow Model for the simulate_data_collection example. These queries can be implemented in both Jena-ARQ and Virtuoso.
 
 **Table 1: SPARQL Queries based on YesWorkflow Model for "simulate_data_collection" RDF Facts**
@@ -166,7 +168,7 @@ The following table is a list of SPARQL queries based on YesWorkflow Model for t
   </tr>
 </table>
 
-<br>
+## 2. SPARQL Queries in ProvONE Model
 
 In addition, some queries can also be answered from the perspective of ProvONE Model users.
 
