@@ -1,0 +1,30 @@
+#  rq02: Print all the resources which have the following URI variables: "sample_id" is "DRT240", "energy" is "11000", and "frame_number" is "010".
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?resource_file_path
+WHERE
+{   
+    ?resource       rdf:type                yw:Resource ;
+                    yw:actualFilePath       ?resource_file_path ;
+                    yw:hasURIVariable       ?sample_id, ?energy, ?frame_number, ?optional_variable .
+    
+    ?sample_id      rdf:type                yw:URIVariable ;
+                    yw:variableName         "sample_id" ;
+                    yw:variableValue        "DRT240" .
+    
+    ?energy         rdf:type                yw:URIVariable ;
+                    yw:variableName         "energy" ;
+                    yw:variableValue        "11000" .
+
+    ?frame_number   rdf:type                yw:URIVariable ;
+                    yw:variableName         "frame_number" ;
+                    yw:variableValue        "010" .    
+    
+    ?optional_variable      rdf:type                yw:URIVariable .
+}

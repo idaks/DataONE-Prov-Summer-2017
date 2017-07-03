@@ -1,0 +1,29 @@
+#  cq02: What energies were used during collection of images (associated with "raw_image" data) from sample "DRT322"?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?energy
+WHERE
+{     
+     ?data         rdf:type            yw:DataNode ;
+                   rdfs:label          "raw_image" .
+    
+     ?port         yw:connectsTo       ?data .
+
+     ?resource     rdf:type            yw:Resource ;
+                   yw:isGeneratedBy    ?port ;
+                   yw:hasURIVariable   ?sample_id, ?energies .
+
+     ?sample_id    rdf:type            yw:URIVariable ;
+                   yw:variableName     "sample_id" ;
+                   yw:variableValue    "DRT322" .
+    
+     ?energies     rdf:type            yw:URIVariable ;
+                   yw:variableName     "energy" ;
+                   yw:variableValue    ?energy .
+}
