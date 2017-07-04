@@ -1,0 +1,26 @@
+#  cq09: Print all URI variables names and values that are associated with "corrected_image" data.
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?variable_name ?variable_value
+WHERE
+{     
+    ?data             rdf:type              yw:DataNode ;
+                      rdfs:label            "corrected_image" .
+    
+    ?port             yw:connectsTo         ?data .   
+    
+    ?resource         rdf:type              yw:Resource ;
+                      yw:hasURIVariable     ?URIVariable ;
+                      yw:isGeneratedBy      ?port .
+    
+    ?URIVariable      rdf:type              yw:URIVariable ;
+                      yw:variableName       ?variable_name ;
+                      yw:variableValue      ?variable_value .
+}
+ORDER BY ?variable_name

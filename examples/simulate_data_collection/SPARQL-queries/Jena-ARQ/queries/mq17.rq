@@ -1,0 +1,25 @@
+#  mq17: What data is downstream of data "accepted_sample"?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_data_name
+WHERE
+{    
+    ?data               rdf:type                yw:DataNode ;
+                        rdfs:label              "accepted_sample" ;
+                        (^yw:connectsTo/^yw:hasInPort)     ?down_block .
+    
+    ?down_block         rdf:type                yw:Block ;
+                        (yw:hasOutPort/yw:connectsTo)      ?down_data .
+    
+    ?down_data          rdf:type                yw:DataNode ;
+                        (^yw:connectsTo/^yw:hasInPort/yw:hasOutPort/yw:connectsTo)*     ?downstream_data .
+    
+    ?downstream_data    rdf:type                yw:DataNode ;
+                        rdfs:label              ?down_data_name .
+}
