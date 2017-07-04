@@ -164,10 +164,10 @@ The following table is a list of SPARQL queries based on YesWorkflow Model for t
     <td>cq11: What are the downstream resources from "raw_image" data?</td><td></td>
   </tr>
   <tr>
-    <td>cq12: What are the downstream resources from file "calibration.img"? -- NOT DONE YET -- </td><td></td>
+    <td>cq12: What are the downstream resources from file "calibration.img"?</td><td></td>
   </tr>
   <tr>
-    <td>cq13: What ports with filePathTemplate are upstreams of "run/data/DRT240/DRT240_11000eV_003.img"? -- NOT DONE YET -- </td><td></td>
+    <td>cq13: What ports with filePathTemplate are upstreams of "run/data/DRT240/DRT240_11000eV_003.img"? Print both the ports names and data names.</td><td></td>
   </tr>
 </table>
 
