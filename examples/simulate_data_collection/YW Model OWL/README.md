@@ -32,7 +32,7 @@ The YesWorkflow constructs are summarized in Table 2 below.
     <th>YW Provenance</th><th>Construct Type</th><th>Name</th><th>Specification</th>
   </tr>
   <tr>
-    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>Block</td><td><a href="#2.1">Section 2.1</a></td>
+    <td rowspan="13">Prospective</td><td rowspan="7">Class</td><td>Block</td><td><a href="#2.1">Section 2.1</a></td>
   </tr>
   <tr>
     <td>Workflow</td><td><a href="#2.2">Section 2.2</a></td>
