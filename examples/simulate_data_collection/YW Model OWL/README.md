@@ -488,7 +488,7 @@ The following table describes the mapping rules from YesWorkflow (yw) to ProvONE
     <th>YW Provenance</th><th>Construct Type</th><th>YesWorkflow Namespace</th><th>ProvONE Namespace</th>
   </tr>
   <tr>
-    <td rowspan="12">Prospective</td><td rowspan="7">Class</td><td>yw:Block</td><td>p1:Program</td>
+    <td rowspan="13">Prospective</td><td rowspan="7">Class</td><td>yw:Block</td><td>p1:Program</td>
   </tr>
   <tr>
     <td>yw:Workflow</td><td>p1:Workflow</td>
