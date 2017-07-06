@@ -50,10 +50,10 @@ The YesWorkflow constructs are summarized in Table 2 below.
     <td>OutPort</td><td><a href="#2.6">Section 2.6</a></td>
   </tr>
   <tr>
-    <td>DataNode</td><td><a href="#2.7">Section 2.7</a></td>
+    <td>Data</td><td><a href="#2.7">Section 2.7</a></td>
   </tr>
   <tr>
-    <td rowspan="5">Association</td><td>hasSubBlock</td><td><a href="#2.8">Section 2.8</a></td>
+    <td rowspan="6">Association</td><td>hasSubBlock</td><td><a href="#2.8">Section 2.8</a></td>
   </tr>
   <tr>
     <td>hasInPort</td><td><a href="#2.9">Section 2.9</a></td>
@@ -62,22 +62,25 @@ The YesWorkflow constructs are summarized in Table 2 below.
     <td>hasOutPort</td><td><a href="#2.10">Section 2.10</a></td>
   </tr>
   <tr>
-    <td>connectsTo</td><td><a href="#2.11">Section 2.11</a></td>
+    <td>reads</td><td><a href="#2.11">Section 2.11</a></td>
   </tr>
   <tr>
-    <td>hasVariableSource</td><td><a href="#2.12">Section 2.12</a></td>
+    <td>writes</td><td><a href="#2.12">Section 2.12</a></td>
   </tr>
   <tr>
-    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td><td><a href="#2.13">Section 2.13</a></td>
+    <td>hasVariableSource</td><td><a href="#2.13">Section 2.13</a></td>
   </tr>
   <tr>
-    <td>URIVariable</td><td><a href="#2.14">Section 2.14</a></td>
+    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td><td><a href="#2.14">Section 2.14</a></td>
   </tr>
   <tr>
-    <td rowspan="2">Association</td><td>isGeneratedBy</td><td><a href="#2.15">Section 2.15</a></td>
+    <td>URIVariable</td><td><a href="#2.15">Section 2.15</a></td>
   </tr>
   <tr>
-    <td>hasURIVariable</td><td><a href="#2.16">Section 2.16</a></td>
+    <td rowspan="2">Association</td><td>isGeneratedBy</td><td><a href="#2.16">Section 2.16</a></td>
+  </tr>
+  <tr>
+    <td>hasURIVariable</td><td><a href="#2.17">Section 2.17</a></td>
   </tr>
 </table>
 
@@ -161,7 +164,7 @@ A Port enables a Block to send or receive data items (as DataNode). There are tw
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:connectsTo, yw:hasVariableSource
+* yw:reads, yw:writes, yw:hasVariableSource
 
 **is in range of**
 * yw:hasInPort, yw:hasOutPort, yw:isGeneratedBy
@@ -182,31 +185,31 @@ yw:ParamPort    rdf:type           rdfs:Class ;
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;                       # InPort is a sub-class of Port
     rdfs:label                  "sample_spreadsheet_file" ;        # The port name (not the alias)
-    yw:connectsTo               <simulate_data_collection#sample_spreadsheet_data> ;   # The DataNode that the port connects to
+    yw:reads                    <simulate_data_collection#sample_spreadsheet_data> ;   # The Data that the in-port reads
     yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;    # (Optional) The URI template of the port
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .    # (Optional) The referred DataNode in the URI template
 
 <simulate_data_collection/log_rejected_sample#rejection_log_port>
     rdf:type                    yw:OutPort ;    	         # OutPort is a sub-class of Port
     rdfs:label                  "rejection_log" ;
-    yw:connectsTo               <simulate_data_collection#rejection_log_data> ;
+    yw:writes                   <simulate_data_collection#rejection_log_data> ;    # The Data that the out-port writes
     yw:filePathTemplate         "file:run/rejected_samples.txt" .             # (Optional)
 
 <simulate_data_collection/log_average_image_intensity#cassette_id_port>
     rdf:type                    yw:ParamPort ;                   #ParamPort is a sub-class of InPort
     rdfs:label                  "cassette_id" ;
-    yw:connectsTo               <simulate_data_collection#cassette_id_data> .
+    yw:reads                    <simulate_data_collection#cassette_id_data> .
 ```
 
 <h3 id="2.4">2.4 InPort class</h3>
 
-An InPort is a sub-class of Port. It means the port is used as an input data port of its Block or Workflow.
+An InPort is a sub-class of Port. It means the port is used as an input data or parameter port of its Block or Workflow.
 
 **has self-attribute**
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:connectsTo, yw:hasVariableSource
+* yw:reads, yw:hasVariableSource
 
 **is in range of**
 * yw:hasInPort, yw:isGeneratedBy
@@ -223,7 +226,7 @@ A ParamPort is a sub-class of InPort. It means the port is used as an input para
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:connectsTo, yw:hasVariableSource
+* yw:reads, yw:hasVariableSource
 
 **is in range of**
 * yw:hasInPort, yw:isGeneratedBy
@@ -240,7 +243,7 @@ An OutPort is a sub-class of Port. It means the port is used as an output port o
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:connectsTo, yw:hasVariableSource
+* yw:writes, yw:hasVariableSource
 
 **is in range of**
 * yw:hasOutPort, yw:isGeneratedBy
@@ -249,24 +252,24 @@ An OutPort is a sub-class of Port. It means the port is used as an output port o
 
 The same as Port.
 
-<h3 id="2.7">2.7 DataNode class</h3>
+<h3 id="2.7">2.7 Data class</h3>
 
-A DataNode is a data item that multiple ports from different blocks or workflows connect to. The ports which connect to the same DataNode share the same actual data. In other words, ports with the same alias name connect to the same DataNode.
+A Data is a data item that multiple ports from different blocks or workflows read or write. The ports which connect to the same Data share the same actual data. In other words, ports with the same alias name connect to the same Data.
 
 **is in range of**
-* yw:connectsTo, yw:hasVariableSource
+* yw:reads, yw:writes, yw:hasVariableSource
 
 **Example:**
 
 The following RDF Turtle fragment specifies a DataNode.
 
 ```
-yw:DataNode     rdf:type           rdfs:Class .
+yw:Data        rdf:type           rdfs:Class .
 
 <simulate_data_collection#raw_image_data>
-    rdf:type                    yw:DataNode ;
-    rdfs:label                  "raw_image" ;       # The alias name of ports connected to the same DataNode
-    rdfs:comment                "Path of file storing the raw diffraction image." .  # The description of the DataNode
+    rdf:type                    yw:Data ;
+    rdfs:label                  "raw_image" ;       # The alias name of ports connected to the same Data
+    rdfs:comment                "Path of file storing the raw diffraction image." .  # The description of the Data
 ```
 
 <h3 id="2.8">2.8 hasSubBlock object property</h3>
@@ -311,21 +314,35 @@ The association *hasOutPort* specifies the OutPorts of a particular Block or Wor
 
 It is shown in class Block and Workflow.
 
-<h3 id="2.11">2.11 connectsTo object property</h3>
+<h3 id="2.11">2.11 reads object property</h3>
 
-The association *connectsTo* specifies that a Port connects to a DataNode. Ports with the same alias names connect to the same DataNode.
+The association *reads* specifies that an InPort reads a Data. Ports with the same alias names connect to the same Data.
 
 **has domain**
-* yw:InPort, yw:ParamPort, yw:OutPort
+* yw:InPort, yw:ParamPort
 
 **has range**
-* yw:DataNode
+* yw:Data
 
 **Example:**
 
 It is shown in class Port.
 
-<h3 id="2.12">2.12 hasVariableSource object property</h3>
+<h3 id="2.12">2.12 writes object property</h3>
+
+The association *writes* specifies that an OutPort writes a Data. Ports with the same alias names connect to the same Data.
+
+**has domain**
+* yw:OutPort
+
+**has range**
+* yw:Data
+
+**Example:**
+
+It is shown in class Port.
+
+<h3 id="2.13">2.13 hasVariableSource object property</h3>
 
 The association *hasVariableSource* specifies that a Port with filePathTemplate can have its corresponding URI variable names inside the string of filePathTemplate. The URI variable names are DataNode names indeed.
 
@@ -333,13 +350,13 @@ The association *hasVariableSource* specifies that a Port with filePathTemplate 
 * yw:InPort, yw:ParamPort, yw:OutPort
 
 **has range**
-* yw:DataNode
+* yw:Data
 
 **Example:**
 
 It is shown in class Port.
 
-<h3 id="2.13">2.13 Resource class</h3>
+<h3 id="2.14">2.14 Resource class</h3>
 
 A Resource is an actual file (with its path) generated after running the source scipt. The Resource is named according to the filePathTemplate of its connected port.
 
@@ -363,7 +380,7 @@ yw:Resource     rdf:type           rdfs:Class .
     yw:hasURIVariable       <simulate_data_collection#sample_spreadsheet_resource/001/v1> , <...> .      # The referred URI variables in the resource file name (with its path)
 ```
 
-<h3 id="2.14">2.14 URIVariable class</h3>
+<h3 id="2.15">2.15 URIVariable class</h3>
 
 An URIVariable is a variable referred in the resource file name (with its path). URIVariables have variable names between "{" and "}" in corresponding port's filePathTemplate. URIVariables have variable values in the actualFilePath string.
 
@@ -386,7 +403,7 @@ yw:URIVariable  rdf:type           rdfs:Class .
         yw:variableValue       "q55" .                # The value of the URIVariable
 ```
 
-<h3 id="2.15">2.15 isGeneratedBy object property</h3>
+<h3 id="2.16">2.16 isGeneratedBy object property</h3>
 
 The association *isGeneratedBy* specifies that a Resource is generated by a Port following its URI file path template.
 
@@ -400,7 +417,7 @@ The association *isGeneratedBy* specifies that a Resource is generated by a Port
 
 It is shown in class Resource.
 
-<h3 id="2.16">2.16 hasURIVariable object property</h3>
+<h3 id="2.17">2.17 hasURIVariable object property</h3>
 
 The association *hasURIVariable* specifies that a Resource may have some URI variables in its actual file path. The URI variables are corresponding to the Port's filePathTemplate that the Resource is generated by.
 
@@ -446,7 +463,7 @@ yw:ParamPort    rdf:type             rdfs:Class ;
 yw:Port         rdf:type             rdfs:Class ;
                 owl:sameAs           p1:Port .
 
-yw:DataNode     rdf:type             rdfs:Class .
+yw:Data         rdf:type             rdfs:Class .
 
 yw:Resource     rdf:type             rdfs:Class .
 
@@ -489,10 +506,10 @@ The following table describes the mapping rules from YesWorkflow (yw) to ProvONE
     <td>yw:OutPort</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:DataNode</td><td>n/a</td>
+    <td>yw:Data</td><td>n/a</td>
   </tr>
   <tr>
-    <td rowspan="5">Association</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
+    <td rowspan="6">Association</td><td>yw:hasSubBlock</td><td>p1:hasSubProgram</td>
   </tr>
   <tr>
     <td>yw:hasInPort</td><td>p1:hasInPort</td>
@@ -501,7 +518,10 @@ The following table describes the mapping rules from YesWorkflow (yw) to ProvONE
     <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
   </tr>
   <tr>
-    <td>yw:connectsTo</td><td>n/a</td>
+    <td>yw:reads</td><td>n/a</td>
+  </tr>
+  <tr>
+    <td>yw:writes</td><td>n/a</td>
   </tr>
   <tr>
     <td>yw:hasVariableSource</td><td>n/a</td>
