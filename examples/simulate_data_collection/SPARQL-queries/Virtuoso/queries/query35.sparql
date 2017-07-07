@@ -1,0 +1,32 @@
+#Query 35:  What data are in between of "sample_name" and "total_intensity"?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_data_name
+WHERE 
+ {  
+      ?data1        rdf:type             yw:Data ;
+                    rdfs:label          "sample_name".
+
+      ?data2        rdf:type             yw:Data ;
+                    rdfs:label          "total_intensity".
+
+      #finding all data in between data1 and data2
+      ?data1      (^yw:reads/^yw:hasInPort/yw:hasOutPort/yw:writes)+   ?down_data .
+
+      ?down_data   (^yw:reads/^yw:hasInPort/yw:hasOutPort/yw:writes)*   ?data2.
+
+      ?down_data      rdf:type             yw:Data ;
+                      rdfs:label          ?down_data_name .
+      FILTER (?down_data_name != "total_intensity")      
+ };
+
+
+
+
+    

@@ -1,0 +1,23 @@
+#Query 27:  Print all programs and their descendant programs with downstream levels in the workflow.
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?up_block_name AS ?Accestor_Program ?block_name AS ?Descendant_Programs
+WHERE 
+ {    #get the program with nanme and put into ?program variable
+      ?block         rdf:type             yw:Block ;
+                     rdfs:label           ?block_name .   
+                     
+      ?block      (yw:hasInPort/yw:reads/^yw:writes/^yw:hasOutPort)+   ?up_block .
+      
+      ?up_block      rdf:type             yw:Block ;
+                     rdfs:label           ?up_block_name .
+       
+ } 
+ ORDER BY ?up_block_name;
+ 

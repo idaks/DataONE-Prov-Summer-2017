@@ -1,3 +1,5 @@
+#Query 15 (DownstreamDataName): What data is immediately downstream of raw_image?
+
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -5,17 +7,15 @@ PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX p1:   <http://dataone.org/ns/provone#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
-SELECT DISTINCT ?down_channel_name
+SELECT DISTINCT ?down_data_name
 WHERE
 {    
-      ?channel        rdf:type             p1:Channel ;
-                      rdfs:label           ?channel_name.  
+      ?data           rdf:type             yw:Data ;
+                      rdfs:label           "raw_image".  
     
-      ?channel        (^p1:connectsTo/^p1:hasInPort/p1:hasOutPort/p1:connectsTo)   ?down_channel .
+      ?data        (^yw:reads/^yw:hasInPort/yw:hasOutPort/yw:writes)   ?down_data .
       
-      ?down_channel    rdf:type            p1:Channel ;
-                       rdfs:label           ?down_channel_name .
-
-  FILTER (?channel_name = "raw_image")
+      ?down_data       rdf:type            yw:Data ;
+                       rdfs:label          ?down_data_name .
    
-} ORDER BY ?down_program_name;
+} ORDER BY ?down_data_name;

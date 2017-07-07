@@ -1,4 +1,4 @@
-#Query 12: What program blocks are immediately upstream of transform_images?
+#Query 23: What program blocks are upstream 3 levels from transform_images?
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -9,10 +9,11 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
 SELECT DISTINCT ?up_block_name
 WHERE 
- {    ?block         rdf:type             yw:Block ;
-                     rdfs:label           "transform_images" .                                        
-    
-      ?block      (yw:hasInPort/yw:reads/^yw:writes/^yw:hasOutPort)   ?up_block .
+ {    
+      ?block       rdf:type             yw:Block ;
+                     rdfs:label         "transform_images" .   
+                     
+      ?block      (yw:hasInPort/yw:reads/^yw:writes/^yw:hasOutPort){3}  ?up_block .
       
       ?up_block      rdf:type             yw:Block ;
                      rdfs:label           ?up_block_name .

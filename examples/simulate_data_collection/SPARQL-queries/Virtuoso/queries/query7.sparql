@@ -1,3 +1,5 @@
+#Query 7: What program blocks provide input directly to simulate_data_collection.collect_data_set?
+
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -5,14 +7,14 @@ PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX p1:   <http://dataone.org/ns/provone#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
-SELECT DISTINCT ?up_program_name
+SELECT DISTINCT ?up_block_name
 WHERE 
- {    ?program       rdf:type             p1:Program ;
+ {    ?block         rdf:type               yw:Block ;
                      rdfs:label           "collect_data_set" .                                        
     
-      ?program      (p1:hasInPort/p1:connectsTo/^p1:connectsTo/^p1:hasOutPort)   ?up_program .
+      ?block      (yw:hasInPort/yw:reads/^yw:writes/^yw:hasOutPort)   ?up_block .
       
-      ?up_program    rdf:type             p1:Program ;
-                     rdfs:label           ?up_program_name .
+      ?up_block      rdf:type             yw:Block ;
+                     rdfs:label           ?up_block_name .
        
- } ORDER BY ?up_program_name;
+ } ORDER BY ?up_block_name;

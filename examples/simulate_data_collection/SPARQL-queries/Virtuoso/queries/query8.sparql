@@ -1,3 +1,5 @@
+#Query 8: What programs have input ports that receive data simulate_data_collection[cassette_id]
+
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -5,23 +7,18 @@ PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX p1:   <http://dataone.org/ns/provone#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
-SELECT DISTINCT ?program_name
+SELECT DISTINCT ?block_name
 WHERE
 {  
 
-  ?program   rdf:type        p1:Program;
-             rdfs:label      ?program_name;
-             p1:hasInPort    ?port.
+  ?block     rdf:type        yw:Block;
+             rdfs:label      ?block_name;
+             yw:hasInPort    ?inport.
 
-  ?port      rdf:type         p1:Port;
-             rdfs:label       ?port_name;
-             p1:connectsTo    ?channel.
+  ?inport    rdf:type/rdfs:subClassOf*      yw:InPort;
+             yw:reads         ?data.
 
-  ?channel   rdf:type         p1:Channel;
-             rdfs:label      ?channel_name;
-             rdfs:comment    ?channel_description.
-
-
-  FILTER (?channel_name = "cassette_id")
+  ?data      rdf:type         yw:Data;
+             rdfs:label      "cassette_id".
    
-} ORDER BY ?program_name;
+} ORDER BY ?block_name;
