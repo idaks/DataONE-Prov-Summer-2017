@@ -1,4 +1,43 @@
 #!/bin/bash
+echo ""
+echo "Extract Query 1: What source files were YW annotations extracted from?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extracted_query1.sparql
+
+echo ""
+echo "Extract Query 2: What are the names of all program blocks?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extracted_query2.sparql
+
+echo ""
+echo "Extract Query 3: What out ports are qualified with URIs?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extracted_query3.sparql
+
+echo ""
+echo "Query 1: Where is the definition of block simulate_data_collection.collect_data_set?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query1.sparql
+
+echo ""
+echo "Query 2: What is the name and description of the top-level workflow?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query2.sparql
+
+echo ""
+echo "Query 3: What are the names of any top-level functions?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query3.sparql
+
+echo ""
+echo "Query 4: What are the names of the programs comprising the top-level workflow?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query4.sparql
+
+echo ""
+echo "Query 5: What are the names and descriptions of the inputs to the top-level workflow?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query5.sparql
 
 echo ""
 echo "Query 6: What data is output by program block simulate_data_collection.collect_data_set?"
@@ -76,42 +115,76 @@ echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query20.sparql
 
 echo ""
-echo "Extra 1:  What data is downstream 2 levels from "energies" ?"
+echo "Query 21: What data is downstream 2 levels from data energies?"
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query1.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query21.sparql
 
 echo ""
-echo "Extra 2: (CommonUpstreamProgramName) - What program blocks are upstream and common between of collect_data_set and log_rejected_sample?"
+echo "Query 22: What data is upstream 2 levels from data corrected_image?"
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query2.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query22.sparql
 
 echo ""
-echo "Extra 3: Print all programs and their descendant programs in the workflow"
+echo "Query 23: What program blocks are upstream 3 levels from block transform_images?"
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query3.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query23.sparql
 
 echo ""
-echo "Extra 4: Print all parameter ports"
+echo "Query 24: What program blocks are downstream 3 levels from block load_screening_results?"
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query4.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query24.sparql
 
 echo ""
-echo "Extra 5: Print all input ports"
+echo "Query 25: What program blocks are common upstream blocks of block collect_data_set and log_rejected_sample?"
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query5.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query25.sparql
 
 echo ""
-echo "Extra 6: CROSS RDF TURTLE FILES - Print all resources belong to raw_image data (channel) "
+echo "Query 26: What program block is the closet upstream block (LCA) of block collect_data_set and log_rejected_sample in common?"
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query6.sparql
-
-
-echo ""
-echo "Extra 7: CROSS RDF TURTLE FILES - Print all URI variables that associated with raw_image data via resources?"
-echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query7.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query26.sparql
 
 echo ""
-echo "Extra 8: CROSS RDF FILES - Print all URI variables value that associated with raw_image data via resources?"
+echo "Query 27: Print all program blocks and their descendant programs with downstream levels in the workflow."
 echo ""
-isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extra_query8.sparql
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query27.sparql
+
+echo ""
+echo "Query 28: Print the names of all ports used as parameters."
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query28.sparql
+
+echo ""
+echo "Query 29: Print the names of all input ports (including both input data and input parameters)."
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query29.sparql
+
+echo ""
+echo "Query 30: Print all data only connected by param ports."
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query30.sparql
+
+echo ""
+echo "Query 31: Print all data only connected by output ports and param ports."
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query31.sparql
+
+echo ""
+echo "Query 32: Print all data only connected by output ports and input data ports without param ports."
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query32.sparql
+
+echo ""
+echo "Query 33: What program blocks are in between of program load_screening_results and transform_images?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query33.sparql
+
+echo ""
+echo "Query 34: What program blocks are in between of data sample_name and total_intensity?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query34.sparql
+
+echo ""
+echo "Query 35:What data is in between of data sample_name and total_intensity?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query35.sparql
