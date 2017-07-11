@@ -9,7 +9,7 @@ _______________________________________________________________________________
 
 simulate_data_collection.py
 
-1 Rows. -- 35 msec.
+1 Rows. -- 2 msec.
 
 Extract Query 2: What are the names of all program blocks?
 
@@ -19,15 +19,15 @@ block_name
 LONG VARCHAR
 _______________________________________________________________________________
 
-collect_next_image
 calculate_strategy
 collect_data_set
+collect_next_image
 initialize_run
 load_screening_results
 log_average_image_intensity
 log_rejected_sample
-transform_images
 transform_image
+transform_images
 
 9 Rows. -- 2 msec.
 
@@ -39,15 +39,31 @@ port_name
 LONG VARCHAR
 _______________________________________________________________________________
 
+collection_log
+corrected_image_file
+raw_image_file
+rejection_log
+run_log
+
+5 Rows. -- 2 msec.
+
+Extract Query 4: What ports are qualified with URIs?
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+port_name
+LONG VARCHAR
+_______________________________________________________________________________
+
+calibration_image_file
+collection_log
+corrected_image_file
+raw_image_file
+rejection_log
 run_log
 sample_spreadsheet_file
-raw_image_file
-collection_log
-rejection_log
-calibration_image_file
-corrected_image_file
 
-7 Rows. -- 2 msec.
+7 Rows. -- 5 msec.
 
 Query 1: Where is the definition of block simulate_data_collection.collect_data_set?
 
@@ -119,7 +135,7 @@ data_redundancy                                                                 
 sample_score_cutoff                                                               The minimum quality score required of crystals.
 sample_spreadsheet                                                                CSV file giving quality score for each crystal.
 
-5 Rows. -- 31 msec.
+5 Rows. -- 43 msec.
 
 Query 6: What data is output by program block simulate_data_collection.collect_data_set?
 
@@ -146,7 +162,7 @@ _______________________________________________________________________________
 
 calculate_strategy
 
-1 Rows. -- 4 msec.
+1 Rows. -- 3 msec.
 
 Query 8: What programs have input ports that receive data simulate_data_collection[cassette_id]
 
@@ -161,7 +177,7 @@ load_screening_results
 log_average_image_intensity
 log_rejected_sample
 
-4 Rows. -- 8 msec.
+4 Rows. -- 10 msec.
 
 Query 9: How many ports read data simulate_data_collection[frame_number]?
 
@@ -173,7 +189,7 @@ _______________________________________________________________________________
 
 2
 
-1 Rows. -- 7 msec.
+1 Rows. -- 9 msec.
 
 Query 10: How many data are read by more than port in workflow simulate_data_collection?
 
@@ -183,15 +199,15 @@ data_name
 LONG VARCHAR
 _______________________________________________________________________________
 
-sample_spreadsheet
-data_redundancy
 calibration_image
-frame_number
 cassette_id
-sample_score_cutoff
+data_redundancy
+frame_number
 sample_id
+sample_score_cutoff
+sample_spreadsheet
 
-7 Rows. -- 6 msec.
+7 Rows. -- 7 msec.
 
 Query 11: What program blocks are immediately downstream of calculate_strategy?
 
@@ -204,7 +220,7 @@ _______________________________________________________________________________
 collect_data_set
 log_rejected_sample
 
-2 Rows. -- 4 msec.
+2 Rows. -- 3 msec.
 
 Query 12: What program blocks are immediately upstream of transform_images?
 
@@ -341,7 +357,7 @@ energy
 frame_number
 sample_id
 
-3 Rows. -- 37 msec.
+3 Rows. -- 47 msec.
 
 Query 21: What data is downstream 2 levels from data energies?
 
@@ -356,7 +372,7 @@ corrected_image
 pixel_count
 total_intensity
 
-4 Rows. -- 4 msec.
+4 Rows. -- 5 msec.
 
 Query 22: What data is upstream 2 levels from data corrected_image?
 
@@ -371,7 +387,7 @@ cassette_id
 energies
 num_images
 
-4 Rows. -- 4 msec.
+4 Rows. -- 5 msec.
 
 Query 23: What program blocks are upstream 3 levels from block transform_images?
 
@@ -396,7 +412,7 @@ _______________________________________________________________________________
 log_average_image_intensity
 transform_images
 
-2 Rows. -- 4 msec.
+2 Rows. -- 5 msec.
 
 Query 25: What program blocks are common upstream blocks of block collect_data_set and log_rejected_sample?
 
@@ -421,7 +437,7 @@ _______________________________________________________________________________
 
 calculate_strategy
 
-1 Rows. -- 25 msec.
+1 Rows. -- 31 msec.
 
 Query 27: Print all program blocks and their descendant programs with downstream levels in the workflow.
 
@@ -444,7 +460,7 @@ load_screening_results                                                          
 load_screening_results                                                            transform_images
 transform_images                                                                  log_average_image_intensity
 
-12 Rows. -- 7 msec.
+12 Rows. -- 6 msec.
 
 Query 28: Print the names of all ports used as parameters.
 
@@ -454,20 +470,20 @@ port_name
 LONG VARCHAR
 _______________________________________________________________________________
 
-num_images
-total_intensity
-rejected_sample
+accepted_sample
 cassette_id
 data_redundancy
-sample_score_cutoff
+energies
+energy
+frame_number
+num_images
+pixel_count
+rejected_sample
+sample_id
 sample_name
 sample_quality
-accepted_sample
-energies
-frame_number
-pixel_count
-sample_id
-energy
+sample_score_cutoff
+total_intensity
 
 14 Rows. -- 1 msec.
 
@@ -479,28 +495,28 @@ port_name
 LONG VARCHAR
 _______________________________________________________________________________
 
-num_images
-sample_spreadsheet_file
-total_intensity
-rejected_sample
+accepted_sample
 calibration_image
+calibration_image_file
 cassette_id
+corrected_image_file
 data_redundancy
-sample_score_cutoff
-sample_spreadsheet
+energies
+energy
+frame_number
+num_images
+pixel_count
+raw_image_file
+rejected_sample
+sample_id
 sample_name
 sample_quality
-accepted_sample
-energies
-corrected_image_file
-frame_number
-pixel_count
-sample_id
-calibration_image_file
-energy
-raw_image_file
+sample_score_cutoff
+sample_spreadsheet
+sample_spreadsheet_file
+total_intensity
 
-20 Rows. -- 2 msec.
+20 Rows. -- 3 msec.
 
 Query 30: Print all data only connected by param ports.
 
@@ -514,7 +530,7 @@ cassette_id
 data_redundancy
 sample_score_cutoff
 
-3 Rows. -- 2 msec.
+3 Rows. -- 3 msec.
 
 Query 31: Print all data only connected by output ports and param ports.
 
@@ -570,7 +586,7 @@ _______________________________________________________________________________
 calculate_strategy
 collect_data_set
 
-2 Rows. -- 16 msec.
+2 Rows. -- 23 msec.
 
 Query 34: What program blocks are in between of data sample_name and total_intensity?
 
@@ -580,11 +596,8 @@ down_block_name
 LONG VARCHAR
 _______________________________________________________________________________
 
-calculate_strategy
-collect_data_set
-transform_images
 
-3 Rows. -- 364 msec.
+0 Rows. -- 625 msec.
 
 Query 35:What data is in between of data sample_name and total_intensity?
 
@@ -594,12 +607,12 @@ down_data_name
 LONG VARCHAR
 _______________________________________________________________________________
 
-num_images
-energies
-sample_id
 accepted_sample
-raw_image
-frame_number
+energies
 energy
+frame_number
+num_images
+raw_image
+sample_id
 
-7 Rows. -- 14 msec.
+7 Rows. -- 26 msec.
