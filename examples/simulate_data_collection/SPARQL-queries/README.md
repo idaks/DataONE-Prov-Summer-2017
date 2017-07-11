@@ -11,13 +11,16 @@ The following table is a list of SPARQL queries based on YesWorkflow Model for t
     <th></th><th>Query Description</th><th>Query Type</th>
   </tr>
   <tr>
-    <th rowspan="3">Extract Queries</th><td>eq01: What source files were YW annotations extracted from?</td><td></td>
+    <th rowspan="4">Extract Queries</th><td>eq01: What source files were YW annotations extracted from?</td><td></td>
   </tr>
   <tr>
     <td>eq02: What are the names of all program blocks?</td><td></td>
   </tr>
   <tr>
     <td>eq03: What out ports are qualified with URIs?</td><td></td>
+  </tr>
+  <tr>
+    <td>eq04: What ports are qualified with URIs?</td><td></td>
   </tr>
   <tr>
     <th rowspan="35">Model Queries</th><td>mq01: Where is the definition of block simulate_data_collection.collect_data_set?</td><td></td>
