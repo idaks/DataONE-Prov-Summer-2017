@@ -1,0 +1,25 @@
+#Query 5: (DataName) - What are the names and descriptions of the inputs to the top-level workflow?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?port_name ?description
+WHERE
+{   ?yw          rdf:type            yw:Workflow;
+                 yw:hasInPort        ?input_port.
+
+    ?port_type   (rdf:type|rdfs:subClassOf)*      yw:InPort.
+
+    ?input_port    rdf:type      ?port_type;
+                   rdfs:label    ?port_name;
+                   yw:reads       ?data.
+    
+    ?data       rdf:type       yw:Data;
+                rdfs:comment   ?description.
+    
+
+} ORDER BY ?port_name

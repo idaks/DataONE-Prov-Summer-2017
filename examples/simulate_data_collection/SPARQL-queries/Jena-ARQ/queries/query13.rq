@@ -1,0 +1,24 @@
+#Query 13: (UpstreamProgramName) - What program blocks are upstream of transform_images?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?up_block_name
+WHERE 
+ {    #get the program with name "transform_images" and put into ?program variable
+      ?block       rdf:type             yw:Block ;
+                   rdfs:label         "transform_images" .   
+                     
+      #get all of the programs immediately connect to ?program (via ?hasOutPort, hasInPort, hasDefaultParam relationsips) 
+      #put these programs into ?down_program variable 
+      #the "+" sign is to run recursive queries.
+      ?block      (yw:hasInPort/yw:reads/^yw:writes/^yw:hasOutPort)+   ?up_block .
+      
+      ?up_block      rdf:type             yw:Block ;
+                     rdfs:label           ?up_block_name .
+       
+ } ORDER BY ?up_block_name
