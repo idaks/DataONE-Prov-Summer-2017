@@ -15,6 +15,11 @@ echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extracted_query3.sparql
 
 echo ""
+echo "Extract Query 4: What ports are qualified with URIs?"
+echo ""
+isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/extracted_query4.sparql
+
+echo ""
 echo "Query 1: Where is the definition of block simulate_data_collection.collect_data_set?"
 echo ""
 isql 1111 dba dba errors=stdout ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Virtuoso/queries/query1.sparql
