@@ -4,13 +4,13 @@ SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX p1:   <http://dataone.org/ns/provone#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
 PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
 SELECT  DISTINCT ?data_name
 WHERE
-{    
-      ?port             rdf:type/rdfs:subClassOf*    yw:Port ;
+{     ?port_type       (rdf:type|rdfs:subClassOf)*    yw:Port.
+      ?port              rdf:type    ?port_type;
                         yw:reads|yw:writes   ?data .  
 
       ?data             rdf:type        yw:Data ;
@@ -20,4 +20,4 @@ WHERE
             ?port2      rdf:type        yw:ParamPort ;
                         yw:reads   ?data . 
       }
-};
+} ORDER BY ?data_name;

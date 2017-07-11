@@ -1,4 +1,4 @@
-#Query 29: Print all ports as inputs
+#Extracted 4:  What ports are qualified with URIs?
 
 SPARQL BASE         <http://yesworkflow.org/0000000000/>
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -9,8 +9,13 @@ PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
 
 SELECT DISTINCT ?port_name
 WHERE
-{    ?port_type  (rdf:type|rdfs:subClassOf)*        yw:InPort.
-      ?port       rdf:type  ?port_type     ;
-                        rdfs:label      ?port_name.
-   
+{  
+
+  ?port_type     (rdf:type|rdfs:subClassOf)*      yw:Port.
+  
+  ?port          rdf:type   ?port_type;
+                 rdfs:label            ?port_name;
+                 yw:filePathTemplate   ?filePath.
+  FILTER (?filePath != "")
+
 } ORDER BY ?port_name;
