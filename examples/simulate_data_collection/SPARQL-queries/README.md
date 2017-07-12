@@ -101,7 +101,7 @@ The following table is a list of SPARQL queries based on YesWorkflow Model for t
     <td>mq26: What program block is the closet upstream block (LCA) of block "collect_data_set" and "log_rejected_sample" in common?- NOT DONE YET</td><td></td>
   </tr>
   <tr>
-    <td>mq27: Print all program blocks and their descendant programs with downstream levels in the workflow.</td><td></td>
+    <td>mq27: Print all program blocks and their downstream blocks with downstream levels in the workflow.</td><td></td>
   </tr>
   <tr>
     <td>mq28: Print the names of all ports used as parameters.</td><td></td>
