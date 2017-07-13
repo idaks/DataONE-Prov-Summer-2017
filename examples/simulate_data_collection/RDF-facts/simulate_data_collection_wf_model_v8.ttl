@@ -183,47 +183,47 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection#cassette_id_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "cassette_id" ;
-    yw:reads                    <simulate_data_collection#cassette_id_data> .
+    yw:receives                 <simulate_data_collection#cassette_id_data> .
 
 <simulate_data_collection#sample_score_cutoff_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "sample_score_cutoff" ;
-    yw:reads                    <simulate_data_collection#sample_score_cutoff_data> .
+    yw:receives                 <simulate_data_collection#sample_score_cutoff_data> .
 
 <simulate_data_collection#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;
     rdfs:label                  "sample_spreadsheet" ;
-    yw:reads                    <simulate_data_collection#sample_spreadsheet_data> .
+    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> .
 
 <simulate_data_collection#data_redundancy_port>
 	rdf:type                    yw:ParamPort ;
     rdfs:label                  "data_redundancy" ;
-    yw:reads                    <simulate_data_collection#data_redundancy_data> .
+    yw:receives                 <simulate_data_collection#data_redundancy_data> .
 
 <simulate_data_collection#calibration_image_port>
     rdf:type                    yw:InPort ;
     rdfs:label                  "calibration_image" ;
-    yw:reads                    <simulate_data_collection#calibration_image_data> .
+    yw:receives                 <simulate_data_collection#calibration_image_data> .
 
 <simulate_data_collection#corrected_image_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "corrected_image" ;
-    yw:writes                   <simulate_data_collection#corrected_image_data> .
+    yw:sends                    <simulate_data_collection#corrected_image_data> .
 
 <simulate_data_collection#run_log_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "run_log" ;
-    yw:writes                   <simulate_data_collection#run_log_data> .
+    yw:sends                    <simulate_data_collection#run_log_data> .
 
 <simulate_data_collection#collection_log_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "collection_log" ;
-    yw:writes                   <simulate_data_collection#collection_log_data> .
+    yw:sends                    <simulate_data_collection#collection_log_data> .
 
 <simulate_data_collection#rejection_log_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "rejection_log" ;
-    yw:writes                   <simulate_data_collection#rejection_log_data> .
+    yw:sends                    <simulate_data_collection#rejection_log_data> .
 
 #####################################################################################################################################
 #   simulate_data_collection                                                                                                        #
@@ -240,7 +240,7 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/initialize_run#run_log_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "run_log" ;
-    yw:writes                   <simulate_data_collection#run_log_data> ;
+    yw:sends                    <simulate_data_collection#run_log_data> ;
     yw:filePathTemplate         "file:run/run_log.txt" .
 
 #####################################################################################################################################
@@ -261,24 +261,25 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/load_screening_results#cassette_id_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "cassette_id" ;
-    yw:reads                    <simulate_data_collection#cassette_id_data> .
+    yw:receives                 <simulate_data_collection#cassette_id_data> .
 
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;
     rdfs:label                  "sample_spreadsheet_file" ;
-    yw:reads                    <simulate_data_collection#sample_spreadsheet_data> ;
+    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ,
+                                <simulate_data_collection#cassette_id_data> ;
     yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .
 
 <simulate_data_collection/load_screening_results#sample_name_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "sample_name" ;
-    yw:writes                   <simulate_data_collection#sample_name_data> .
+    yw:sends                    <simulate_data_collection#sample_name_data> .
 
 <simulate_data_collection/load_screening_results#sample_quality_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "sample_quality" ;
-    yw:writes                   <simulate_data_collection#sample_quality_data> .
+    yw:sends                    <simulate_data_collection#sample_quality_data> .
 
 #####################################################################################################################################
 #   simulate_data_collection                                                                                                        #
@@ -302,42 +303,42 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/calculate_strategy#sample_name_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "sample_name" ;
-    yw:reads                    <simulate_data_collection#sample_name_data> .
+    yw:receives                 <simulate_data_collection#sample_name_data> .
 
 <simulate_data_collection/calculate_strategy#sample_score_cutoff_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "sample_score_cutoff" ;
-    yw:reads                    <simulate_data_collection#sample_score_cutoff_data> .
+    yw:receives                 <simulate_data_collection#sample_score_cutoff_data> .
 
 <simulate_data_collection/calculate_strategy#sample_quality_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "sample_quality" ;
-    yw:reads                    <simulate_data_collection#sample_quality_data> .
+    yw:receives                 <simulate_data_collection#sample_quality_data> .
 
 <simulate_data_collection/calculate_strategy#data_redundancy_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "data_redundancy" ;
-    yw:reads                    <simulate_data_collection#data_redundancy_data> .
+    yw:receives                 <simulate_data_collection#data_redundancy_data> .
 
 <simulate_data_collection/calculate_strategy#rejected_sample_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "rejected_sample" ;
-    yw:writes                   <simulate_data_collection#rejected_sample_data> .
+    yw:sends                    <simulate_data_collection#rejected_sample_data> .
 
 <simulate_data_collection/calculate_strategy#energies_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "energies" ;
-    yw:writes                   <simulate_data_collection#energies_data> .
+    yw:sends                    <simulate_data_collection#energies_data> .
 
 <simulate_data_collection/calculate_strategy#accepted_sample_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "accepted_sample" ;
-    yw:writes                   <simulate_data_collection#accepted_sample_data> .
+    yw:sends                    <simulate_data_collection#accepted_sample_data> .
 
 <simulate_data_collection/calculate_strategy#num_images_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "num_images" ;
-    yw:writes                   <simulate_data_collection#num_images_data> .
+    yw:sends                    <simulate_data_collection#num_images_data> .
 	
 #####################################################################################################################################
 #   simulate_data_collection                                                                                                        #
@@ -356,17 +357,17 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/log_rejected_sample#cassette_id_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "cassette_id" ;
-    yw:reads                    <simulate_data_collection#cassette_id_data> .
+    yw:receives                 <simulate_data_collection#cassette_id_data> .
 
 <simulate_data_collection/log_rejected_sample#rejected_sample_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "rejected_sample" ;
-    yw:reads                    <simulate_data_collection#rejected_sample_data> .
+    yw:receives                 <simulate_data_collection#rejected_sample_data> .
 
 <simulate_data_collection/log_rejected_sample#rejection_log_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "rejection_log" ;
-    yw:writes                   <simulate_data_collection#rejection_log_data> ;
+    yw:sends                    <simulate_data_collection#rejection_log_data> ;
     yw:filePathTemplate         "file:run/rejected_samples.txt" .
 
 #####################################################################################################################################
@@ -391,42 +392,46 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/collect_data_set#cassette_id_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "cassette_id" ;
-    yw:reads                    <simulate_data_collection#cassette_id_data> .
+    yw:receives                 <simulate_data_collection#cassette_id_data> .
 
 <simulate_data_collection/collect_data_set#energies_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "energies" ;
-    yw:reads                    <simulate_data_collection#energies_data> .
+    yw:receives                 <simulate_data_collection#energies_data> .
 
 <simulate_data_collection/collect_data_set#accepted_sample_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "accepted_sample" ;
-    yw:reads                    <simulate_data_collection#accepted_sample_data> .
+    yw:receives                 <simulate_data_collection#accepted_sample_data> .
 
 <simulate_data_collection/collect_data_set#num_images_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "num_images" ;
-    yw:reads                    <simulate_data_collection#num_images_data> .
+    yw:receives                 <simulate_data_collection#num_images_data> .
 
 <simulate_data_collection/collect_data_set#frame_number_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "frame_number" ;
-    yw:writes                   <simulate_data_collection#frame_number_data> .
+    yw:sends                    <simulate_data_collection#frame_number_data> .
 
 <simulate_data_collection/collect_data_set#sample_id_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "sample_id" ;
-    yw:writes                   <simulate_data_collection#sample_id_data> .
+    yw:sends                    <simulate_data_collection#sample_id_data> .
 
 <simulate_data_collection/collect_data_set#energy_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "energy" ;
-    yw:writes                   <simulate_data_collection#energy_data> .
+    yw:sends                    <simulate_data_collection#energy_data> .
 
 <simulate_data_collection/collect_data_set#raw_image_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "raw_image_file" ;
-    yw:writes                   <simulate_data_collection#raw_image_data> ;
+    yw:sends                    <simulate_data_collection#raw_image_data> ,
+                                <simulate_data_collection#cassette_id_data> ,
+                                <simulate_data_collection#sample_id_data> ,
+                                <simulate_data_collection#energy_data> ,
+                                <simulate_data_collection#frame_number_data> ;
     yw:filePathTemplate         "file:run/raw/{cassette_id}/{sample_id}/e{energy}/image_{frame_number}.raw" ;
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> ,
                                 <simulate_data_collection#sample_id_data> ,
@@ -455,43 +460,46 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/transform_images#frame_number_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "frame_number" ;
-    yw:reads                    <simulate_data_collection#frame_number_data> .
+    yw:receives                 <simulate_data_collection#frame_number_data> .
 
 <simulate_data_collection/transform_images#sample_id_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "sample_id" ;
-    yw:reads                    <simulate_data_collection#sample_id_data> .
+    yw:receives                 <simulate_data_collection#sample_id_data> .
 
 <simulate_data_collection/transform_images#energy_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "energy" ;
-    yw:reads                    <simulate_data_collection#energy_data> .
+    yw:receives                 <simulate_data_collection#energy_data> .
 
 <simulate_data_collection/transform_images#raw_image_port>
     rdf:type                    yw:InPort ;
     rdfs:label                  "raw_image_file" ;
-    yw:reads                    <simulate_data_collection#raw_image_data> .
+    yw:receives                 <simulate_data_collection#raw_image_data> .
 
 <simulate_data_collection/transform_images#calibration_image_port>
     rdf:type                    yw:InPort ;
     rdfs:label                  "calibration_image_file" ;
-    yw:reads                    <simulate_data_collection#calibration_image_data> ;
+    yw:receives                 <simulate_data_collection#calibration_image_data> ;
     yw:filePathTemplate         "file:calibration.img" .
 
 <simulate_data_collection/transform_images#pixel_count_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "pixel_count" ;
-    yw:writes                   <simulate_data_collection#pixel_count_data> .
+    yw:sends                    <simulate_data_collection#pixel_count_data> .
 
 <simulate_data_collection/transform_images#total_intensity_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "total_intensity" ;
-    yw:writes                   <simulate_data_collection#total_intensity_data> .	
+    yw:sends                    <simulate_data_collection#total_intensity_data> .	
 
 <simulate_data_collection/transform_images#corrected_image_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "corrected_image_file" ;
-    yw:writes                   <simulate_data_collection#corrected_image_data> ;
+    yw:sends                    <simulate_data_collection#corrected_image_data> ,
+                                <simulate_data_collection#sample_id_data> ,
+                                <simulate_data_collection#energy_data> ,
+                                <simulate_data_collection#frame_number_data> ;
     yw:filePathTemplate         "file:run/data/{sample_id}/{sample_id}_{energy}eV_{frame_number}.img" ;
     yw:hasVariableSource        <simulate_data_collection#sample_id_data> ,
                                 <simulate_data_collection#energy_data> ,
@@ -518,37 +526,37 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/log_average_image_intensity#cassette_id_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "cassette_id" ;
-    yw:reads                    <simulate_data_collection#cassette_id_data> .
+    yw:receives                 <simulate_data_collection#cassette_id_data> .
 
 <simulate_data_collection/log_average_image_intensity#frame_number_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "frame_number" ;
-    yw:reads                    <simulate_data_collection#frame_number_data> .
+    yw:receives                 <simulate_data_collection#frame_number_data> .
 
 <simulate_data_collection/log_average_image_intensity#sample_id_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "sample_id" ;
-    yw:reads                    <simulate_data_collection#sample_id_data> .	
+    yw:receives                 <simulate_data_collection#sample_id_data> .	
 
 <simulate_data_collection/log_average_image_intensity#total_intensity_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "total_intensity" ;
-    yw:reads                    <simulate_data_collection#total_intensity_data> .
+    yw:receives                 <simulate_data_collection#total_intensity_data> .
 
 <simulate_data_collection/log_average_image_intensity#pixel_count_port>
     rdf:type                    yw:ParamPort ;
     rdfs:label                  "pixel_count" ;
-    yw:reads                    <simulate_data_collection#pixel_count_data> .	
+    yw:receives                 <simulate_data_collection#pixel_count_data> .	
 
 <simulate_data_collection/log_average_image_intensity#corrected_image_port>
     rdf:type                    yw:InPort ;
     rdfs:label                  "corrected_image_file" ;
-    yw:reads                    <simulate_data_collection#corrected_image_data> .	
+    yw:receives                 <simulate_data_collection#corrected_image_data> .	
 
 <simulate_data_collection/log_average_image_intensity#collection_log_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "collection_log" ;
-    yw:writes                   <simulate_data_collection#collection_log_data> ;
+    yw:sends                    <simulate_data_collection#collection_log_data> ;
     yw:filePathTemplate         "file:run/collected_images.csv" .
 		
 #####################################################################################################################################
