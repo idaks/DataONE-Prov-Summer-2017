@@ -1,0 +1,8 @@
+@prefix : <http://example.org> .
+
+:orgA :hasSuborganization :orgB, :orgC, :orgD.
+:orgB :hasSuborganization :orgE, :orgF.
+:orgE :hasSuborganization :orgG.
+:orgG :hasSuborganization :orgH.
+:orgD :hasSuborganization :orgH.
+:orgH :hasSuborganization :orgB.

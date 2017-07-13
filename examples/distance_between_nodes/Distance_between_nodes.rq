@@ -1,0 +1,9 @@
+PREFIX : <http://example.org> 
+
+SELECT ?super ?sub (count(?mid) as ?distance) 
+{ 
+  ?super :hasSuborganization* ?mid .
+  ?mid :hasSuborganization+ ?sub .
+}
+GROUP BY ?super ?sub 
+ORDER BY ?super ?sub
