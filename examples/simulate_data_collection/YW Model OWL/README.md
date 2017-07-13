@@ -254,7 +254,7 @@ The same as Port.
 
 <h3 id="2.7">2.7 Data class</h3>
 
-A Data is a data item that multiple ports from different blocks or workflows read or write. The ports which connect to the same Data share the same actual data. In other words, ports with the same alias name connect to the same Data.
+A Data is a data item that multiple ports from different blocks or workflows receive or send. The ports which connect to the same Data share the same actual data. In other words, ports with the same alias name connect to the same Data.
 
 **is in range of**
 * yw:receives, yw:sends, yw:hasVariableSource
