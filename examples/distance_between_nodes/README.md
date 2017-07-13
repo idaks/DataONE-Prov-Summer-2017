@@ -1,4 +1,4 @@
-This is an experiment to understand how SPARQL query can capture information about distance between nodes in a graph.
+This is an experiment to understand how SPARQL query can capture information about distance between nodes in a graph. Three scenario are experimented with the details below.
 
 SPARQL query used to get distance between nodes:
         
@@ -11,6 +11,7 @@ SPARQL query used to get distance between nodes:
         GROUP BY ?super ?sub 
         ORDER BY ?super ?sub
         
+        
 **Scenario 1: As-is in this thread https://stackoverflow.com/questions/5198889/calculate-length-of-path-between-nodes**
  
 **RDF format:**
