@@ -13,7 +13,7 @@ SPARQL query used to get distance between nodes:
         
  Scenario 1: 
 
-![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1.png)
+![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph_1.png)
 
 RDF format to construct the graph:
 
@@ -44,7 +44,7 @@ Result:
 
  Scenario 2: 
 
-![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2.png)
+![](hhttps://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph_2.png)
 
 RDF format to construct the graph:
 
