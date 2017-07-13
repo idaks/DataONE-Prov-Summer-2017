@@ -24,9 +24,25 @@ RDF format to construct the graph:
     :orgG :hasSuborganization :orgH.
     
 Result:
+| super |  sub  | distance  |
+-----------------------------
+| :orgA | :orgB |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+|       |       |           |
+
+
+
 
 ----------------------------
-| super | sub   | distance |    
+   
 ============================
 | :orgA | :orgB | 1        |
 | :orgA | :orgC | 1        |
