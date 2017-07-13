@@ -11,7 +11,7 @@ SPARQL query used to get distance between nodes:
         GROUP BY ?super ?sub 
         ORDER BY ?super ?sub
         
-## **Scenario 1: As-is in this thread https://stackoverflow.com/questions/5198889/calculate-length-of-path-between-nodes**
+**Scenario 1: As-is in this thread https://stackoverflow.com/questions/5198889/calculate-length-of-path-between-nodes**
  
 **RDF format:**
  
@@ -29,7 +29,7 @@ SPARQL query used to get distance between nodes:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1_Result.png)
         
-## **Scenario 2: Adding edge between D and H**
+**Scenario 2: Adding edge between D and H**
  
 **RDF format:**
 
@@ -48,7 +48,7 @@ SPARQL query used to get distance between nodes:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2_Result.png)
 
-## **Scenario 3: Creating a loop by adding an additional edge from H to B**
+**Scenario 3: Creating a loop by adding an additional edge from H to B**
  
 **RDF format:**
 
