@@ -22,7 +22,9 @@ RDF format to construct the graph:
     :orgB :hasSuborganization :orgE, :orgF.
     :orgE :hasSuborganization :orgG.
     :orgG :hasSuborganization :orgH.
+    
 Result:
+
 ----------------------------
 | super | sub   | distance |    
 ============================
@@ -44,7 +46,7 @@ Result:
 
  Scenario 2: 
 
-![](hhttps://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph_2.png)
+![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph_2.png)
 
 RDF format to construct the graph:
 
