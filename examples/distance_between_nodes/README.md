@@ -25,7 +25,7 @@ Graph:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1.png)
     
-Result:
+Result: Distance between A and H is: 4, and the in-between nodes are: A, B, E, G.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1_Result.png)
         
@@ -44,7 +44,7 @@ Graph:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2.png)
 
-Result:
+Result: Distance between A and H is: 5, and the in-between nodes are: A, B, D, E, G.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2_Result.png)
 
@@ -64,7 +64,7 @@ Graph:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph3.png)
 
-Result:
+Result: Distance between A and H is: 6, and the in-between nodes are: A, B, D, E, G, H.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph3_Result.png)
  
