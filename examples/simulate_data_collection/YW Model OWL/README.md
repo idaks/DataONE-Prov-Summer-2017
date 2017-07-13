@@ -62,10 +62,10 @@ The YesWorkflow constructs are summarized in Table 2 below.
     <td>hasOutPort</td><td><a href="#2.10">Section 2.10</a></td>
   </tr>
   <tr>
-    <td>reads</td><td><a href="#2.11">Section 2.11</a></td>
+    <td>receives</td><td><a href="#2.11">Section 2.11</a></td>
   </tr>
   <tr>
-    <td>writes</td><td><a href="#2.12">Section 2.12</a></td>
+    <td>sends</td><td><a href="#2.12">Section 2.12</a></td>
   </tr>
   <tr>
     <td>hasVariableSource</td><td><a href="#2.13">Section 2.13</a></td>
@@ -164,7 +164,7 @@ A Port enables a Block to send or receive data items (as DataNode). There are tw
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:reads, yw:writes, yw:hasVariableSource
+* yw:receives, yw:sends, yw:hasVariableSource
 
 **is in range of**
 * yw:hasInPort, yw:hasOutPort, yw:isGeneratedBy
@@ -185,20 +185,20 @@ yw:ParamPort    rdf:type           rdfs:Class ;
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;                       # InPort is a sub-class of Port
     rdfs:label                  "sample_spreadsheet_file" ;        # The port name (not the alias)
-    yw:reads                    <simulate_data_collection#sample_spreadsheet_data> ;   # The Data that the in-port reads
+    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ;   # The Data that the in-port receives
     yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;    # (Optional) The URI template of the port
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .    # (Optional) The referred DataNode in the URI template
 
 <simulate_data_collection/log_rejected_sample#rejection_log_port>
     rdf:type                    yw:OutPort ;    	         # OutPort is a sub-class of Port
     rdfs:label                  "rejection_log" ;
-    yw:writes                   <simulate_data_collection#rejection_log_data> ;    # The Data that the out-port writes
+    yw:sends                    <simulate_data_collection#rejection_log_data> ;    # The Data that the out-port sends
     yw:filePathTemplate         "file:run/rejected_samples.txt" .             # (Optional)
 
 <simulate_data_collection/log_average_image_intensity#cassette_id_port>
     rdf:type                    yw:ParamPort ;                   #ParamPort is a sub-class of InPort
     rdfs:label                  "cassette_id" ;
-    yw:reads                    <simulate_data_collection#cassette_id_data> .
+    yw:receives                 <simulate_data_collection#cassette_id_data> .
 ```
 
 <h3 id="2.4">2.4 InPort class</h3>
@@ -209,7 +209,7 @@ An InPort is a sub-class of Port. It means the port is used as an input data or 
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:reads, yw:hasVariableSource
+* yw:receives, yw:hasVariableSource
 
 **is in range of**
 * yw:hasInPort, yw:isGeneratedBy
@@ -226,7 +226,7 @@ A ParamPort is a sub-class of InPort. It means the port is used as an input para
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:reads, yw:hasVariableSource
+* yw:receives, yw:hasVariableSource
 
 **is in range of**
 * yw:hasInPort, yw:isGeneratedBy
@@ -243,7 +243,7 @@ An OutPort is a sub-class of Port. It means the port is used as an output port o
 * yw:filePathTemplate
 
 **is in domain of**
-* yw:writes, yw:hasVariableSource
+* yw:sends, yw:hasVariableSource
 
 **is in range of**
 * yw:hasOutPort, yw:isGeneratedBy
@@ -257,7 +257,7 @@ The same as Port.
 A Data is a data item that multiple ports from different blocks or workflows read or write. The ports which connect to the same Data share the same actual data. In other words, ports with the same alias name connect to the same Data.
 
 **is in range of**
-* yw:reads, yw:writes, yw:hasVariableSource
+* yw:receives, yw:sends, yw:hasVariableSource
 
 **Example:**
 
@@ -314,9 +314,9 @@ The association *hasOutPort* specifies the OutPorts of a particular Block or Wor
 
 It is shown in class Block and Workflow.
 
-<h3 id="2.11">2.11 reads object property</h3>
+<h3 id="2.11">2.11 receives object property</h3>
 
-The association *reads* specifies that an InPort reads a Data. Ports with the same alias names connect to the same Data.
+The association *receives* specifies that an InPort receives a Data. Ports with the same alias names connect to the same Data.
 
 **has domain**
 * yw:InPort, yw:ParamPort
@@ -328,9 +328,9 @@ The association *reads* specifies that an InPort reads a Data. Ports with the sa
 
 It is shown in class Port.
 
-<h3 id="2.12">2.12 writes object property</h3>
+<h3 id="2.12">2.12 sends object property</h3>
 
-The association *writes* specifies that an OutPort writes a Data. Ports with the same alias names connect to the same Data.
+The association *sends* specifies that an OutPort sends a Data. Ports with the same alias names connect to the same Data.
 
 **has domain**
 * yw:OutPort
@@ -518,10 +518,10 @@ The following table describes the mapping rules from YesWorkflow (yw) to ProvONE
     <td>yw:hasOutPort</td><td>p1:hasOutPort</td>
   </tr>
   <tr>
-    <td>yw:reads</td><td>n/a</td>
+    <td>yw:receives</td><td>n/a</td>
   </tr>
   <tr>
-    <td>yw:writes</td><td>n/a</td>
+    <td>yw:sends</td><td>n/a</td>
   </tr>
   <tr>
     <td>yw:hasVariableSource</td><td>n/a</td>
