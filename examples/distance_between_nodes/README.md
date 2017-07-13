@@ -24,41 +24,25 @@ RDF format to construct the graph:
     :orgG :hasSuborganization :orgH.
     
 Result:
-| super |  sub  | distance  |
------------------------------
-| :orgA | :orgB |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
-|       |       |           |
+            ----------------------------
+            | super | sub   | distance |    
+            ============================
+            | :orgA | :orgB | 1        |
+            | :orgA | :orgC | 1        |
+            | :orgA | :orgD | 1        |
+            | :orgA | :orgE | 2        |
+            | :orgA | :orgF | 2        |
+            | :orgA | :orgG | 3        |
+            | :orgA | :orgH | 4        |
+            | :orgB | :orgE | 1        |
+            | :orgB | :orgF | 1        |
+            | :orgB | :orgG | 2        |
+            | :orgB | :orgH | 3        |
+            | :orgE | :orgG | 1        |
+            | :orgE | :orgH | 2        |
+            | :orgG | :orgH | 1        |
+            ----------------------------
 
-
-
-
-----------------------------
-   
-============================
-| :orgA | :orgB | 1        |
-| :orgA | :orgC | 1        |
-| :orgA | :orgD | 1        |
-| :orgA | :orgE | 2        |
-| :orgA | :orgF | 2        |
-| :orgA | :orgG | 3        |
-| :orgA | :orgH | 4        |
-| :orgB | :orgE | 1        |
-| :orgB | :orgF | 1        |
-| :orgB | :orgG | 2        |
-| :orgB | :orgH | 3        |
-| :orgE | :orgG | 1        |
-| :orgE | :orgH | 2        |
-| :orgG | :orgH | 1        |
-----------------------------
 
  Scenario 2: 
 
@@ -73,24 +57,23 @@ RDF format to construct the graph:
     :orgG :hasSuborganization :orgH.
     :orgD :hasSuborganization :orgH.
     
-Result
-
-----------------------------
-| super | sub   | distance |
-============================
-| :orgA | :orgB | 1        |
-| :orgA | :orgC | 1        |
-| :orgA | :orgD | 1        |
-| :orgA | :orgE | 2        |
-| :orgA | :orgF | 2        |
-| :orgA | :orgG | 3        |
-| :orgA | :orgH | 5        |
-| :orgB | :orgE | 1        |
-| :orgB | :orgF | 1        |
-| :orgB | :orgG | 2        |
-| :orgB | :orgH | 3        |
-| :orgD | :orgH | 1        |
-| :orgE | :orgG | 1        |
-| :orgE | :orgH | 2        |
-| :orgG | :orgH | 1        |
-----------------------------
+Result:
+            ----------------------------
+            | super | sub   | distance |
+            ============================
+            | :orgA | :orgB | 1        |
+            | :orgA | :orgC | 1        |
+            | :orgA | :orgD | 1        |
+            | :orgA | :orgE | 2        |
+            | :orgA | :orgF | 2        |
+            | :orgA | :orgG | 3        |
+            | :orgA | :orgH | 5        |
+            | :orgB | :orgE | 1        |
+            | :orgB | :orgF | 1        |
+            | :orgB | :orgG | 2        |
+            | :orgB | :orgH | 3        |
+            | :orgD | :orgH | 1        |
+            | :orgE | :orgG | 1        |
+            | :orgE | :orgH | 2        |
+            | :orgG | :orgH | 1        |
+            ----------------------------
