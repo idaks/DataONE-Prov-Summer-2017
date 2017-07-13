@@ -48,9 +48,9 @@ Result: Distance between A and H is: 5, and the in-between nodes are: A, B, D, E
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2_Result.png)
 
-Scenario 3: Adding edge between D and H 
+Scenario 3: Creating a loop by adding an additional edge from H to B
  
-RDF format: Creating a loop by adding an additional edge from H to B
+RDF format: 
 
            @prefix : <http://example.org> .
            :orgA :hasSuborganization :orgB, :orgC, :orgD.
