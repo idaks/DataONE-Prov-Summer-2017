@@ -11,9 +11,9 @@ SPARQL query used to get distance between nodes:
         GROUP BY ?super ?sub 
         ORDER BY ?super ?sub
         
- Scenario 1: As-is in this thread https://stackoverflow.com/questions/5198889/calculate-length-of-path-between-nodes
+#Scenario 1: As-is in this thread https://stackoverflow.com/questions/5198889/calculate-length-of-path-between-nodes
  
- RDF format:
+##RDF format:
  
           @prefix : <http://example.org> .
           :orgA :hasSuborganization :orgB, :orgC, :orgD.
@@ -21,17 +21,17 @@ SPARQL query used to get distance between nodes:
           :orgE :hasSuborganization :orgG.
           :orgG :hasSuborganization :orgH.
     
-Graph:
+##Graph:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1.png)
     
-Result: Distance between A and H is: 4, and the in-between nodes are: A, B, E, G.
+##Result: Distance between A and H is: 4, and the in-between nodes are: A, B, E, G.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1_Result.png)
         
-Scenario 2: Adding edge between D and H 
+#Scenario 2: Adding edge between D and H 
  
-RDF format:
+##RDF format:
 
            @prefix : <http://example.org> .
            :orgA :hasSuborganization :orgB, :orgC, :orgD.
@@ -40,17 +40,17 @@ RDF format:
            :orgG :hasSuborganization :orgH.
            :orgD :hasSuborganization :orgH.
 
-Graph:
+##Graph:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2.png)
 
-Result: Distance between A and H is: 5, and the in-between nodes are: A, B, D, E, G.
+##Result: Distance between A and H is: 5, and the in-between nodes are: A, B, D, E, G.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2_Result.png)
 
-Scenario 3: Creating a loop by adding an additional edge from H to B
+#Scenario 3: Creating a loop by adding an additional edge from H to B
  
-RDF format: 
+##RDF format: 
 
            @prefix : <http://example.org> .
            :orgA :hasSuborganization :orgB, :orgC, :orgD.
@@ -60,11 +60,11 @@ RDF format:
            :orgD :hasSuborganization :orgH.
            :orgH :hasSuborganization :orgB.
 
-Graph:
+##Graph:
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph3.png)
 
-Result: Distance between A and H is: 6, and the in-between nodes are: A, B, D, E, G, H.
+##Result: Distance between A and H is: 6, and the in-between nodes are: A, B, D, E, G, H.
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph3_Result.png)
  
