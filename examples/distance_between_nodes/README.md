@@ -22,14 +22,16 @@ SPARQL query used to get distance between nodes:
           :orgG :hasSuborganization :orgH.
     
 Graph:
+
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1.png)
     
 Result:
+
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1_Result.png)
         
 Scenario 2: Adding edge between D and H 
  
- RDF format:
+RDF format:
 
            @prefix : <http://example.org> .
            :orgA :hasSuborganization :orgB, :orgC, :orgD.
@@ -39,14 +41,16 @@ Scenario 2: Adding edge between D and H
            :orgD :hasSuborganization :orgH.
 
 Graph:
+
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2.png)
 
 Result:
+
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph2_Result.png)
 
 Scenario 3: Adding edge between D and H 
  
- RDF format: Creating a loop by adding an additional edge from H to B
+RDF format: Creating a loop by adding an additional edge from H to B
 
            @prefix : <http://example.org> .
            :orgA :hasSuborganization :orgB, :orgC, :orgD.
@@ -57,8 +61,10 @@ Scenario 3: Adding edge between D and H
            :orgH :hasSuborganization :orgB.
 
 Graph:
+
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph3.png)
 
 Result:
+
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph3_Result.png)
  
