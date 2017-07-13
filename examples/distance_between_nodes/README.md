@@ -11,9 +11,9 @@ SPARQL query used to get distance between nodes:
         GROUP BY ?super ?sub 
         ORDER BY ?super ?sub
         
-#Scenario 1: As-is in this thread https://stackoverflow.com/questions/5198889/calculate-length-of-path-between-nodes
+*Scenario 1: As-is in this thread https://stackoverflow.com/questions/5198889/calculate-length-of-path-between-nodes*
  
-##RDF format:
+*RDF format:*
  
           @prefix : <http://example.org> .
           :orgA :hasSuborganization :orgB, :orgC, :orgD.
@@ -21,7 +21,7 @@ SPARQL query used to get distance between nodes:
           :orgE :hasSuborganization :orgG.
           :orgG :hasSuborganization :orgH.
     
-##Graph:
+*Graph:*
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/distance_between_nodes/Graph1.png)
     
