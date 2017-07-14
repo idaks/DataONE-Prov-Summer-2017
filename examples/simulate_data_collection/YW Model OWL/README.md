@@ -380,7 +380,7 @@ A Resource is an actual file (with its path) generated after running the source 
 * yw:actualFilePath
 
 **is in domain of**
-yw:hasURIVariable
+* yw:hasURIVariable
 
 **is in range of**
 * yw:wasReadFrom, yw:wasWrittenTo
