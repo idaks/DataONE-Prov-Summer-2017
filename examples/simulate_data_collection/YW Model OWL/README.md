@@ -6,7 +6,7 @@ The YesWorkflow conceptual model is illustrated by the UML diagram of Figure 1.
 
 **Figure 1: YesWorkflow Conceptual Model UML Diagram**
 
-![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/YesWorkflow_UML.jpg)
+![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/YesWorkflow_UMLDiagram.jpg)
 
 ### 1.1 Prefix and Namespace
 
