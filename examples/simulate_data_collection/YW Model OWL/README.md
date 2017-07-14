@@ -71,16 +71,19 @@ The YesWorkflow constructs are summarized in Table 2 below.
     <td>hasVariableSource</td><td><a href="#2.13">Section 2.13</a></td>
   </tr>
   <tr>
-    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>Resource</td><td><a href="#2.14">Section 2.14</a></td>
+    <td rowspan="5">Retrospective</td><td rowspan="2">Class</td><td>Resource</td><td><a href="#2.14">Section 2.14</a></td>
   </tr>
   <tr>
     <td>URIVariable</td><td><a href="#2.15">Section 2.15</a></td>
   </tr>
   <tr>
-    <td rowspan="2">Association</td><td>isGeneratedBy</td><td><a href="#2.16">Section 2.16</a></td>
+    <td rowspan="3">Association</td><td>wasReadFrom</td><td><a href="#2.16">Section 2.16</a></td>
   </tr>
   <tr>
-    <td>hasURIVariable</td><td><a href="#2.17">Section 2.17</a></td>
+    <td>wasWrittenTo</td><td><a href="#2.17">Section 2.17</a></td>
+  </tr>
+  <tr>
+    <td>hasURIVariable</td><td><a href="#2.18">Section 2.18</a></td>
   </tr>
 </table>
 
@@ -167,7 +170,7 @@ A Port enables a Block to send or receive data items (as DataNode). There are tw
 * yw:receives, yw:sends, yw:hasVariableSource
 
 **is in range of**
-* yw:hasInPort, yw:hasOutPort, yw:isGeneratedBy
+* yw:hasInPort, yw:hasOutPort
 
 **Example:**
 
@@ -212,7 +215,7 @@ An InPort is a sub-class of Port. It means the port is used as an input data or 
 * yw:receives, yw:hasVariableSource
 
 **is in range of**
-* yw:hasInPort, yw:isGeneratedBy
+* yw:hasInPort
 
 **Example:**
 
@@ -229,7 +232,7 @@ A ParamPort is a sub-class of InPort. It means the port is used as an input para
 * yw:receives, yw:hasVariableSource
 
 **is in range of**
-* yw:hasInPort, yw:isGeneratedBy
+* yw:hasInPort
 
 **Example:**
 
@@ -246,7 +249,7 @@ An OutPort is a sub-class of Port. It means the port is used as an output port o
 * yw:sends, yw:hasVariableSource
 
 **is in range of**
-* yw:hasOutPort, yw:isGeneratedBy
+* yw:hasOutPort
 
 **Example:**
 
@@ -256,12 +259,15 @@ The same as Port.
 
 A Data is a data item that multiple ports from different blocks or workflows receive or send. The ports which connect to the same Data share the same actual data. In other words, ports with the same alias name connect to the same Data.
 
+**is in domain of**
+* yw:wasReadFrom, yw:wasWrittenTo
+
 **is in range of**
 * yw:receives, yw:sends, yw:hasVariableSource
 
 **Example:**
 
-The following RDF Turtle fragment specifies a DataNode.
+The following RDF Turtle fragment specifies a Data.
 
 ```
 yw:Data        rdf:type           rdfs:Class .
@@ -270,6 +276,15 @@ yw:Data        rdf:type           rdfs:Class .
     rdf:type                    yw:Data ;
     rdfs:label                  "raw_image" ;       # The alias name of ports connected to the same Data
     rdfs:comment                "Path of file storing the raw diffraction image." .  # The description of the Data
+    
+##### Relation between Data and Resource #####
+
+<simulate_data_collection#sample_spreadsheet_data>
+    yw:wasReadFrom          <simulate_data_collection#sample_spreadsheet_resource/001> .
+
+<simulate_data_collection#run_log_data>
+    yw:wasWrittenTo         <simulate_data_collection#run_log_resource/001> .
+    
 ```
 
 <h3 id="2.8">2.8 hasSubBlock object property</h3>
@@ -344,7 +359,7 @@ It is shown in class Port.
 
 <h3 id="2.13">2.13 hasVariableSource object property</h3>
 
-The association *hasVariableSource* specifies that a Port with filePathTemplate can have its corresponding URI variable names inside the string of filePathTemplate. The URI variable names are DataNode names indeed.
+The association *hasVariableSource* specifies that a Port with filePathTemplate can have its corresponding URI variable names inside the string of filePathTemplate. The URI variable names are Data names indeed.
 
 **has domain**
 * yw:InPort, yw:ParamPort, yw:OutPort
@@ -358,13 +373,16 @@ It is shown in class Port.
 
 <h3 id="2.14">2.14 Resource class</h3>
 
-A Resource is an actual file (with its path) generated after running the source scipt. The Resource is named according to the filePathTemplate of its connected port.
+A Resource is an actual file (with its path) generated after running the source scipt. The Resource is named according to the filePathTemplate of its connected port. Resource files are associated with retrospective provenance.
 
 **has self-attribute**
 * yw:actualFilePath
 
 **is in domain of**
-* yw:isGeneratedBy, yw:hasURIVariable
+yw:hasURIVariable
+
+**is in range of**
+* yw:wasReadFrom, yw:wasWrittenTo
 
 **Example:**
 
@@ -376,7 +394,6 @@ yw:Resource     rdf:type           rdfs:Class .
 <simulate_data_collection#sample_spreadsheet_resource/001>
     rdf:type                yw:Resource ;
     yw:actualFilePath       "cassette_q55_spreadsheet.csv" ;         # The actual file name (with its path) of the resource
-    yw:isGeneratedBy        <simulate_data_collection/load_screening_results#sample_spreadsheet_port> ;   # The port that the resource is named after
     yw:hasURIVariable       <simulate_data_collection#sample_spreadsheet_resource/001/v1> , <...> .      # The referred URI variables in the resource file name (with its path)
 ```
 
@@ -403,21 +420,35 @@ yw:URIVariable  rdf:type           rdfs:Class .
         yw:variableValue       "q55" .                # The value of the URIVariable
 ```
 
-<h3 id="2.16">2.16 isGeneratedBy object property</h3>
+<h3 id="2.16">2.16 wasReadFrom object property</h3>
 
-The association *isGeneratedBy* specifies that a Resource is generated by a Port following its URI file path template.
+The association *wasReadFrom* specifies that a Data was read from a Resource file. The Data is received by an InPort with a URI file path template. The association *wasReadFrom* is a bridge property between prospective model and retrospective model.
 
 **has domain**
-* yw:Resource
+* yw:Data
 
 **has range**
-* yw:InPort, yw:ParamPort, yw:OutPort
+* yw:Resource
 
 **Example:**
 
-It is shown in class Resource.
+It is shown in class Data.
 
-<h3 id="2.17">2.17 hasURIVariable object property</h3>
+<h3 id="2.17">2.17 wasWrittenTo object property</h3>
+
+The association *wasWrittenTo* specifies that a Data was written to a Resource file. The Data is sent by an OutPort with a URI file path template. The association *wasWrittenTo* is a bridge property between prospective model and retrospective model.
+
+**has domain**
+* yw:Data
+
+**has range**
+* yw:Resource
+
+**Example:**
+
+It is shown in class Data.
+
+<h3 id="2.18">2.18 hasURIVariable object property</h3>
 
 The association *hasURIVariable* specifies that a Resource may have some URI variables in its actual file path. The URI variables are corresponding to the Port's filePathTemplate that the Resource is generated by.
 
@@ -439,7 +470,7 @@ The comparison between YesWorkflow Model and ProvONE Model is shown in the follo
 
 ![](https://github.com/idaks/DataONE-Prov-Summer-2017/blob/master/examples/simulate_data_collection/YW%20Model%20OWL/ProvONEvsYesWorkflowUML.png)
 
-The built-in OWL property *owl:sameAs* is used for connecting equivalent classes and associations when mapping from YesWorkflow Model to ProvONE Model. Only some concepts are the same between yw and p1 namespaces. The following is the code in the RDF Turtle file.
+The built-in OWL property *owl:sameAs* is used for connecting equivalent classes and associations when mapping from YesWorkflow Model to ProvONE Model. Only some concepts are the same between YesWorkflow (yw) and ProvONE (p1) namespaces. The following is the code in the RDF Turtle file.
 
 ```
 ##### Class Equality #####
@@ -527,13 +558,16 @@ The following table describes the mapping rules from YesWorkflow (yw) to ProvONE
     <td>yw:hasVariableSource</td><td>n/a</td>
   </tr>
   <tr>
-    <td rowspan="4">Retrospective</td><td rowspan="2">Class</td><td>yw:Resource</td><td>n/a</td>
+    <td rowspan="5">Retrospective</td><td rowspan="2">Class</td><td>yw:Resource</td><td>n/a</td>
   </tr>
   <tr>
     <td>yw:URIVariable</td><td>n/a</td>
   </tr>
   <tr>
-    <td rowspan="2">Association</td><td>yw:isGeneratedBy</td><td>n/a</td>
+    <td rowspan="3">Association</td><td>yw:wasReadFrom</td><td>n/a</td>
+  </tr>
+  <tr>
+    <td>yw:wasWrittenTo</td><td>n/a</td>
   </tr>
   <tr>
     <td>yw:hasURIVariable</td><td>n/a</td>
