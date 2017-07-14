@@ -188,18 +188,19 @@ yw:ParamPort    rdf:type           rdfs:Class ;
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;                       # InPort is a sub-class of Port
     rdfs:label                  "sample_spreadsheet_file" ;        # The port name (not the alias)
-    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ;   # The Data that the in-port receives
-    yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;    # (Optional) The URI template of the port
-    yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .    # (Optional) The referred DataNode in the URI template
+    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ,
+                                <simulate_data_collection#cassette_id_data> ;   # The Data that the in-port receives
+    yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;    # (Optional) The URI file path template of the port
+    yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .    # (Optional) The referred Data in the URI file path template
 
 <simulate_data_collection/log_rejected_sample#rejection_log_port>
-    rdf:type                    yw:OutPort ;    	         # OutPort is a sub-class of Port
+    rdf:type                    yw:OutPort ;    	          # OutPort is a sub-class of Port
     rdfs:label                  "rejection_log" ;
     yw:sends                    <simulate_data_collection#rejection_log_data> ;    # The Data that the out-port sends
     yw:filePathTemplate         "file:run/rejected_samples.txt" .             # (Optional)
 
 <simulate_data_collection/log_average_image_intensity#cassette_id_port>
-    rdf:type                    yw:ParamPort ;                   #ParamPort is a sub-class of InPort
+    rdf:type                    yw:ParamPort ;                    # ParamPort is a sub-class of InPort
     rdfs:label                  "cassette_id" ;
     yw:receives                 <simulate_data_collection#cassette_id_data> .
 ```
