@@ -161,7 +161,7 @@ yw:Workflow     rdf:type           rdfs:Class ;
 
 <h3 id="2.3">2.3 Port class</h3>
 
-A Port enables a Block to send or receive data items (as DataNode). There are two main types of ports used as inputs and outputs. For input ports, they include both ports as input data and ports as input parameters. Therefore, Port is the super-class of class InPort and OutPort, and InPort is the super-class of ParamPort.
+A Port enables a Block to send or receive data items (as class Data). There are two main types of ports used as inputs and outputs. For input ports, they include both ports as input data and ports as input parameters. Therefore, Port is the super-class of class InPort and OutPort, and InPort is the super-class of ParamPort.
 
 **has self-attribute**
 * yw:filePathTemplate
