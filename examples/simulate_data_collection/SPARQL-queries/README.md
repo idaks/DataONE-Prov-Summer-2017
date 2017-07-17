@@ -146,7 +146,7 @@ The following table is a list of SPARQL queries based on YesWorkflow Model for t
     <td>cq04: Are there any raw images for which there are no corresponding corrected images?</td><td></td>
   </tr>
   <tr>
-    <td>cq05:What cassette (associated with "raw_image" data) held the sample from which "run/data/DRT240/DRT240_10000eV_010.img" was derived?</td><td></td>
+    <td>cq05: What cassette (associated with "raw_image" data) held the sample from which "run/data/DRT240/DRT240_10000eV_010.img" was derived?</td><td></td>
   </tr>
   <tr>
     <td>cq06: How many resources belong to "raw_image" data?</td><td></td>
@@ -184,9 +184,9 @@ The following table is a list of SPARQL queries based on ProvONE Model for the s
 
 | ProvONE Model Query Description | Corresponding YW Model Queries |
 | ------------------------------- | ------------------------------ |
-| Is there a channel between output port collect_data_set[frame_number] and input port transform_images[frame_number]? | n/a |
-| Is there a channel between program "collect_data_set" and "log_average_image_intensity"? | n/a |
-| What are the channels between program "collect_data_set" and "log_average_image_intensity"? | n/a |
-| How many channels does output port collect_data_set[frame_number] connect to? What are they?| n/a |
-| How many channels are there between program "collect_data_set" and "transform_images"? | n/a |
-| What are the programs that output port collect_data_set[frame_number] connects to through channels? | n/a |
+| pq01: Is there a channel between output port collect_data_set[frame_number] and input port transform_images[frame_number]? | n/a |
+| pq02: Is there a channel between program "collect_data_set" and "log_average_image_intensity"? | n/a |
+| pq03: What are the channels between program "collect_data_set" and "log_average_image_intensity"? | n/a |
+| pq04: How many channels does output port collect_data_set[frame_number] connect to? What are they?| n/a |
+| pq05: How many channels are there between program "collect_data_set" and "transform_images"? | n/a |
+| pq06: What are the programs that output port collect_data_set[frame_number] connects to through channels? | n/a |
