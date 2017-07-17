@@ -188,8 +188,7 @@ yw:ParamPort    rdf:type           rdfs:Class ;
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;                       # InPort is a sub-class of Port
     rdfs:label                  "sample_spreadsheet_file" ;        # The port name (not the alias)
-    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ,
-                                <simulate_data_collection#cassette_id_data> ;   # The Data that the in-port receives
+    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ;   # The Data that the in-port receives
     yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;    # (Optional) The URI file path template of the port
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .    # (Optional) The referred Data in the URI file path template
 
