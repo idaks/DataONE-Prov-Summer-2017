@@ -266,8 +266,7 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/load_screening_results#sample_spreadsheet_port>
     rdf:type                    yw:InPort ;
     rdfs:label                  "sample_spreadsheet_file" ;
-    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ,
-                                <simulate_data_collection#cassette_id_data> ;
+    yw:receives                 <simulate_data_collection#sample_spreadsheet_data> ;
     yw:filePathTemplate         "file:cassette_{cassette_id}_spreadsheet.csv" ;
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> .
 
@@ -427,11 +426,7 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/collect_data_set#raw_image_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "raw_image_file" ;
-    yw:sends                    <simulate_data_collection#raw_image_data> ,
-                                <simulate_data_collection#cassette_id_data> ,
-                                <simulate_data_collection#sample_id_data> ,
-                                <simulate_data_collection#energy_data> ,
-                                <simulate_data_collection#frame_number_data> ;
+    yw:sends                    <simulate_data_collection#raw_image_data> ;
     yw:filePathTemplate         "file:run/raw/{cassette_id}/{sample_id}/e{energy}/image_{frame_number}.raw" ;
     yw:hasVariableSource        <simulate_data_collection#cassette_id_data> ,
                                 <simulate_data_collection#sample_id_data> ,
@@ -496,10 +491,7 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
 <simulate_data_collection/transform_images#corrected_image_port>
     rdf:type                    yw:OutPort ;
     rdfs:label                  "corrected_image_file" ;
-    yw:sends                    <simulate_data_collection#corrected_image_data> ,
-                                <simulate_data_collection#sample_id_data> ,
-                                <simulate_data_collection#energy_data> ,
-                                <simulate_data_collection#frame_number_data> ;
+    yw:sends                    <simulate_data_collection#corrected_image_data> ;
     yw:filePathTemplate         "file:run/data/{sample_id}/{sample_id}_{energy}eV_{frame_number}.img" ;
     yw:hasVariableSource        <simulate_data_collection#sample_id_data> ,
                                 <simulate_data_collection#energy_data> ,
