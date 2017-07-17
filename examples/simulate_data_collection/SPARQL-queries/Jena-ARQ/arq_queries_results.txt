@@ -446,7 +446,7 @@ pq01: Is there a channel between output port collect_data_set[frame_number] and 
 | "frame_number" |
 ------------------
 
-Is there a channel between program collect_data_set and log_average_image_intensity?
+pq02: Is there a channel between program collect_data_set and log_average_image_intensity?
 
 ------------------
 | channel_name   |
@@ -455,7 +455,7 @@ Is there a channel between program collect_data_set and log_average_image_intens
 | "frame_number" |
 ------------------
 
-What are the channels between program collect_data_set and log_average_image_intensity?
+pq03: What are the channels between program collect_data_set and log_average_image_intensity?
 
 ------------------
 | channel_name   |
@@ -464,7 +464,7 @@ What are the channels between program collect_data_set and log_average_image_int
 | "frame_number" |
 ------------------
 
-How many channels does output port collect_data_set[frame_number] connect to? What are they?
+pq:04 How many channels does output port collect_data_set[frame_number] connect to? What are they?
 
 ---------
 | count |
@@ -472,7 +472,7 @@ How many channels does output port collect_data_set[frame_number] connect to? Wh
 | 1     |
 ---------
 
-How many channels are there between program collect_data_set and transform_images?
+pq05: How many channels are there between program collect_data_set and transform_images?
 
 ---------
 | count |
