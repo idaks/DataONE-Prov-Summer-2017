@@ -216,14 +216,14 @@ Query 17 (DownstreamDataName): What data is downstream of accepted_sample?
 ---------------------
 | down_data_name    |
 =====================
+| "sample_id"       |
+| "pixel_count"     |
 | "collection_log"  |
+| "total_intensity" |
 | "corrected_image" |
 | "energy"          |
 | "frame_number"    |
-| "pixel_count"     |
 | "raw_image"       |
-| "sample_id"       |
-| "total_intensity" |
 ---------------------
 
 Query 18 (UpstreamDataName): What data is upstream of raw_image?
@@ -263,15 +263,42 @@ Query 20: What URI variables do data written to raw_image and corrected_image ha
 
 Query 21: What data is downstream 2 levels from data energies?
 
+---------------------
+| down_data_name    |
+=====================
+| "collection_log"  |
+| "corrected_image" |
+| "pixel_count"     |
+| "total_intensity" |
+---------------------
 
 Query 22: What data is upstream 2 levels from data corrected_image?
 
+---------------------
+| up_data_name      |
+=====================
+| "accepted_sample" |
+| "cassette_id"     |
+| "energies"        |
+| "num_images"      |
+---------------------
 
 Query 23: What program blocks are upstream 3 levels from block transform_images?
 
+----------------------------
+| up_block_name            |
+============================
+| "load_screening_results" |
+----------------------------
 
 Query 24: What program blocks are downstream 3 levels from block load_screening_results?
 
+---------------------------------
+| down_block_name               |
+=================================
+| "log_average_image_intensity" |
+| "transform_images"            |
+---------------------------------
 
 Query 25: What program blocks are common upstream blocks of block collect_data_set and log_rejected_sample?
 
@@ -410,3 +437,45 @@ Query 35:What data is in between of data sample_name and total_intensity?
 | "raw_image"       |
 | "sample_id"       |
 ---------------------
+
+pq01: Is there a channel between output port collect_data_set[frame_number] and input port transform_images[frame_number]?
+
+------------------
+| channel_name   |
+==================
+| "frame_number" |
+------------------
+
+Is there a channel between program collect_data_set and log_average_image_intensity?
+
+------------------
+| channel_name   |
+==================
+| "sample_id"    |
+| "frame_number" |
+------------------
+
+What are the channels between program collect_data_set and log_average_image_intensity?
+
+------------------
+| channel_name   |
+==================
+| "sample_id"    |
+| "frame_number" |
+------------------
+
+How many channels does output port collect_data_set[frame_number] connect to? What are they?
+
+---------
+| count |
+=========
+| 1     |
+---------
+
+How many channels are there between program collect_data_set and transform_images?
+
+---------
+| count |
+=========
+| 2     |
+---------
