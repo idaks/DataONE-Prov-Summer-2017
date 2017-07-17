@@ -1,0 +1,23 @@
+#Query 10: How many data are read by more than port in workflow simulate_data_collection?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT ?data_name
+WHERE
+{ ?port_type  (rdf:type|rdfs:subClassOf)*     yw:InPort.
+
+  ?port      rdf:type       ?port_type;
+             rdfs:label     ?port_name;
+             yw:receives    ?data.
+
+  ?data      rdf:type        yw:Data;
+             rdfs:label      ?data_name.
+}
+GROUP BY ?data_name
+HAVING (count(?port) > 1)
+ORDER BY ?data_name

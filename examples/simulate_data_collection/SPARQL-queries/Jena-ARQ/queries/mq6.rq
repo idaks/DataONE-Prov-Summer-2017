@@ -1,0 +1,25 @@
+#Query 6: What data is output by program block simulate_data_collection.collect_data_set?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?data_name ?data_description
+WHERE
+{  
+  ?outport       rdf:type            yw:OutPort;
+                 rdfs:label          ?port_name;
+                 yw:sends            ?data.
+
+  ?block         rdf:type            yw:Block;
+                 rdfs:label          "collect_data_set";
+                 yw:hasOutPort       ?outport .
+
+  ?data          rdf:type            yw:Data;
+                 rdfs:label          ?data_name;
+                 rdfs:comment        ?data_description.
+
+} ORDER BY ?data_name
