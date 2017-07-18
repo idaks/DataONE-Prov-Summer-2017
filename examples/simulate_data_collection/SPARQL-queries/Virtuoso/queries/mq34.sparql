@@ -1,0 +1,47 @@
+#Query 34:  What program blocks are in between of "sample_name" and "total_intensity"?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_block_name
+WHERE 
+ {    #finding block 1 that has "sample_name" outport
+      ?data1        rdf:type             yw:Data ;
+                    rdfs:label          "sample_name".
+      
+      ?port1        rdf:type             yw:Port ;
+                    yw:sends    ?data1.
+
+      ?block1       rdf:type             yw:Block ;
+                    rdfs:label           ?block1_name;
+                    yw:hasOutPort        ?port1 .   
+      
+
+      #finding block 2 that has "total total_intensity" outport
+      ?data2        rdf:type             yw:Data ;
+                    rdfs:label          "total_intensity".
+      
+      ?port2        rdf:type         yw:Port ;
+                    yw:sends        ?data2.
+
+      ?block2       rdf:type             yw:Block ;
+                    rdfs:label           ?block2_name;
+                    yw:hasOutPort        ?port2.  
+
+     #finding all blocks in between block1 and block2
+      ?block1      (yw:hasOutPort/yw:sends/^yw:receives/^yw:hasInPort)+   ?down_block .
+
+      ?down_block      (yw:hasOutPort/yw:sends/^yw:receives/^yw:hasInPort)*   ?block2.
+
+      ?down_block      rdf:type             yw:Block ;
+                       rdfs:label           ?down_block_name .      
+ } ORDER BY ?down_block_name;
+
+
+
+
+    

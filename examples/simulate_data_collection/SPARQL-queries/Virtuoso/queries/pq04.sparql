@@ -1,0 +1,23 @@
+#Prov Query 4: How many channels does output port collect_data_set[frame_number] connect to? What are they?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT (COUNT(DISTINCT ?channel_name) as ?count)
+WHERE 
+ {    ?block_1       rdf:type               yw:Block ;
+                     rdfs:label             "collect_data_set" ;
+                     yw:hasOutPort          ?outport.
+
+      ?outport       rdf:type               yw:OutPort;
+                     rdfs:label             "frame_number";
+                     yw:sends               ?channel.
+    
+      ?channel       rdf:type               yw:Data;
+                     rdfs:label             ?channel_name.
+       
+ };

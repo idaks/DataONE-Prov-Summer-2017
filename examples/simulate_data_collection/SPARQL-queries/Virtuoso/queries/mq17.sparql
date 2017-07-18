@@ -1,0 +1,22 @@
+#Query 17 (DownstreamDataName): What data is downstream of accepted_sample?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3c.org/ns/prov#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_data_name
+WHERE
+{    
+      ?data         rdf:type            yw:Data ;
+                    rdfs:label          "accepted_sample".  
+    
+      ?data        (^yw:receives/^yw:hasInPort/yw:hasOutPort/yw:sends)+   ?down_data .
+      
+      ?down_data    rdf:type           yw:Data;
+                    rdfs:label         ?down_data_name .
+
+};

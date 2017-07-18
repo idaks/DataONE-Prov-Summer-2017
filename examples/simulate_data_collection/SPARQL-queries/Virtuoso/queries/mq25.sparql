@@ -1,0 +1,33 @@
+#Query 25: What program blocks are upstream and common between of collect_data_set and log_rejected_sample?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?up_second_program_name
+WHERE 
+ {    ?first_program       rdf:type             yw:Block ;
+                           rdfs:label           ?first_program_name .                                        
+    
+      ?first_program      (yw:hasInPort/yw:receives/^yw:sends/^yw:hasOutPort)+   ?up_first_program .
+      
+      ?up_first_program    rdf:type             yw:Block ;
+                           rdfs:label           ?up_first_program_name .
+
+      ?second_program       rdf:type             yw:Block ;
+                           rdfs:label            ?second_program_name .                                        
+    
+      ?second_program      (yw:hasInPort/yw:receives/^yw:sends/^yw:hasOutPort)+   ?up_second_program .
+      
+      ?up_second_program    rdf:type             yw:Block ;
+                           rdfs:label           ?up_second_program_name .
+      
+      FILTER (?first_program_name = "collect_data_set").
+      FILTER (?second_program_name = "log_rejected_sample").
+      FILTER (?up_second_program_name = ?up_first_program_name )
+      FILTER (?up_second_program_name != "collect_data_set" )
+       
+ } ORDER BY ?up_second_program_name;

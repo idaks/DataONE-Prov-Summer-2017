@@ -1,0 +1,34 @@
+#Prov Query 3: what are the channels between program "collect_data_set" and "log_average_image_intensity"?
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?channel_name
+WHERE 
+ {    ?block_1       rdf:type               yw:Block ;
+                     rdfs:label             "collect_data_set" ;
+                     yw:hasOutPort          ?outport.
+
+      ?outport       rdf:type               yw:OutPort;
+                     rdfs:label             ?out_port_name;
+                     yw:sends               ?channel.
+
+
+      ?inport        (rdf:type|rdfs:subClassOf)*      yw:InPort;
+                     rdfs:label             ?in_port_name;
+                     yw:receives             ?channel.   
+                                             
+    
+      ?block_2       rdf:type               yw:Block ;
+                     rdfs:label             "log_average_image_intensity";
+                     yw:hasInPort           ?inport.
+    
+      ?channel       rdf:type               yw:Data;
+                     rdfs:label             ?channel_name.
+     FILTER (?out_port_name = ?in_port_name )
+       
+ };

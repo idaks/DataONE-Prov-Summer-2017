@@ -1,0 +1,26 @@
+#Query 8: What programs have input ports that receive data simulate_data_collection[cassette_id]
+
+SPARQL BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?block_name
+WHERE
+{  
+
+  ?block     rdf:type        yw:Block;
+             rdfs:label      ?block_name;
+             yw:hasInPort    ?inport.
+
+  ?port_type             (rdf:type|rdfs:subClassOf)*      yw:InPort.
+
+  ?inport    rdf:type         ?port_type;
+             yw:receives         ?data.
+
+  ?data      rdf:type         yw:Data;
+             rdfs:label      "cassette_id".
+   
+} ORDER BY ?block_name;
