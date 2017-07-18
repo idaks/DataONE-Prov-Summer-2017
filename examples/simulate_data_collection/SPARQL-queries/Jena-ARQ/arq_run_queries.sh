@@ -3,79 +3,79 @@ echo ""
 echo "Extract Query 1: What source files were YW annotations extracted from?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq1.rq    
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq01.rq    
 
 echo ""
 echo "Extract Query 2: What are the names of all program blocks?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq2.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq02.rq
 
 echo ""
 echo "Extract Query 3: What out ports are qualified with URIs?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq3.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq03.rq
 
 echo ""
 echo "Extract Query 4: What ports are qualified with URIs?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq4.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/eq04.rq
 
 echo ""
 echo "Query 1: Where is the definition of block simulate_data_collection.collect_data_set?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq1.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq01.rq
 
 echo ""
 echo "Query 2: What is the name and description of the top-level workflow?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq2.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq02.rq
 
 echo ""
 echo "Query 3: What are the names of any top-level functions?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq3.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq03.rq
 
 echo ""
 echo "Query 4: What are the names of the programs comprising the top-level workflow?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq4.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq04.rq
 
 echo ""
 echo "Query 5: What are the names and descriptions of the inputs to the top-level workflow?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq5.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq05.rq
 
 echo ""
 echo "Query 6: What data is output by program block simulate_data_collection.collect_data_set?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq6.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq06.rq
 
 echo ""
 echo "Query 7: What program blocks provide input directly to simulate_data_collection.collect_data_set?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq7.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq07.rq
 
 echo ""
 echo "Query 8: What programs have input ports that receive data simulate_data_collection[cassette_id]"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq8.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq08.rq
 
 echo ""
 echo "Query 9: How many ports read data simulate_data_collection[frame_number]?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq9.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/mq09.rq
 
 echo ""
 echo "Query 10: How many data are read by more than port in workflow simulate_data_collection?"
@@ -235,28 +235,28 @@ echo ""
 echo "pq01: Is there a channel between output port collect_data_set[frame_number] and input port transform_images[frame_number]?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq1.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq01.rq
 
 echo ""
 echo "Is there a channel between program collect_data_set and log_average_image_intensity?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq2.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq02.rq
 
 echo ""
 echo "What are the channels between program collect_data_set and log_average_image_intensity?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq3.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq03.rq
 
 echo ""
 echo "How many channels does output port collect_data_set[frame_number] connect to? What are they?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq4.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq04.rq
 
 echo ""
 echo "How many channels are there between program collect_data_set and transform_images?"
 echo ""
 arq --data simulate_data_collection_wf_model_v8.ttl                                                     \
-    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq5.rq
+    --query ~/DataONE-Prov-Summer-2017/examples/simulate_data_collection/SPARQL-queries/Jena-ARQ/queries/pq05.rq
