@@ -9,7 +9,7 @@ _______________________________________________________________________________
 
 simulate_data_collection.py
 
-1 Rows. -- 2 msec.
+1 Rows. -- 7 msec.
 
 Extract Query 2: What are the names of all program blocks?
 
@@ -29,7 +29,7 @@ log_rejected_sample
 transform_image
 transform_images
 
-9 Rows. -- 2 msec.
+9 Rows. -- 5 msec.
 
 Extract Query 3: What out ports are qualified with URIs?
 
@@ -45,7 +45,7 @@ raw_image_file
 rejection_log
 run_log
 
-5 Rows. -- 2 msec.
+5 Rows. -- 6 msec.
 
 Extract Query 4: What ports are qualified with URIs?
 
@@ -63,7 +63,7 @@ rejection_log
 run_log
 sample_spreadsheet_file
 
-7 Rows. -- 5 msec.
+7 Rows. -- 4 msec.
 
 Query 1: Where is the definition of block simulate_data_collection.collect_data_set?
 
@@ -75,7 +75,7 @@ _______________________________________________________________________________
 
 Collect data set using the given data collection parameters.
 
-1 Rows. -- 1 msec.
+1 Rows. -- 5 msec.
 
 Query 2: What is the name and description of the top-level workflow?
 
@@ -87,7 +87,7 @@ _______________________________________________________________________________
 
 simulate_data_collection                                                          Workflow for collecting diffraction data from high quality crystals in a cassette.
 
-1 Rows. -- 1 msec.
+1 Rows. -- 4 msec.
 
 Query 3: What are the names of any top-level functions?
 
@@ -100,7 +100,7 @@ _______________________________________________________________________________
 collect_next_image
 transform_image
 
-2 Rows. -- 1 msec.
+2 Rows. -- 2 msec.
 
 Query 4: What are the names of the programs comprising the top-level workflow?
 
@@ -119,7 +119,7 @@ log_average_image_intensity                                                     
 log_rejected_sample                                                               Record which samples were rejected.
 transform_images                                                                  Correct raw image using the detector calibration image.
 
-7 Rows. -- 3 msec.
+7 Rows. -- 6 msec.
 
 Query 5: What are the names and descriptions of the inputs to the top-level workflow?
 
@@ -135,7 +135,7 @@ data_redundancy                                                                 
 sample_score_cutoff                                                               The minimum quality score required of crystals.
 sample_spreadsheet                                                                CSV file giving quality score for each crystal.
 
-5 Rows. -- 43 msec.
+5 Rows. -- 26 msec.
 
 Query 6: What data is output by program block simulate_data_collection.collect_data_set?
 
@@ -150,7 +150,7 @@ frame_number                                                                    
 raw_image                                                                         Path of file storing the raw diffraction image.
 sample_id                                                                         The crystal that the diffraction image was collected from.
 
-4 Rows. -- 15 msec.
+4 Rows. -- 18 msec.
 
 Query 7: What program blocks provide input directly to simulate_data_collection.collect_data_set?
 
@@ -207,7 +207,7 @@ sample_id
 sample_score_cutoff
 sample_spreadsheet
 
-7 Rows. -- 7 msec.
+7 Rows. -- 6 msec.
 
 Query 11: What program blocks are immediately downstream of calculate_strategy?
 
@@ -220,7 +220,7 @@ _______________________________________________________________________________
 collect_data_set
 log_rejected_sample
 
-2 Rows. -- 3 msec.
+2 Rows. -- 4 msec.
 
 Query 12: What program blocks are immediately upstream of transform_images?
 
@@ -232,7 +232,7 @@ _______________________________________________________________________________
 
 collect_data_set
 
-1 Rows. -- 4 msec.
+1 Rows. -- 3 msec.
 
 Query 13: (UpstreamProgramName) - What program blocks are upstream of transform_images?
 
@@ -246,7 +246,7 @@ calculate_strategy
 collect_data_set
 load_screening_results
 
-3 Rows. -- 5 msec.
+3 Rows. -- 7 msec.
 
 Query 14: What program blocks are anywhere downstream of calculate_strategy?
 
@@ -290,7 +290,7 @@ cassette_id
 energies
 num_images
 
-4 Rows. -- 4 msec.
+4 Rows. -- 3 msec.
 
 Query 17 (DownstreamDataName): What data is downstream of accepted_sample?
 
@@ -343,7 +343,7 @@ energy
 frame_number
 sample_id
 
-3 Rows. -- 7 msec.
+3 Rows. -- 12 msec.
 
 Query 20: What URI variables do data written to raw_image and corrected_image have in common?
 
@@ -357,7 +357,7 @@ energy
 frame_number
 sample_id
 
-3 Rows. -- 47 msec.
+3 Rows. -- 46 msec.
 
 Query 21: What data is downstream 2 levels from data energies?
 
@@ -372,7 +372,7 @@ corrected_image
 pixel_count
 total_intensity
 
-4 Rows. -- 5 msec.
+4 Rows. -- 9 msec.
 
 Query 22: What data is upstream 2 levels from data corrected_image?
 
@@ -387,7 +387,7 @@ cassette_id
 energies
 num_images
 
-4 Rows. -- 5 msec.
+4 Rows. -- 11 msec.
 
 Query 23: What program blocks are upstream 3 levels from block transform_images?
 
@@ -399,7 +399,7 @@ _______________________________________________________________________________
 
 load_screening_results
 
-1 Rows. -- 5 msec.
+1 Rows. -- 28 msec.
 
 Query 24: What program blocks are downstream 3 levels from block load_screening_results?
 
@@ -412,7 +412,7 @@ _______________________________________________________________________________
 log_average_image_intensity
 transform_images
 
-2 Rows. -- 5 msec.
+2 Rows. -- 21 msec.
 
 Query 25: What program blocks are common upstream blocks of block collect_data_set and log_rejected_sample?
 
@@ -425,7 +425,7 @@ _______________________________________________________________________________
 calculate_strategy
 load_screening_results
 
-2 Rows. -- 28 msec.
+2 Rows. -- 46 msec.
 
 Query 26: What program block is the closet upstream block (LCA) of block collect_data_set and log_rejected_sample in common?
 
@@ -437,7 +437,7 @@ _______________________________________________________________________________
 
 calculate_strategy
 
-1 Rows. -- 31 msec.
+1 Rows. -- 29 msec.
 
 Query 27: Print all program blocks and their descendant programs with downstream levels in the workflow.
 
@@ -460,7 +460,7 @@ load_screening_results                                                          
 load_screening_results                                                            transform_images
 transform_images                                                                  log_average_image_intensity
 
-12 Rows. -- 6 msec.
+12 Rows. -- 7 msec.
 
 Query 28: Print the names of all ports used as parameters.
 
@@ -485,7 +485,7 @@ sample_quality
 sample_score_cutoff
 total_intensity
 
-14 Rows. -- 1 msec.
+14 Rows. -- 2 msec.
 
 Query 29: Print the names of all input ports (including both input data and input parameters).
 
@@ -516,7 +516,7 @@ sample_spreadsheet
 sample_spreadsheet_file
 total_intensity
 
-20 Rows. -- 3 msec.
+20 Rows. -- 2 msec.
 
 Query 30: Print all data only connected by param ports.
 
@@ -530,7 +530,7 @@ cassette_id
 data_redundancy
 sample_score_cutoff
 
-3 Rows. -- 3 msec.
+3 Rows. -- 2 msec.
 
 Query 31: Print all data only connected by output ports and param ports.
 
@@ -586,7 +586,7 @@ _______________________________________________________________________________
 calculate_strategy
 collect_data_set
 
-2 Rows. -- 23 msec.
+2 Rows. -- 19 msec.
 
 Query 34: What program blocks are in between of data sample_name and total_intensity?
 
@@ -597,7 +597,7 @@ LONG VARCHAR
 _______________________________________________________________________________
 
 
-0 Rows. -- 625 msec.
+0 Rows. -- 534 msec.
 
 Query 35:What data is in between of data sample_name and total_intensity?
 
@@ -615,4 +615,66 @@ num_images
 raw_image
 sample_id
 
-7 Rows. -- 26 msec.
+7 Rows. -- 21 msec.
+
+pq01: Is there a channel between output port collect_data_set[frame_number] and input port transform_images[frame_number]?
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+channel_name
+LONG VARCHAR
+_______________________________________________________________________________
+
+frame_number
+
+1 Rows. -- 33 msec.
+
+Is there a channel between program collect_data_set and log_average_image_intensity?
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+channel_name
+LONG VARCHAR
+_______________________________________________________________________________
+
+frame_number
+sample_id
+
+2 Rows. -- 26 msec.
+
+What are the channels between program collect_data_set and log_average_image_intensity?
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+channel_name
+LONG VARCHAR
+_______________________________________________________________________________
+
+frame_number
+sample_id
+
+2 Rows. -- 25 msec.
+
+How many channels does output port collect_data_set[frame_number] connect to? What are they?
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+count
+INTEGER NOT NULL
+_______________________________________________________________________________
+
+1
+
+1 Rows. -- 6 msec.
+
+How many channels are there between program collect_data_set and transform_images?
+
+Connected to OpenLink Virtuoso
+Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+count
+INTEGER NOT NULL
+_______________________________________________________________________________
+
+2
+
+1 Rows. -- 30 msec.
