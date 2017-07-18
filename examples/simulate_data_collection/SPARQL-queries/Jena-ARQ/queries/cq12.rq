@@ -1,0 +1,32 @@
+#  cq12: What are the downstream resources of resource file "calibration.img"?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_resource_path
+WHERE
+{     
+    ?resource           rdf:type                yw:Resource ;
+                        yw:actualFilePath       "calibration.img" .
+                                      
+    ?data               rdf:type                                yw:Data ;
+                        (yw:wasReadFrom|yw:wasWrittenTo)        ?resource ;
+                        (^yw:receives/^yw:hasInPort)            ?down_block .
+    
+    ?down_block         rdf:type                        yw:Block ;
+                        (yw:hasOutPort/yw:sends)        ?down_data .
+    
+    ?down_data          rdf:type                yw:Data ;
+                        (^yw:receives/^yw:hasInPort/yw:hasOutPort/yw:sends)*     ?downstream_data .
+    
+    ?downstream_data    rdf:type                                yw:Data ;
+                        (yw:wasReadFrom|yw:wasWrittenTo)        ?down_resource .
+    
+    ?down_resource      rdf:type                yw:Resource ;
+                        yw:actualFilePath       ?down_resource_path .
+}
+ORDER BY ?down_resource_path

@@ -1,0 +1,59 @@
+#  cq10: What are the program blocks between "run/rejected_samples.txt" and "cassette_q55_spreadsheet.csv"? List the program blocks in downstream order between the two files.
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?down_block_name
+WHERE
+{     
+    ?resource1          rdf:type                    yw:Resource ;
+                        yw:actualFilePath           "run/rejected_samples.txt" .  
+
+    ?resource2          rdf:type                    yw:Resource ;
+                        yw:actualFilePath           "cassette_q55_spreadsheet.csv" .
+    
+    ?data1              rdf:type                             yw:Data ;
+                        (yw:wasReadFrom|yw:wasWrittenTo)     ?resource1 .
+    
+    ?data2              rdf:type                             yw:Data ;
+                        (yw:wasReadFrom|yw:wasWrittenTo)     ?resource2 .
+    
+    {   
+        ?inport             yw:receives                 ?data1 .              
+
+        ?outport            yw:sends                    ?data2 .
+
+        ?block1             rdf:type                    yw:Block ;
+                            yw:hasInPort                ?inport .
+
+        ?block2             rdf:type                    yw:Block ; 
+                            yw:hasOutPort               ?outport .
+
+        ?block1             ((yw:hasOutPort/yw:sends/^yw:receives/^yw:hasInPort)*)      ?down_block .
+
+        ?down_block         ((yw:hasOutPort/yw:sends/^yw:receives/^yw:hasInPort)*)      ?block2.     
+    }
+    UNION
+    {
+        ?inport             yw:receives                 ?data2 .              
+
+        ?outport            yw:sends                    ?data1 .
+
+        ?block1             rdf:type                    yw:Block ;
+                            yw:hasInPort                ?inport .
+
+        ?block2             rdf:type                    yw:Block ; 
+                            yw:hasOutPort               ?outport .
+
+        ?block1             ((yw:hasOutPort/yw:sends/^yw:receives/^yw:hasInPort)*)      ?down_block .
+
+        ?down_block         ((yw:hasOutPort/yw:sends/^yw:receives/^yw:hasInPort)*)      ?block2.
+    }
+    
+    ?down_block         rdf:type                    yw:Block ;
+                        rdfs:label                  ?down_block_name .
+}

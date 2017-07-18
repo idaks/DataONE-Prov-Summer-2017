@@ -1,0 +1,26 @@
+#  cq13: What ports with filePathTemplate are upstreams of "run/data/DRT240/DRT240_11000eV_003.img"? Print both the ports names and data names.
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?up_port_name ?up_data_name
+WHERE
+{     
+    ?resource           rdf:type                yw:Resource ;
+                        yw:actualFilePath       "run/data/DRT240/DRT240_11000eV_003.img" .
+                                      
+    ?data               rdf:type                                yw:Data ;
+                        (yw:wasReadFrom|yw:wasWrittenTo)        ?resource ;                        
+                        (^yw:sends/^yw:hasOutPort/yw:hasInPort/yw:receives)+    ?up_data .
+    
+    ?up_data            rdf:type                yw:Data ;
+                        rdfs:label              ?up_data_name .
+    
+    ?up_port            (yw:sends|yw:receives)      ?up_data ;
+                        yw:filePathTemplate         ?file_path ;
+                        rdfs:label                  ?up_port_name .
+}

@@ -1,0 +1,65 @@
+#  cq04: Are there any raw images for which there are no corresponding corrected images?
+
+BASE         <http://yesworkflow.org/0000000000/>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX p1:   <http://purl.dataone.org/provone/2015/01/15/ontology#>
+PREFIX yw:   <http://yesworkflow.org/ns/yesworkflow>
+
+SELECT DISTINCT ?raw_image_file
+WHERE
+{     
+     ?raw_data               rdf:type            yw:Data ;
+                             rdfs:label          "raw_image" ;
+                             (yw:wasReadFrom|yw:wasWrittenTo)     ?raw_resource.
+
+     ?raw_resource           rdf:type            yw:Resource ;
+                             yw:actualFilePath   ?raw_image_file .
+    
+    FILTER NOT EXISTS 
+    {
+     ?raw_data               rdf:type            yw:Data ;
+                             rdfs:label          "raw_image" ;
+                             (yw:wasReadFrom|yw:wasWrittenTo)     ?raw_resource.
+        
+     ?raw_resource           rdf:type            yw:Resource ;
+                             yw:hasURIVariable   ?raw_variable_1, ?raw_variable_2, ?raw_variable_3 .
+    
+     ?raw_variable_1         rdf:type            yw:URIVariable ;
+                             yw:variableName     ?variable_name_1 ;
+                             yw:variableValue    ?variable_value_1 .
+
+     ?raw_variable_2         rdf:type            yw:URIVariable ;
+                             yw:variableName     ?variable_name_2 ;
+                             yw:variableValue    ?variable_value_2 .
+
+     ?raw_variable_3         rdf:type            yw:URIVariable ;
+                             yw:variableName     ?variable_name_3 ;
+                             yw:variableValue    ?variable_value_3 .
+
+     ?corrected_data         rdf:type            yw:Data ;
+                             rdfs:label          "corrected_image" ;
+                             (yw:wasReadFrom|yw:wasWrittenTo)     ?corrected_resource.
+    
+     ?corrected_resource     rdf:type            yw:Resource ;
+                             yw:hasURIVariable   ?corrected_variable_1, ?corrected_variable_2, ?corrected_variable_3 .
+
+     ?corrected_variable_1   rdf:type            yw:URIVariable ;
+                             yw:variableName     ?variable_name_1 ;
+                             yw:variableValue    ?variable_value_1 .
+    
+     ?corrected_variable_2   rdf:type            yw:URIVariable ;
+                             yw:variableName     ?variable_name_2 ;
+                             yw:variableValue    ?variable_value_2 .
+    
+     ?corrected_variable_3   rdf:type            yw:URIVariable ;
+                             yw:variableName     ?variable_name_3 ;
+                             yw:variableValue    ?variable_value_3 .
+    
+    FILTER (?variable_name_1 != ?variable_name_2) 
+    FILTER (?variable_name_1 != ?variable_name_3) 
+    FILTER (?variable_name_2 != ?variable_name_3) 
+    }
+}
+
