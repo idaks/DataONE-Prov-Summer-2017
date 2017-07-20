@@ -373,7 +373,7 @@ It is shown in class Port.
 
 <h3 id="2.14">2.14 Resource class</h3>
 
-A Resource is an actual file (with its path) generated after running the source scipt. The Resource is named according to the filePathTemplate of its connected port. Resource files are associated with retrospective provenance.
+A Resource is an actual file (with its path) generated after running the source script. The Resource is named according to the filePathTemplate of its connected port. Resource files are associated with retrospective provenance.
 
 **has self-attribute**
 * yw:actualFilePath
