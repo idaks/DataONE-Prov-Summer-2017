@@ -39,11 +39,11 @@ yw:URIVariable  rdf:type             rdfs:Class .
 
 ##### Property Equality #####
 
-yw:hasSubBlock      owl:sameAs                p1:hasSubProgram .
+yw:hasSubBlock      owl:sameAs       p1:hasSubProgram .
 
-yw:hasInPort        owl:sameAs                p1:hasInPort .
+yw:hasInPort        owl:sameAs       p1:hasInPort .
 
-yw:hasOutPort       owl:sameAs                p1:hasOutPort .
+yw:hasOutPort       owl:sameAs       p1:hasOutPort .
 
 
 #####  Data  #####
@@ -252,7 +252,7 @@ yw:hasOutPort       owl:sameAs                p1:hasOutPort .
     rdfs:label          "load_screening_results" ;
     rdfs:comment        "Load sample information from spreadsheet." ;
     yw:hasInPort        <simulate_data_collection/load_screening_results#cassette_id_port> ,
-                        <simulate_data_collection/load_screening_results#sample_spreadsheet_port>  ;
+                        <simulate_data_collection/load_screening_results#sample_spreadsheet_port> ;
     yw:hasOutPort       <simulate_data_collection/load_screening_results#sample_name_port> ,
                         <simulate_data_collection/load_screening_results#sample_quality_port> .
 
